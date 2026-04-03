@@ -14,6 +14,10 @@ A private app with no content restrictions for chatting with AI characters.
 
 Generated images are visible **only inside the app** and do not appear in your phone’s gallery.
 
+## Documentation
+
+- [User Guide](/user-guide.md)
+
 ## Pricing
 
 No subscriptions. You only pay for API usage:
