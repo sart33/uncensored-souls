@@ -121,6 +121,42 @@ To create a new character:
 
 ---
 
+### 4.6 Avatar Generation
+
+If you create a new character or open the edit screen of an existing one, you can generate an avatar for it. To do this, click the **"Generate"** button.
+
+After that, a modal window will appear:
+- in the desktop version — a centered modal window
+- in the mobile version — a bottom sheet modal
+
+Inside, you can choose an avatar style:
+
+- **Evening Elegance**
+- **Summer Walk**
+- **Office Style**
+- **Lingerie Mood**
+- **Beach Bikini**
+- **Silk Morning**
+- **Art Nude**
+
+Select one of the available styles.
+
+If you choose any style except **Art Nude**, you will need to wait a bit: first, the prompt is generated, then the image itself is created.
+
+### After Generation
+
+**Mobile version:**
+- Tap **"Crop and save"** (grid icon) to adjust scale and framing
+- Avatar regeneration is also available — you can regenerate the image in the same style or choose a different one
+
+**Desktop version:**
+- You can regenerate the avatar in the selected style (e.g., *Evening Elegance*) — each generation will slightly change the outfit and environment
+- You can also click **"Generate"** again and select a different style (e.g., *Beach Bikini*), then save or regenerate again
+
+You can also select any image from your device gallery.
+
+---
+
 ## 5. Multi-Chat
 
 In the **Multi-chat** section, you will see two default characters — Natasha and Anya.  
