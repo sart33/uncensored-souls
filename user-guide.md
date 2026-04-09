@@ -17,7 +17,7 @@ You need to enter two keys:
 ### • DeepSeek API (required for chat)
 https://platform.deepseek.com/api_keys  
 
-Minimum balance: about $2.  
+Minimum deposit: $2.  
 If you set a response limit, this can last for a fairly long time.
 
 ### • Novita AI (for image generation)
