@@ -16,8 +16,8 @@
     --border: #e2dfd8;
     --border-strong: #c8c4bb;
     --text: #1a1917;
-    --text-muted: #6b6860;
-    --text-faint: #9c9890;
+    --text-muted: #55524c;
+    --text-faint: #6f6145;
     --accent: #2a6b4a;
     --accent-light: #e8f4ee;
     --accent-border: #b8dfc8;
@@ -29,92 +29,36 @@
     --radius-xs: 6px;
   }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    padding: 2rem 1rem 4rem;
-  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; padding: 2rem 1rem 4rem; font-size: 16px; }
+  @media (min-width: 641px) { body { font-size: 17px; } }
 
-  .page { max-width: 680px; margin: 0 auto; }
+  .page { max-width: 960px; margin: 0 auto; }
 
-  .header {
-    text-align: center;
-    padding: 2.5rem 0 2rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 2rem;
-  }
-  .header h1 { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-  .header .sub { color: var(--text-muted); font-size: 0.9rem; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; margin-bottom: 2rem; transition: color 0.15s; }
+  .back-link:hover { color: var(--text); }
 
-  .age-banner {
-    background: var(--warn-bg);
-    border: 1px solid var(--warn-border);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
+  .header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  .header h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+  .header .sub { color: var(--text-muted); font-size: 0.95rem; }
+
+  .section-title { font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
+
+  .age-banner { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 12px; }
   .age-banner .age-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
-  .age-banner .age-text { }
-  .age-banner .age-title { font-weight: 600; font-size: 1rem; color: var(--warn); margin-bottom: 4px; }
-  .age-banner .age-desc { font-size: 0.85rem; color: #78350f; line-height: 1.55; }
+  .age-banner .age-title { font-weight: 600; font-size: 1.05rem; color: var(--warn); margin-bottom: 4px; }
+  .age-banner .age-desc { font-size: 0.95rem; color: #78350f; line-height: 1.6; }
 
-  .section-title {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    margin-bottom: 0.75rem;
-  }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
 
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .card h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .info-list li { font-size: 0.95rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
 
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .info-list li {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    padding-left: 1.1rem;
-    position: relative;
-    line-height: 1.55;
-  }
-  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1rem; line-height: 1.4; }
-
-  .confirm-card {
-    background: var(--accent-light);
-    border: 1px solid var(--accent-border);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 2rem;
-  }
-  .confirm-card h3 { font-size: 0.92rem; font-weight: 600; color: var(--accent); margin-bottom: 0.6rem; }
+  .confirm-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
   .confirm-card .info-list li { color: #1e4d38; }
   .confirm-card .info-list li::before { color: var(--accent); }
 
   .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.85rem;
-    margin-bottom: 2rem;
-    transition: color 0.15s;
-  }
-  .back-link:hover { color: var(--text); }
 </style>
 </head>
 <body>
@@ -127,10 +71,9 @@
     <div class="sub">Uncensored Souls</div>
   </div>
 
-  <!-- 18+ banner -->
   <div class="age-banner">
     <div class="age-icon">⚠️</div>
-    <div class="age-text">
+    <div>
       <div class="age-title">18+ ONLY</div>
       <div class="age-desc">
         Uncensored Souls is intended strictly for adults aged 18 and over.
@@ -142,7 +85,6 @@
     </div>
   </div>
 
-  <!-- Content -->
   <div class="section-title">Content & Characters</div>
   <div class="card" style="margin-bottom:2rem;">
     <ul class="info-list">
@@ -155,7 +97,6 @@
     </ul>
   </div>
 
-  <!-- Responsibility -->
   <div class="section-title">Responsibility</div>
   <div class="card" style="margin-bottom:2rem;">
     <ul class="info-list">
@@ -165,7 +106,6 @@
     </ul>
   </div>
 
-  <!-- Confirmation -->
   <div class="section-title">By using this application you confirm that</div>
   <div class="confirm-card">
     <ul class="info-list">
