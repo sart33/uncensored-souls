@@ -433,9 +433,9 @@
   <!-- Footer links -->
   <div class="footer-links">
     <a class="footer-pill primary" href="support.html">☕ Support the project</a>
-    <a class="footer-pill" href="user-guide.md">📖 User Guide</a>
-    <a class="footer-pill" href="legal/privacy.md">Privacy Policy</a>
-    <a class="footer-pill" href="legal/disclaimer.md">Terms & Disclaimer</a>
+    <a class="footer-pill" href="user-guide">📖 User Guide</a>
+    <a class="footer-pill" href="legal/privacy">Privacy Policy</a>
+    <a class="footer-pill" href="legal/disclaimer">Terms & Disclaimer</a>
   </div>
 
 </div>
