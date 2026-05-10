@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support – Uncensored Souls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f8f7f4; --surface: #ffffff; --surface-alt: #f2f0eb;
+    --border: #e2dfd8; --border-strong: #c8c4bb;
+    --text: #1a1917; --text-muted: #6b6860; --text-faint: #9c9890;
+    --accent: #2a6b4a; --accent-light: #e8f4ee; --accent-border: #b8dfc8;
+    --radius: 12px; --radius-sm: 8px; --radius-xs: 6px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem 4rem; }
+  .page { max-width: 680px; margin: 0 auto; }
+
+  .header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  .header h1 { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .header p { color: var(--text-muted); font-size: 0.95rem; max-width: 440px; margin: 0 auto; }
+
+  .section-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
+
+  .amounts-info { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
+  .amounts-info .info-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.6rem; }
+  .amounts-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .amounts-list li { font-size: 0.9rem; color: var(--text-muted); }
+  .amounts-list li strong { color: var(--text); font-weight: 600; }
+  .amounts-note { flex: 1; min-width: 180px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; padding-top: 1.8rem; }
+
+  .crypto-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; }
+  .crypto-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+  .crypto-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 4px 10px; font-size: 0.8rem; font-weight: 600; }
+  .crypto-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot-usdt { background: #26a17b; }
+  .dot-ton { background: #0098ea; }
+  .crypto-hint { font-size: 0.82rem; color: var(--text-muted); margin-left: auto; }
+
+  .qr-address-block { display: flex; gap: 1.25rem; align-items: flex-start; }
+
+  .qr-wrap { flex-shrink: 0; width: 110px; height: 110px; border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; background: var(--surface-alt); cursor: pointer; position: relative; transition: border-color 0.15s; }
+  .qr-wrap:hover { border-color: var(--border-strong); }
+  .qr-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .qr-zoom-hint { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.45); color: #fff; font-size: 0.65rem; text-align: center; padding: 3px 0; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+  .qr-wrap:hover .qr-zoom-hint { opacity: 1; }
+  .qr-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-faint); font-size: 0.68rem; text-align: center; padding: 8px; line-height: 1.4; }
+
+  .address-block { flex: 1; min-width: 0; }
+  .address-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
+  .address-row { display: flex; align-items: center; gap: 6px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 8px 10px; }
+  .address-text { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .copy-btn { flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 4px 6px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; transition: color 0.15s, background 0.15s; }
+  .copy-btn:hover { color: var(--accent); background: var(--accent-light); }
+  .copy-btn svg { width: 15px; height: 15px; }
+  .copy-toast { font-size: 0.72rem; color: var(--accent); font-weight: 500; margin-top: 6px; height: 16px; opacity: 0; transition: opacity 0.2s; }
+  .copy-toast.show { opacity: 1; }
+
+  .lightning-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+  .lightning-icon { width: 36px; height: 36px; border-radius: 8px; background: #fff8e6; border: 1px solid #f5dfa0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+  .lightning-text .method-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
+  .lightning-text .method-desc { font-size: 0.82rem; color: var(--text-muted); }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+  .other-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 2.5rem; }
+  .method-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; }
+  .method-card .method-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .field-row { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .field-item { display: flex; flex-direction: column; gap: 2px; }
+  .field-item .field-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); }
+
+  .nowpay-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 10px; }
+  .nowpay-card .method-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+  .nowpay-card .method-desc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; }
+  .nowpay-btn-wrap a img { height: 40px; display: block; border-radius: var(--radius-xs); }
+
+  .contacts-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .contact-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 6px 14px; font-size: 0.85rem; text-decoration: none; color: var(--text); transition: border-color 0.15s; }
+  .contact-pill:hover { border-color: var(--border-strong); }
+  .contact-pill svg { width: 15px; height: 15px; color: var(--text-muted); }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox-inner { background: #fff; border-radius: var(--radius); padding: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 10px; position: relative; }
+  .lightbox-inner img { width: 300px; height: 300px; object-fit: contain; display: block; }
+  .lightbox-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: #555; word-break: break-all; text-align: center; max-width: 300px; }
+  .lightbox-close { position: absolute; top: 8px; right: 10px; background: none; border: none; cursor: pointer; font-size: 1.2rem; color: #888; padding: 4px 6px; border-radius: 4px; }
+  .lightbox-close:hover { background: #f0f0f0; }
+
+  @media (max-width: 480px) {
+    .other-methods { grid-template-columns: 1fr; }
+    .qr-address-block { flex-direction: column; align-items: center; }
+    .qr-wrap { width: 140px; height: 140px; }
+    .amounts-info { flex-direction: column; gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>☕ Support the Project</h1>
+    <p>Uncensored Souls is developed independently with no subscriptions or locked features. Your support helps it grow.</p>
+  </div>
+
+  <div class="section-title">Suggested support amounts</div>
+  <div class="amounts-info">
+    <div>
+      <div class="info-label">Amount</div>
+      <ul class="amounts-list">
+        <li><strong>$2</strong> — support development</li>
+        <li><strong>$5</strong> — extra support</li>
+        <li><strong>$10</strong> — major support</li>
+      </ul>
+    </div>
+    <div class="amounts-note">Any amount is welcome. Choose any payment method below — cryptocurrency, card, or bank transfer.</div>
+  </div>
+
+  <div class="section-title">Cryptocurrency</div>
+
+  <div class="crypto-card">
+    <div class="crypto-header">
+      <div class="crypto-badge"><span class="dot dot-usdt"></span>USDT (TRC20)</div>
+      <span class="crypto-hint">Low network fee · usually &lt;$1 · no minimum</span>
+    </div>
+    <div class="qr-address-block">
+      <div class="qr-wrap" onclick="openLightbox('assets/usdt_qr.webp','TCAPRirtjDJ7qa1WYHhVwKwmmoC17Fepfe')" title="Tap to enlarge">
+        <img src="assets/usdt_qr.webp" alt="USDT TRC20 QR code" onerror="handleQrError(this)">
+        <div class="qr-zoom-hint">tap to enlarge</div>
+      </div>
+      <div class="address-block">
+        <div class="address-label">Wallet address</div>
+        <div class="address-row">
+          <span class="address-text" id="usdt-addr">TCAPRirtjDJ7qa1WYHhVwKwmmoC17Fepfe</span>
+          <button class="copy-btn" onclick="copyAddr('usdt-addr','usdt-toast')" title="Copy address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="copy-toast" id="usdt-toast">Copied!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="crypto-card">
+    <div class="crypto-header">
+      <div class="crypto-badge"><span class="dot dot-ton"></span>TON</div>
+      <span class="crypto-hint">Tonkeeper · any TON wallet</span>
+    </div>
+    <div class="qr-address-block">
+      <div class="qr-wrap" onclick="openLightbox('assets/ton_qr.webp','UQAFGVcmkQv1_iteb8HF17H2lwrHw8Ywbp-5epEMZ-qaUFWP')" title="Tap to enlarge">
+        <img src="assets/ton_qr.webp" alt="TON wallet QR code" onerror="handleQrError(this)">
+        <div class="qr-zoom-hint">tap to enlarge</div>
+      </div>
+      <div class="address-block">
+        <div class="address-label">Wallet address</div>
+        <div class="address-row">
+          <span class="address-text" id="ton-addr">UQAFGVcmkQv1_iteb8HF17H2lwrHw8Ywbp-5epEMZ-qaUFWP</span>
+          <button class="copy-btn" onclick="copyAddr('ton-addr','ton-toast')" title="Copy address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="copy-toast" id="ton-toast">Copied!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightning-card">
+    <div class="lightning-icon">⚡</div>
+    <div class="lightning-text">
+      <div class="method-name">Lightning Network</div>
+      <div class="method-desc">Available inside the app — generates invoices and QR codes automatically.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title">Additional options</div>
+  <div class="nowpay-card">
+    <div class="method-name">🌐 NOWPayments</div>
+    <div class="method-desc">Multiple currencies. Fees and minimums depend on selected method.</div>
+    <div class="nowpay-btn-wrap">
+      <a href="https://nowpayments.io/donation?api_key=68b5b9ab-d6d3-41a2-9c85-e91e0e367028" target="_blank">
+        <img src="assets/now_payments_button.webp" alt="Donate with NOWPayments" onerror="handleQrError(this)">
+      </a>
+    </div>
+  </div>
+
+  <div class="other-methods">
+    <div class="method-card">
+      <div class="method-name">💳 Bank Card (USD)</div>
+      <div class="field-row">
+        <div class="field-item">
+          <div class="field-label">Card number</div>
+          <div class="address-row">
+            <span class="address-text" id="card-num">4441 1110 8136 7306</span>
+            <button class="copy-btn" onclick="copyAddr('card-num','card-toast')" title="Copy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="copy-toast" id="card-toast">Copied!</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Name</div>
+          <span style="font-family:'DM Mono',monospace;font-size:0.78rem;padding:4px 2px;display:block;">GLIB IVANCHYK</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <div class="method-name">🏦 Bank Transfer (IBAN)</div>
+      <div class="field-row">
+        <div class="field-item">
+          <div class="field-label">IBAN</div>
+          <div class="address-row">
+            <span class="address-text" id="iban-num">UA103220010000026209341508272</span>
+            <button class="copy-btn" onclick="copyAddr('iban-num','iban-toast')" title="Copy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="copy-toast" id="iban-toast">Copied!</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Recipient</div>
+          <span style="font-family:'DM Mono',monospace;font-size:0.78rem;padding:4px 2px;display:block;">IVANCHYK GLIB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title">Contact</div>
+  <div class="contacts-row">
+    <a class="contact-pill" href="https://t.me/givanchik" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7z"/><path d="M22 2 11 13"/></svg>
+      @givanchik
+    </a>
+    <a class="contact-pill" href="mailto:glebivanchik@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      glebivanchik@gmail.com
+    </a>
+  </div>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox(null)">✕</button>
+    <img id="lightbox-img" src="" alt="QR code enlarged">
+    <div class="lightbox-label" id="lightbox-label"></div>
+  </div>
+</div>
+
+<script>
+function handleQrError(img) {
+  img.style.display = 'none';
+  var wrap = img.parentElement;
+  var ph = document.createElement('div');
+  ph.className = 'qr-placeholder';
+  ph.textContent = img.alt + '\n(file not found)';
+  wrap.appendChild(ph);
+}
+
+function copyAddr(elId, toastId) {
+  var text = document.getElementById(elId).textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var toast = document.getElementById(toastId);
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 1800);
+  });
+}
+
+function openLightbox(src, label) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-label').textContent = label;
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function closeLightbox(e) {
+  if (e === null || e.target === document.getElementById('lightbox')) {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
+</body>
+</html>
