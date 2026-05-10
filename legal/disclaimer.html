@@ -39,19 +39,19 @@
 
   .header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
   .header h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-  .header .sub { color: var(--text-muted); font-size: 0.95rem; }
+  .header .sub { color: var(--text-muted); font-size: 1.1rem; }
 
   .section-title { font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
 
   .age-banner { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 12px; }
   .age-banner .age-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
-  .age-banner .age-title { font-weight: 600; font-size: 1.05rem; color: var(--warn); margin-bottom: 4px; }
-  .age-banner .age-desc { font-size: 0.95rem; color: #78350f; line-height: 1.6; }
+  .age-banner .age-title { font-weight: 600; font-size: 1.1rem; color: var(--warn); margin-bottom: 4px; }
+  .age-banner .age-desc { font-size: 1rem; color: #78350f; line-height: 1.6; }
 
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
 
   .info-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-  .info-list li { font-size: 0.95rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
   .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
 
   .confirm-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
@@ -59,6 +59,20 @@
   .confirm-card .info-list li::before { color: var(--accent); }
 
   .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  @media (max-width: 640px) {
+    .back-link { font-size: 0.8rem; }
+    .header { padding: 1rem 0 1.5rem; }
+    .header h1 { font-size: 1.5rem; }
+    .header .sub { font-size: 0.9rem; }
+    .section-title { font-size: 0.8rem; }
+    .age-banner { padding: 1rem; gap: 8px; }
+    .age-banner .age-title { font-size: 0.95rem; }
+    .age-banner .age-desc { font-size: 0.85rem; }
+    .card { padding: 1rem; }
+    .info-list li { font-size: 0.85rem; padding-left: 0.7rem; }
+    .confirm-card { padding: 1rem; }
+  }
 </style>
 </head>
 <body>
