@@ -1,141 +1,443 @@
-# Uncensored Souls
-
-**Private AI chat application for adults (18+ only)**
-
-Local-first. No subscriptions. Pay only for what you use.
-
-
-
-## Features
-
-* Chat with AI characters without roleplay restrictions
-* Create your own characters or use built-in examples
-* Multi-character chat with group interaction
-* Generate images directly in chat or in a dedicated gallery
-* All chats, characters, images and API keys are stored locally on your device
-* More natural and expressive character responses powered by DeepSeek models
-
-
-
-## Image Generation
-
-* Images are generated based on the current chat scene
-* Automatic scene extraction — location, pose, mood and actions
-* Three modes: Romance, Erotic, NSFW
-* Consistent character appearance across generations
-* Images are visible only inside the app and never appear in the system gallery
-* Tap the character avatar in chat to open the matching gallery view
-
-Works best for general scenes, mood, and character presence.
-
-
-
-## Multi-Character Chat
-
-* Multiple characters participate in the same conversation
-* Characters respond together and interact with each other
-* Shared context builds naturally across the conversation
-* Suitable for group scenarios and dynamic interactions
-
-
-
-## Pricing
-
-No subscriptions. You pay directly for API usage — no markups, no middlemen.
-
-* Chat: ~0.5–1.5 cent per hour (depending on usage)
-* Images: ~0.5 cent per image (~200 images per $1)
-
-Typical monthly cost for regular use:
-
-* Chat only: ~$2–3
-* With images: ~$3–5
-
-There are no hidden limits — message length, session duration and response style are all up to you.
-
-
-
-## Privacy
-
-* All data is stored locally on your device
-* Chats, characters and images never leave your device
-* Requests are sent directly to DeepSeek (chat) and Novita AI (images)
-* The developer has no access to your data
-* No accounts
-* No personal data collection
-* No analytics, tracking or telemetry
-
-
-
-## Data & Backup
-
-* Full data ownership and portability
-* Export and import all data (characters, chats, images)
-* Cross-platform support (Android ↔ Windows)
-* Backups are stored in user-accessible folders
-
-
-
-## Settings & Capabilities
-
-* Adjustable chat font size
-* Response creativity / temperature control
-* Personality drift protection
-* Automatic summarization of long conversations
-* Configurable input/output length limits
-* Auto-delete for in-chat images (7–60 days)
-
-
-## Experience
-
-* Chat naturally with a character
-* Optionally generate images based on the current scene
-* Continue the same scenario with consistent character behavior
-* Use single or multi-character interactions
-
-Designed for continuous, immersive interaction rather than isolated prompts.
-
-
-
-## Main Advantages
-
-* Local-first architecture (your data stays on your device)
-* No subscriptions — pay only for actual AI usage
-* Integrated image generation from chat context
-* Full data ownership and portability
-* Extremely low cost
-
-
-
-## Download
-
-* Android (APK) → [add link later]
-* Windows (EXE) → [add link later]
-* macOS (Alpha) → [add link later]
-
-
-
-## Documentation
-
-* [User Guide](/user-guide.md)
-
-
-
-## Important
-
-**18+ ONLY**
-
-For adult users only. See Terms & Disclaimer for full details.
-
-
-
-## Support
-
-See support page for available donation methods.
-
-
-
-## Legal
-
-* [Privacy Policy](legal/privacy.md)
-* [Terms & Disclaimer](legal/disclaimer.md)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncensored Souls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --surface-alt: #f2f0eb;
+    --border: #e2dfd8;
+    --border-strong: #c8c4bb;
+    --text: #1a1917;
+    --text-muted: #6b6860;
+    --text-faint: #9c9890;
+    --accent: #2a6b4a;
+    --accent-light: #e8f4ee;
+    --accent-border: #b8dfc8;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-xs: 6px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.6rem;
+  }
+  .header .tagline {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .badge.accent { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
+
+  /* ── Section label ── */
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Divider ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+  /* ── Feature grid ── */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 640px) { .feature-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) and (min-width: 641px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+  .feature-card .icon { font-size: 1.3rem; margin-bottom: 0.6rem; display: block; }
+  .feature-card h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.35rem; }
+  .feature-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── Pricing ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 480px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+  }
+  .pricing-card .price-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.4rem;
+  }
+  .pricing-card .price-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .pricing-card .price-note { font-size: 0.8rem; color: var(--text-muted); }
+
+  .pricing-summary {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .pricing-summary p { font-size: 0.87rem; color: var(--text-muted); margin-bottom: 4px; }
+  .pricing-summary p:last-child { margin-bottom: 0; }
+  .pricing-summary strong { color: var(--text); }
+
+  /* ── Info list cards ── */
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .info-card h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .info-list li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1rem; line-height: 1.4; }
+
+  /* ── Two-column info grid ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 580px) { .info-grid { grid-template-columns: 1fr; } }
+
+  /* ── Download ── */
+  .download-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  .download-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .download-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+  .download-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1.25rem;
+  }
+  @media (max-width: 580px) { .download-buttons { grid-template-columns: 1fr; } }
+
+  .dl-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0.75rem;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s, background 0.15s;
+    gap: 4px;
+  }
+  .dl-btn:hover { border-color: var(--accent-border); background: var(--accent-light); }
+  .dl-btn .dl-icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .dl-btn .dl-platform { font-size: 0.88rem; font-weight: 600; }
+  .dl-btn .dl-size { font-size: 0.75rem; color: var(--text-muted); }
+  .dl-btn .dl-note { font-size: 0.7rem; color: var(--text-faint); margin-top: 2px; }
+
+  .download-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .download-meta a { color: var(--accent); text-decoration: none; }
+  .download-meta a:hover { text-decoration: underline; }
+
+  /* ── Footer links ── */
+  .footer-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .footer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 0.82rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .footer-pill:hover { border-color: var(--border-strong); color: var(--text); }
+  .footer-pill.primary { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Uncensored Souls</h1>
+    <p class="tagline">Private AI chat application for adults (18+ only)</p>
+    <div class="badge-row">
+      <span class="badge accent">18+ only</span>
+      <span class="badge">Local-first</span>
+      <span class="badge">No subscriptions</span>
+      <span class="badge">Pay only for what you use</span>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="section-title">Features</div>
+  <div class="feature-grid" style="margin-bottom:2.5rem;">
+    <div class="feature-card">
+      <span class="icon">💬</span>
+      <h3>Unrestricted chat</h3>
+      <p>Chat with AI characters without roleplay restrictions.</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">🎭</span>
+      <h3>Custom characters</h3>
+      <p>Create your own characters or use built-in examples.</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">👥</span>
+      <h3>Multi-character chat</h3>
+      <p>Group interaction with multiple characters in the same conversation.</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">🖼️</span>
+      <h3>Image generation</h3>
+      <p>Generate images directly in chat or in a dedicated gallery.</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">🔒</span>
+      <h3>Fully local storage</h3>
+      <p>All chats, characters, images and API keys are stored locally on your device.</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">🤖</span>
+      <h3>DeepSeek models</h3>
+      <p>More natural and expressive character responses powered by DeepSeek models.</p>
+    </div>
+  </div>
+
+  <!-- Image generation -->
+  <div class="section-title">Image Generation</div>
+  <div class="info-card" style="margin-bottom:2.5rem;">
+    <ul class="info-list">
+      <li>Images are generated based on the current chat scene</li>
+      <li>Automatic scene extraction — location, pose, mood and actions</li>
+      <li>Three modes: Romance, Erotic, NSFW</li>
+      <li>Consistent character appearance across generations</li>
+      <li>Images are visible only inside the app and never appear in the system gallery</li>
+      <li>Tap the character avatar in chat to open the matching gallery view</li>
+    </ul>
+    <p style="font-size:0.8rem;color:var(--text-faint);margin-top:0.75rem;">Works best for general scenes, mood, and character presence.</p>
+  </div>
+
+  <!-- Multi-character -->
+  <div class="section-title">Multi-Character Chat</div>
+  <div class="info-card" style="margin-bottom:2.5rem;">
+    <ul class="info-list">
+      <li>Multiple characters participate in the same conversation</li>
+      <li>Characters respond together and interact with each other</li>
+      <li>Shared context builds naturally across the conversation</li>
+      <li>Suitable for group scenarios and dynamic interactions</li>
+    </ul>
+  </div>
+
+  <!-- Pricing -->
+  <div class="section-title">Pricing</div>
+  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">No subscriptions. You pay directly for API usage — no markups, no middlemen.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="price-label">Chat</div>
+      <div class="price-value">~0.5–1.5¢ / hour</div>
+      <div class="price-note">Depending on usage</div>
+    </div>
+    <div class="pricing-card">
+      <div class="price-label">Images</div>
+      <div class="price-value">~0.5¢ / image</div>
+      <div class="price-note">~200 images per $1</div>
+    </div>
+  </div>
+  <div class="pricing-summary">
+    <p>Typical monthly cost for regular use:</p>
+    <p><strong>Chat only:</strong> ~$2–3 &nbsp;·&nbsp; <strong>With images:</strong> ~$3–5</p>
+    <p style="margin-top:6px;">There are no hidden limits — message length, session duration and response style are all up to you.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Privacy + Data -->
+  <div class="info-grid">
+    <div>
+      <div class="section-title">Privacy</div>
+      <div class="info-card">
+        <ul class="info-list">
+          <li>All data is stored locally on your device</li>
+          <li>Chats, characters and images never leave your device</li>
+          <li>Requests are sent directly to DeepSeek (chat) and Novita AI (images)</li>
+          <li>The developer has no access to your data</li>
+          <li>No accounts</li>
+          <li>No personal data collection</li>
+          <li>No analytics, tracking or telemetry</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="section-title">Data & Backup</div>
+      <div class="info-card">
+        <ul class="info-list">
+          <li>Full data ownership and portability</li>
+          <li>Export and import all data (characters, chats, images)</li>
+          <li>Cross-platform support (Android ↔ Windows)</li>
+          <li>Backups are stored in user-accessible folders</li>
+        </ul>
+      </div>
+      <div class="section-title" style="margin-top:1.25rem;">Settings & Capabilities</div>
+      <div class="info-card">
+        <ul class="info-list">
+          <li>Adjustable chat font size</li>
+          <li>Response creativity / temperature control</li>
+          <li>Personality drift protection</li>
+          <li>Automatic summarization of long conversations</li>
+          <li>Configurable input/output length limits</li>
+          <li>Auto-delete for in-chat images (7–60 days)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <div class="section-title">Experience</div>
+  <div class="info-card" style="margin-bottom:2.5rem;">
+    <ul class="info-list">
+      <li>Chat naturally with a character</li>
+      <li>Optionally generate images based on the current scene</li>
+      <li>Continue the same scenario with consistent character behavior</li>
+      <li>Use single or multi-character interactions</li>
+    </ul>
+    <p style="font-size:0.82rem;color:var(--text-faint);margin-top:0.75rem;">Designed for continuous, immersive interaction rather than isolated prompts.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Download -->
+  <div class="section-title">Download</div>
+  <div class="download-section">
+    <div class="download-title">Uncensored Souls v1.0.0</div>
+    <div class="download-sub">18+ only &nbsp;·&nbsp; First public version</div>
+    <div class="download-buttons">
+      <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.0.0/UncensoredSouls-1.0.0.apk">
+        <span class="dl-icon">🤖</span>
+        <span class="dl-platform">Android (APK)</span>
+        <span class="dl-size">34 MB</span>
+      </a>
+      <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.0.0/UncensoredSouls-1.0.0-setup.exe">
+        <span class="dl-icon">🪟</span>
+        <span class="dl-platform">Windows (EXE)</span>
+        <span class="dl-size">14 MB</span>
+      </a>
+      <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.0.0/UncensoredSouls-1.0.0.dmg">
+        <span class="dl-icon">🍎</span>
+        <span class="dl-platform">macOS (DMG)</span>
+        <span class="dl-size">26 MB</span>
+        <span class="dl-note">Alpha · unsigned</span>
+      </a>
+    </div>
+    <div class="download-meta">
+      macOS: Alpha version, unsigned application. You may need to allow it in System Settings → Security &amp; Privacy.<br>
+      All previous versions and updates: <a href="https://github.com/sart33/uncensored-souls/releases">GitHub Releases</a>
+    </div>
+  </div>
+
+  <!-- Footer links -->
+  <div class="footer-links">
+    <a class="footer-pill primary" href="support.html">☕ Support the project</a>
+    <a class="footer-pill" href="user-guide.md">📖 User Guide</a>
+    <a class="footer-pill" href="legal/privacy.md">Privacy Policy</a>
+    <a class="footer-pill" href="legal/disclaimer.md">Terms & Disclaimer</a>
+  </div>
+
+</div>
+</body>
+</html>
