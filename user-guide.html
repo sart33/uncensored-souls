@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Guide – Uncensored Souls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --surface-alt: #f2f0eb;
+    --border: #e2dfd8;
+    --border-strong: #c8c4bb;
+    --text: #1a1917;
+    --text-muted: #55524c;
+    --text-faint: #6f6145;
+    --accent: #2a6b4a;
+    --accent-light: #e8f4ee;
+    --accent-border: #b8dfc8;
+    --warn: #92400e;
+    --warn-bg: #fef3c7;
+    --warn-border: #fcd34d;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-xs: 6px;
+    --sidebar-w: 220px;
+    --gap: 2rem;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 2rem 1rem 4rem;
+    font-size: 16px;
+  }
+
+  @media (min-width: 641px) { body { font-size: 17px; } }
+
+  /* ── Layout ── */
+  .page { max-width: 1160px; margin: 0 auto; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .back-link:hover { color: var(--text); }
+
+  .header { padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  .header h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+  .header .sub { color: var(--text-muted); font-size: 1.1rem; }
+
+  /* Desktop: sidebar + content side by side */
+  .layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    gap: var(--gap);
+    align-items: start;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    position: sticky;
+    top: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+
+  .toc-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.75rem;
+  }
+
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+
+  .toc-list a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: var(--radius-xs);
+    transition: background 0.12s, color 0.12s;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .toc-list a:hover { background: var(--surface-alt); color: var(--text); }
+  .toc-list a.active { background: var(--accent-light); color: var(--accent); }
+
+  .toc-list .toc-sub a {
+    font-size: 0.8rem;
+    padding-left: 1.25rem;
+    font-weight: 400;
+    color: var(--text-faint);
+  }
+  .toc-list .toc-sub a:hover { color: var(--text-muted); }
+  .toc-list .toc-sub a.active { color: var(--accent); }
+
+  /* ── Content ── */
+  .content { min-width: 0; }
+
+  .section { margin-bottom: 2.5rem; }
+
+  .section-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 1.5rem;
+  }
+
+  .subsection { margin-bottom: 1.5rem; }
+
+  .subsection-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
+  p:last-child { margin-bottom: 0; }
+
+  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
+
+  .warn-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #78350f; line-height: 1.6; font-weight: 500; }
+
+  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
+
+  .label-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  .label-row:last-child { border-bottom: none; }
+  .label-row .lbl { font-weight: 600; color: var(--text); white-space: nowrap; }
+  .label-row .val { color: var(--text-muted); }
+
+  code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    color: var(--text);
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.15s;
+  }
+  .link-card:hover { border-color: var(--accent-border); }
+  .link-card .link-url { font-size: 0.8rem; color: var(--accent); font-family: 'DM Mono', monospace; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  /* Style list (avatar styles) */
+  .style-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 0.5rem; }
+  .style-tag { background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 6px 12px; font-size: 0.88rem; color: var(--text-muted); font-weight: 500; text-align: center; }
+
+  /* Token range table */
+  .token-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem; }
+  .token-table th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  .token-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; font-weight: 500; }
+  .token-table td:first-child { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--text); font-weight: 400; white-space: nowrap; }
+  .token-table tr:last-child td { border-bottom: none; }
+
+  /* ── Mobile TOC (≤640px) ── */
+  .mobile-toc {
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .mobile-toc summary {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-toc summary::after { content: '▾'; color: var(--text-faint); }
+  .mobile-toc[open] summary::after { content: '▴'; }
+
+  .mobile-toc-links {
+    padding: 0.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mobile-toc-links a { font-size: 0.88rem; color: var(--text-muted); text-decoration: none; padding: 4px 6px; border-radius: var(--radius-xs); font-weight: 500; }
+  .mobile-toc-links a:hover { background: var(--surface-alt); }
+  .mobile-toc-links .sub-link { padding-left: 1.25rem; font-size: 0.82rem; color: var(--text-faint); }
+
+  @media (max-width: 640px) {
+    .sidebar { display: none; }
+    .mobile-toc { display: block; }
+    .layout { grid-template-columns: 1fr; }
+    .back-link { font-size: 0.8rem; }
+    .header h1 { font-size: 1.5rem; }
+    .header .sub { font-size: 0.9rem; }
+    .section-heading { font-size: 1.1rem; }
+    .subsection-heading { font-size: 0.95rem; }
+    p { font-size: 0.88rem; }
+    .info-list li { font-size: 0.85rem; padding-left: 0.7rem; }
+    .info-card { padding: 1rem; }
+    .style-grid { grid-template-columns: 1fr; }
+    .token-table { font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-link" href="index.html">← Back to main page</a>
+
+  <div class="header">
+    <h1>User Guide</h1>
+    <div class="sub">Uncensored Souls</div>
+  </div>
+
+  <!-- Mobile TOC -->
+  <details class="mobile-toc">
+    <summary>Table of Contents</summary>
+    <div class="mobile-toc-links">
+      <a href="#general">1. General Information</a>
+      <a href="#api-keys">2. API Keys Setup</a>
+      <a class="sub-link" href="#api-deepseek">DeepSeek API</a>
+      <a class="sub-link" href="#api-novita">Novita AI</a>
+      <a href="#quick-setup">3. Quick Setup</a>
+      <a href="#characters">4. Characters</a>
+      <a class="sub-link" href="#default-chars">Default Characters</a>
+      <a class="sub-link" href="#editing-chars">Editing and Creating</a>
+      <a class="sub-link" href="#appearance">Appearance Guidelines</a>
+      <a class="sub-link" href="#saving">Saving and Deleting</a>
+      <a class="sub-link" href="#new-char">Creating a New Character</a>
+      <a class="sub-link" href="#avatar">Avatar Generation</a>
+      <a href="#multi-chat">5. Multi-Chat</a>
+      <a href="#chat">6. Chat Usage</a>
+      <a class="sub-link" href="#chat-flow">General Flow</a>
+      <a class="sub-link" href="#chat-controls">Controlling Responses</a>
+      <a class="sub-link" href="#chat-images">Image Generation</a>
+      <a class="sub-link" href="#chat-edit">Message Editing</a>
+      <a class="sub-link" href="#chat-voice">Voice Input</a>
+      <a class="sub-link" href="#chat-storage">Image Storage</a>
+      <a href="#settings">7. Advanced Settings</a>
+    </div>
+  </details>
+
+  <div class="layout">
+
+    <!-- Desktop sidebar -->
+    <nav class="sidebar">
+      <div class="toc-title">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#general">1. General Information</a></li>
+        <li><a href="#api-keys">2. API Keys Setup</a></li>
+        <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
+        <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
+        <li><a href="#quick-setup">3. Quick Setup</a></li>
+        <li><a href="#characters">4. Characters</a></li>
+        <li class="toc-sub"><a href="#default-chars">Default Characters</a></li>
+        <li class="toc-sub"><a href="#editing-chars">Editing and Creating</a></li>
+        <li class="toc-sub"><a href="#appearance">Appearance Guidelines</a></li>
+        <li class="toc-sub"><a href="#saving">Saving and Deleting</a></li>
+        <li class="toc-sub"><a href="#new-char">New Character</a></li>
+        <li class="toc-sub"><a href="#avatar">Avatar Generation</a></li>
+        <li><a href="#multi-chat">5. Multi-Chat</a></li>
+        <li><a href="#chat">6. Chat Usage</a></li>
+        <li class="toc-sub"><a href="#chat-flow">General Flow</a></li>
+        <li class="toc-sub"><a href="#chat-controls">Controlling Responses</a></li>
+        <li class="toc-sub"><a href="#chat-images">Image Generation</a></li>
+        <li class="toc-sub"><a href="#chat-edit">Message Editing</a></li>
+        <li class="toc-sub"><a href="#chat-voice">Voice Input</a></li>
+        <li class="toc-sub"><a href="#chat-storage">Image Storage</a></li>
+        <li><a href="#settings">7. Advanced Settings</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <div class="content">
+
+      <!-- 1 -->
+      <div class="section">
+        <h2 class="section-heading" id="general">1. General Information</h2>
+        <div class="warn-card">
+          ⚠️ <strong>18+</strong> — When you launch the app for the first time, you will see an age restriction screen. If you are under 18 — press "No".
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="section">
+        <h2 class="section-heading" id="api-keys">2. API Keys Setup</h2>
+        <p>Go to: <code>Settings → API Keys</code></p>
+        <p>You need to enter two keys:</p>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="api-deepseek">DeepSeek API (required for chat)</h3>
+          <a class="link-card" href="https://platform.deepseek.com/api_keys" target="_blank">
+            <span>DeepSeek API Keys</span>
+            <span class="link-url">platform.deepseek.com/api_keys</span>
+          </a>
+          <p>Minimum deposit: $2. If you set a response limit, this can last for a fairly long time.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="api-novita">Novita AI (for image generation)</h3>
+          <a class="link-card" href="https://novita.ai/dashboard/api-keys" target="_blank">
+            <span>Novita AI API Keys</span>
+            <span class="link-url">novita.ai/dashboard/api-keys</span>
+          </a>
+          <p>Minimum deposit: $10. One image costs about half a cent, so this is enough for a large number of generations.</p>
+        </div>
+
+        <div class="info-card">
+          <ul class="info-list">
+            <li>DeepSeek key entered → chat becomes available</li>
+            <li>Novita key entered → image generation is unlocked</li>
+            <li>API keys are stored only on your device</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="section">
+        <h2 class="section-heading" id="quick-setup">3. Quick Setup</h2>
+        <div class="subsection">
+          <h3 class="subsection-heading">Chat Text Size</h3>
+          <p>After entering API keys, go to settings and choose a comfortable chat font size.</p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="section">
+        <h2 class="section-heading" id="characters">4. Characters</h2>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="default-chars">4.1 Default Characters</h3>
+          <p>Go back to the main screen and open the character panel. You will see two pre-generated characters — <strong>Anya</strong> and <strong>Natasha</strong>. They differ in appearance and behavior.</p>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>👁 Eye icon → open character profile</li>
+              <li>📷 Camera icon → generate an image</li>
+              <li>Select category: Romance / Erotic / 18+</li>
+              <li>The last selected category is remembered</li>
+              <li>When opening the gallery from chat, the same category will be used</li>
+            </ul>
+          </div>
+          <p>The profile contains: character description and greeting message.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="editing-chars">4.2 Editing and Creating Characters</h3>
+          <p>Press <strong>Edit</strong> to modify description, appearance, and behavior.</p>
+          <p>It is recommended to define a consistent character with personality and motivation — this improves response quality and stability.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="appearance">4.3 Appearance Description Guidelines</h3>
+          <p>You can write the character description in <strong>any language</strong>.</p>
+          <p>However, the following attributes are <strong>recommended to be written in English</strong>:</p>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>Ethnicity — Caucasian, Asian, Latina, Black, Middle Eastern, etc.</li>
+              <li>Hair color — blonde, brunette, redhead, black hair, etc.</li>
+              <li>Skin tone — fair skin, tan skin, dark skin, olive skin, etc.</li>
+            </ul>
+          </div>
+          <p>This reduces unexpected results during image generation, especially for avatars. If you plan to generate nude images, it is recommended to explicitly describe body features as well.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="saving">4.4 Saving and Deleting</h3>
+          <p>After editing, press <strong>Save</strong>.</p>
+          <div class="warn-card">
+            ⏱ For about <strong>10 seconds</strong>, prompts and generation styles are being updated. Avoid generating images during this time.
+          </div>
+          <p>On mobile, you can also crop and adjust the avatar.</p>
+          <div class="info-card">
+            <p style="font-size:0.95rem;color:var(--text-muted);font-weight:500;"><strong style="color:var(--text);">Delete Character</strong> removes: the character, all images, and all chat branches. A confirmation dialog will appear before deletion.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="new-char">4.5 Creating a New Character</h3>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>Enter a name</li>
+              <li>Add a description (you can use default examples)</li>
+              <li>Define behavior (default can also be used as a base)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="avatar">4.6 Avatar Generation</h3>
+          <p>Click the <strong>"Generate"</strong> button on the character edit screen. A modal window will appear — centered on desktop, bottom sheet on mobile.</p>
+          <p>Choose an avatar style:</p>
+          <div class="style-grid">
+            <div class="style-tag">Evening Elegance</div>
+            <div class="style-tag">Summer Walk</div>
+            <div class="style-tag">Office Style</div>
+            <div class="style-tag">Lingerie Mood</div>
+            <div class="style-tag">Beach Bikini</div>
+            <div class="style-tag">Silk Morning</div>
+            <div class="style-tag">Art Nude</div>
+          </div>
+          <br>
+          <p>For all styles except <strong>Art Nude</strong>: first a prompt is generated, then the image itself.</p>
+          <div class="info-card" style="margin-top:0.75rem;">
+            <ul class="info-list">
+              <li><strong>Mobile:</strong> tap "Crop and save" (grid icon) to adjust scale and framing. Regeneration is available in the same or different style.</li>
+              <li><strong>Desktop:</strong> regenerate in the selected style or click "Generate" again to choose a different one.</li>
+              <li>You can also select any image from your device gallery.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="section">
+        <h2 class="section-heading" id="multi-chat">5. Multi-Chat</h2>
+        <p>In the <strong>Multi-chat</strong> section you will see two default characters — Natasha and Anya. You can start chatting immediately. Each character responds independently.</p>
+        <div class="info-card">
+          <ul class="info-list">
+            <li>Tap character icon → open their gallery</li>
+            <li>Use <strong>Edit</strong> to add characters, change behavior, edit greeting</li>
+            <li>Optimal: 2–4 characters · Maximum: up to 5</li>
+            <li>More may result in overly long responses or confusion</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="section">
+        <h2 class="section-heading" id="chat">6. Chat Usage</h2>
+        <p>Click a character to open their chat list. If no chat exists — create a new one.</p>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="chat-flow">6.1 General Flow</h3>
+          <p>After sending a message, response time is <strong>2–30 seconds</strong>. Multi-chat may take longer.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="chat-controls">6.2 Controlling Responses</h3>
+          <p>You can specify desired response length.</p>
+          <div class="info-card">
+            <ul class="info-list">
+              <li><strong>Continue</strong> → continues the scene</li>
+              <li><strong>More Details</strong> → enables detailed mode (actions, emotions, reactions of all participants)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="chat-images">6.3 Image Generation</h3>
+          <p>In single-character chats, there is a <strong>Photo</strong> button. It generates an image based on the current scene, pose, clothing, and mood. You can regenerate the result.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="chat-edit">6.4 Message Editing</h3>
+          <p>Long press on a message to edit, delete, or copy. After editing or deleting, the conversation continues from that point.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="chat-voice">6.5 Voice Input (Android)</h3>
+          <p>Voice input via keyboard is recommended. The model generally understands context well, but it's better to review the text before sending.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="chat-storage">6.6 Image Storage</h3>
+          <div class="accent-card">
+            🔒 All generated images are stored inside the app and do <strong>not</strong> appear in the device gallery.
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="section">
+        <h2 class="section-heading" id="settings">7. Advanced Settings</h2>
+
+        <div class="subsection">
+          <h3 class="subsection-heading">Creativity (temperature)</h3>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>~0.7 → stable character behavior</li>
+              <li>1.2–1.5 → more creative, but possible personality drift</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading">Personality Reminder</h3>
+          <p>Recommended to enable. Optimal frequency: about 1 in 10 messages.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading">Long Chat Summarization</h3>
+          <p>Allows the character to retain memory in long conversations. Recommended if you plan long-term interaction. The longer the interaction, the higher the limit can be set.</p>
+          <div class="warn-card">⚠️ <strong>Clear All Summaries</strong> affects all characters.</div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading">Auto-delete Chat Images</h3>
+          <p>Applies only to images generated inside chats. Does not affect character gallery. Range: 7 to 60 days.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading">AI Response Limit</h3>
+          <p>Controls the maximum length of AI responses (in tokens).</p>
+          <div class="info-card">
+            <table class="token-table">
+              <thead>
+                <tr><th>Range</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>100–200</td><td>Minimal cost, short but expressive replies</td></tr>
+                <tr><td>300–800</td><td>Balanced mode for regular roleplay</td></tr>
+                <tr><td>1000–2000</td><td>Long, detailed responses</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Higher values significantly increase cost and are usually unnecessary. In multi-character chats, total usage scales with the number of characters.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading">User Input Limit</h3>
+          <p>Can be left unchanged — not critical for typical usage.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+        <a class="back-link" href="index.html">← Back to main page</a>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /layout -->
+</div><!-- /page -->
+
+<script>
+  // Highlight active TOC item on scroll
+  const headings = document.querySelectorAll('[id]');
+  const tocLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+
+  function onScroll() {
+    let current = '';
+    headings.forEach(h => {
+      if (window.scrollY >= h.offsetTop - 80) current = h.id;
+    });
+    tocLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>
