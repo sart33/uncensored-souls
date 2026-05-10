@@ -37,69 +37,69 @@
 
   @media (min-width: 641px) { body { font-size: 17px; } }
 
-  .page { max-width: 680px; margin: 0 auto; }
+  .page { max-width: 800px; margin: 0 auto; }
 
   .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; margin-bottom: 2rem; transition: color 0.15s; }
   .back-link:hover { color: var(--text); }
 
   .header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-  .header h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-  .header p { color: var(--text-muted); font-size: 1.1rem; max-width: 480px; margin: 0 auto; }
+  .header h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
   .section-title { font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
 
   .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 
   .amounts-info { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
-  .amounts-info .info-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.6rem; }
+  .amounts-info .info-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.6rem; }
   .amounts-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
   .amounts-list li { font-size: 1rem; color: var(--text-muted); }
   .amounts-list li strong { color: var(--text); font-weight: 600; }
-  .amounts-note { flex: 1; min-width: 180px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.55; padding-top: 1.8rem; }
+  .amounts-note { flex: 1; min-width: 180px; font-size: 1rem; color: var(--text-muted); line-height: 1.5; padding-top: 1.8rem; }
 
   .crypto-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; overflow: hidden; }
   .crypto-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; flex-wrap: wrap; }
-  .crypto-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+  .crypto-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 4px 10px; font-size: 1rem; font-weight: 600; }
   .crypto-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
   .dot-usdt { background: #26a17b; }
   .dot-ton { background: #0098ea; }
-  .crypto-hint { font-size: 0.88rem; color: var(--text-muted); margin-left: auto; }
+  .crypto-hint { font-size: 0.9rem; color: var(--text-muted); margin-left: auto; }
 
   .qr-address-block { display: flex; gap: 1.25rem; align-items: flex-start; }
 
-  .qr-wrap { flex-shrink: 0; width: 110px; height: 110px; border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; background: var(--surface-alt); cursor: pointer; position: relative; transition: border-color 0.15s; }
+  .qr-wrap { flex-shrink: 0; width: 130px; height: 130px; border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; background: var(--surface-alt); cursor: pointer; position: relative; transition: border-color 0.15s; }
   .qr-wrap:hover { border-color: var(--border-strong); }
   .qr-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .qr-zoom-hint { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.45); color: #fff; font-size: 0.65rem; text-align: center; padding: 3px 0; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
   .qr-wrap:hover .qr-zoom-hint { opacity: 1; }
   .qr-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-faint); font-size: 0.68rem; text-align: center; padding: 8px; line-height: 1.4; }
 
-  .address-block { flex: 1; min-width: 0; width: 100%; overflow: hidden; }
-  .address-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
+  .address-block { flex: 1; min-width: 0; overflow: visible; }
+  .address-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
   .address-row { display: flex; align-items: center; gap: 6px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 8px 10px; min-width: 0; overflow: hidden; }
-  .address-text { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text); flex: 1; min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .address-text { font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--text); flex: 1; min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .copy-btn { flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 4px 6px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; transition: color 0.15s, background 0.15s; }
   .copy-btn:hover { color: var(--accent); background: var(--accent-light); }
-  .copy-btn svg { width: 15px; height: 15px; }
+  .copy-btn svg { width: 20px; height: 20px; }
   .copy-toast { font-size: 0.75rem; color: var(--accent); font-weight: 500; margin-top: 6px; height: 16px; opacity: 0; transition: opacity 0.2s; }
   .copy-toast.show { opacity: 1; }
 
   .lightning-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
   .lightning-icon { width: 36px; height: 36px; border-radius: 8px; background: #fff8e6; border: 1px solid #f5dfa0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
-  .lightning-text .method-name { font-weight: 600; font-size: 1rem; margin-bottom: 2px; }
-  .lightning-text .method-desc { font-size: 0.92rem; color: var(--text-muted); }
+  .lightning-text .method-name { font-weight: 600; font-size: 1.15rem; margin-bottom: 2px; }
+  .lightning-text .method-desc { font-size: 1rem; color: var(--text-muted); }
 
   .other-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 2.5rem; }
   .method-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; min-width: 0; }
-  .method-card .method-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; }
+  .method-card .method-name { font-weight: 600; font-size: 1.15rem; margin-bottom: 0.5rem; }
   .field-row { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
   .field-item { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-  .field-item .field-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); }
+  .field-item .field-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); }
 
-  .nowpay-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 10px; }
-  .nowpay-card .method-name { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
-  .nowpay-card .method-desc { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px; }
-  .nowpay-btn-wrap a img { height: 40px; display: block; border-radius: var(--radius-xs); }
+  .nowpay-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1rem; }
+  .nowpay-card .method-name { font-weight: 600; font-size: 1.15rem; margin-bottom: 4px; }
+  .nowpay-card .method-desc { font-size: 1rem; color: var(--text-muted); margin-bottom: 12px; }
+  .nowpay-btn-wrap a img { height: 60px; display: block; border-radius: var(--radius-xs); }
 
   .contacts-row { display: flex; gap: 10px; flex-wrap: wrap; }
   .contact-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 6px 14px; font-size: 0.92rem; text-decoration: none; color: var(--text); transition: border-color 0.15s; }
@@ -121,14 +121,21 @@
     .header p { font-size: 0.9rem; }
     .section-title { font-size: 0.8rem; }
     .amounts-info { flex-direction: column; gap: 0.75rem; padding: 1rem; }
-    .amounts-list li { font-size: 0.88rem; }
-    .amounts-note { padding-top: 0; font-size: 0.82rem; }
+    .amounts-list li { font-size: 0.85rem; }
+    .amounts-note { padding-top: 0; font-size: 0.85rem; }
     .crypto-card { padding: 1rem; }
+    .crypto-badge { font-size: 0.88rem; }
     .crypto-hint { font-size: 0.78rem; }
-    .lightning-text .method-name { font-size: 0.88rem; }
+    .address-label { font-size: 0.72rem; }
+    .address-text { font-size: 0.75rem; }
+    .address-row { gap: 4px; padding: 6px; }
+    .copy-btn svg { width: 15px; height: 15px; }
+    .copy-toast { font-size: 0.75rem; margin-top: 2px; height: 10px; }
+    .lightning-text .method-name { font-size: 0.92rem; }
     .lightning-text .method-desc { font-size: 0.8rem; }
-    .method-card .method-name { font-size: 0.88rem; }
-    .nowpay-card .method-name { font-size: 0.88rem; }
+    .method-card .method-name { font-size: 0.92rem; }
+    .field-item .field-label { font-size: 0.72rem; }
+    .nowpay-card .method-name { font-size: 0.92rem; }
     .nowpay-card .method-desc { font-size: 0.8rem; }
     .contact-pill { font-size: 0.8rem; }
   }
