@@ -49,7 +49,6 @@
     border: 1px solid var(--border);
     border-radius: 100px; padding: 4px 12px;
     font-size: 0.92rem; font-weight: 500;
-    background: var(--surface)
   }
   .badge.accent { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
 
@@ -63,8 +62,6 @@
 
   /* Feature grid */
   .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2rem; }
-  @media (max-width: 640px) { .feature-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 900px) and (min-width: 641px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
   .feature-card .icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
@@ -73,7 +70,6 @@
 
   /* Pricing */
   .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 1rem; }
-
 
   .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
   .pricing-card .price-label { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.4rem; }
@@ -85,7 +81,7 @@
   .pricing-summary p:last-child { margin-bottom: 0; }
   .pricing-summary strong { color: var(--text); }
 
-  /* Info cards — full width, no grid */
+  /* Info cards */
   .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
   .info-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
   .info-list li { font-size: 0.95rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
@@ -97,15 +93,18 @@
   .download-sub { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; }
 
   .download-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.25rem; }
-  @media (max-width: 580px) { .download-buttons { grid-template-columns: 1fr; } }
 
-  .dl-btn { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0.55rem 0.75rem; background: var(--surface-alt); border: 1px solid var(--border);
-    border-radius: var(--radius-sm); text-decoration: none; color: var(--text); transition: border-color 0.15s, background 0.15s; gap: 0px; }
+  .dl-btn {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 1rem 0.75rem; background: var(--surface-alt); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); text-decoration: none; color: var(--text);
+    transition: border-color 0.15s, background 0.15s; gap: 4px;
+  }
   .dl-btn:hover { border-color: var(--accent-border); background: var(--accent-light); }
-  .dl-btn .dl-icon { width: 3rem; margin-bottom: 0.8rem; margin-top: 1.5rem; }
+  .dl-btn .dl-icon { width: 2rem; margin-bottom: 4px; }
   .dl-btn .dl-platform { font-size: 1rem; font-weight: 600; }
   .dl-btn .dl-size { font-size: 0.9rem; color: var(--text-muted); }
-  .dl-btn .dl-note { font-size: 0.8rem; color: var(--text-faint); margin-top: 0px; font-weight: 500; }
+  .dl-btn .dl-note { font-size: 0.9rem; color: var(--text-faint); margin-top: 2px; font-weight: 500; }
 
   .download-meta { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
   .download-meta a { color: var(--accent); text-decoration: none; font-weight: 600; }
@@ -120,12 +119,43 @@
     text-decoration: none; color: var(--text-muted); transition: border-color 0.15s, color 0.15s;
   }
   .footer-pill:hover { border-color: var(--border-strong); color: var(--text); }
-        @media (max-width: 480px) { .header { padding: 1rem 0 2.5rem;} .header h1 { font-size: 1.9rem; } .pricing-grid { grid-template-columns: 1fr; } .header .tagline { font-size: 0.9rem; margin-bottom: 1rem;} .section-title { font-size: 0.8rem;} .feature-card h3 { font-size: 0.92rem;}
-    .feature-card p {font-size: 0.82rem;line-height: 1.55; } .info-list li {font-size: 0.85rem; padding-left: 0.7rem; } .pricing-card { padding: 1.1rem; } .pricing-summary { padding: 1.1rem; }
-    .pricing-card .price-note { font-size: 0.8rem; } .pricing-summary p { font-size: 0.87rem;} .download-title { font-size: 1.1rem;} .download-sub {font-size: 0.85rem;} .download-meta {font-size: 0.8rem;}
-    .dl-btn .dl-platform {font-size: 0.88rem;} .dl-btn .dl-size {font-size: 0.75rem;  } .dl-btn .dl-note { font-size: 0.7rem;} .footer-pill {font-size: 0.68rem;} .badge {font-size: 0.65rem;} .badge-row { gap: 4px;}
-    .info-card { padding: 1.1rem;} .download-section { padding: 1.1rem;} .download-buttons { gap: 1.1rem;}
-    }
+  .footer-pill.primary { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
+
+  /* ── 641px and below: mobile/tablet sizes, 2-col grids ── */
+  @media (max-width: 640px) {
+    .header { padding: 1rem 0 2.5rem; }
+    .header h1 { font-size: 1.9rem; }
+    .header .tagline { font-size: 0.9rem; margin-bottom: 1rem; }
+    .badge { font-size: 0.65rem; }
+    .badge-row { gap: 4px; }
+    .section-title { font-size: 0.8rem; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-card h3 { font-size: 0.92rem; }
+    .feature-card p { font-size: 0.82rem; line-height: 1.55; }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-card { padding: 1.1rem; }
+    .pricing-card .price-note { font-size: 0.8rem; }
+    .pricing-summary { padding: 1.1rem; }
+    .pricing-summary p { font-size: 0.87rem; }
+    .info-card { padding: 1.1rem; }
+    .info-list li { font-size: 0.85rem; padding-left: 0.7rem; }
+    .download-section { padding: 1.1rem; }
+    .download-title { font-size: 1.1rem; }
+    .download-sub { font-size: 0.85rem; }
+    .download-buttons { grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+    .dl-btn .dl-platform { font-size: 0.88rem; }
+    .dl-btn .dl-size { font-size: 0.75rem; }
+    .dl-btn .dl-note { font-size: 0.7rem; }
+    .download-meta { font-size: 0.8rem; }
+    .footer-pill { font-size: 0.68rem; }
+  }
+
+  /* ── 480px and below: single column everything ── */
+  @media (max-width: 480px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .download-buttons { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
