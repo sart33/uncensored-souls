@@ -77,6 +77,9 @@
   .nowpay-card .method-desc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; }
   .nowpay-btn-wrap a img { height: 40px; display: block; border-radius: var(--radius-xs); }
 
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 2rem; transition: color 0.15s; }
+  .back-link:hover { color: var(--text); }
+
   .contacts-row { display: flex; gap: 10px; flex-wrap: wrap; }
   .contact-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 6px 14px; font-size: 0.85rem; text-decoration: none; color: var(--text); transition: border-color 0.15s; }
   .contact-pill:hover { border-color: var(--border-strong); }
@@ -101,6 +104,8 @@
 </head>
 <body>
 <div class="page">
+
+  <a class="back-link" href="index.html">← Back to main page</a>
 
   <div class="header">
     <h1>☕ Support the Project</h1>
@@ -243,6 +248,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       glebivanchik@gmail.com
     </a>
+  </div>
+
+  <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+    <a class="back-link" href="index.html">← Back to main page</a>
   </div>
 
 </div>
