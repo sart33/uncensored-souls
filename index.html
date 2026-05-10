@@ -99,17 +99,13 @@
   .download-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.25rem; }
   @media (max-width: 580px) { .download-buttons { grid-template-columns: 1fr; } }
 
-  .dl-btn {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    padding: 1rem 0.75rem; background: var(--surface-alt); border: 1px solid var(--border);
-    border-radius: var(--radius-sm); text-decoration: none; color: var(--text);
-    transition: border-color 0.15s, background 0.15s; gap: 4px;
-  }
+  .dl-btn { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0.55rem 0.75rem; background: var(--surface-alt); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); text-decoration: none; color: var(--text); transition: border-color 0.15s, background 0.15s; gap: 0px; }
   .dl-btn:hover { border-color: var(--accent-border); background: var(--accent-light); }
-  .dl-btn .dl-icon { width: 2rem; margin-bottom: 4px; }
+  .dl-btn .dl-icon { width: 3rem; margin-bottom: 0.8rem; margin-top: 1.5rem; }
   .dl-btn .dl-platform { font-size: 1rem; font-weight: 600; }
   .dl-btn .dl-size { font-size: 0.9rem; color: var(--text-muted); }
-  .dl-btn .dl-note { font-size: 0.9rem; color: var(--text-faint); margin-top: 2px; font-weight: 500; }
+  .dl-btn .dl-note { font-size: 0.8rem; color: var(--text-faint); margin-top: 0px; font-weight: 500; }
 
   .download-meta { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
   .download-meta a { color: var(--accent); text-decoration: none; font-weight: 600; }
