@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy – Uncensored Souls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4; --surface: #ffffff; --surface-alt: #f2f0eb;
+    --border: #e2dfd8; --border-strong: #c8c4bb;
+    --text: #1a1917; --text-muted: #6b6860; --text-faint: #9c9890;
+    --accent: #2a6b4a; --accent-light: #e8f4ee; --accent-border: #b8dfc8;
+    --radius: 12px; --radius-sm: 8px; --radius-xs: 6px;
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem 4rem; }
+  .page { max-width: 680px; margin: 0 auto; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 2rem; transition: color 0.15s; }
+  .back-link:hover { color: var(--text); }
+
+  .header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  .header h1 { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+  .header .sub { color: var(--text-muted); font-size: 0.9rem; }
+
+  .section-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
+
+  .highlight-card {
+    background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .highlight-card .hi-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .highlight-card .hi-title { font-weight: 600; font-size: 0.95rem; color: var(--accent); margin-bottom: 4px; }
+  .highlight-card .hi-desc { font-size: 0.85rem; color: #1e4d38; line-height: 1.55; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .info-list li { font-size: 0.85rem; color: var(--text-muted); padding-left: 1.1rem; position: relative; line-height: 1.55; }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1rem; line-height: 1.4; }
+
+  .api-block { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .api-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xs);
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+  .api-row .api-label { color: var(--text-muted); flex: 1; }
+  .api-row .api-dest { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; }
+
+  .note-card { background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.5rem; margin-bottom: 2rem; font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-link" href="../index.html">← Back to main page</a>
+
+  <div class="header">
+    <h1>Privacy Policy</h1>
+    <div class="sub">Uncensored Souls &nbsp;·&nbsp; Last updated: May 2026</div>
+  </div>
+
+  <div class="highlight-card">
+    <div class="hi-icon">🔒</div>
+    <div>
+      <div class="hi-title">Local-first application</div>
+      <div class="hi-desc">Uncensored Souls stores everything on your device. No personal data is collected, stored or transmitted by the developer.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Data Storage</div>
+  <div class="card" style="margin-bottom:2rem;">
+    <ul class="info-list">
+      <li>All chats, characters, settings, API keys and generated images are stored only on your device.</li>
+      <li>No accounts are required.</li>
+      <li>No personal profiles or user databases are maintained.</li>
+      <li>No analytics, tracking or telemetry is used.</li>
+    </ul>
+  </div>
+
+  <div class="section-title">External API Requests</div>
+  <div class="card" style="margin-bottom:2rem;">
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:10px;">The only external data transfers occur when you send API requests. You provide your own API keys — the developer has no access to them or your content.</p>
+    <div class="api-block">
+      <div class="api-row">
+        <span class="api-label">Chat requests</span>
+        <span class="api-dest">DeepSeek</span>
+      </div>
+      <div class="api-row">
+        <span class="api-label">Image generation requests</span>
+        <span class="api-dest">Novita AI</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Donations</div>
+  <div class="note-card">
+    Optional donations may use external payment providers or cryptocurrency networks. The developer does not collect or store personal identity information through these payment methods.
+  </div>
+
+  <hr class="divider">
+
+  <a class="back-link" href="../index.html">← Back to main page</a>
+
+</div>
+</body>
+</html>
