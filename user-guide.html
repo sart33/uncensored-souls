@@ -266,12 +266,16 @@
       <a class="sub-link" href="#api-novita">Novita AI</a>
       <a href="#quick-setup">3. Quick Setup</a>
       <a href="#characters">4. Characters</a>
-      <a class="sub-link" href="#default-chars">Default Characters</a>
-      <a class="sub-link" href="#editing-chars">Editing and Creating</a>
-      <a class="sub-link" href="#appearance">Appearance Guidelines</a>
-      <a class="sub-link" href="#saving">Saving and Deleting</a>
-      <a class="sub-link" href="#new-char">Creating a New Character</a>
-      <a class="sub-link" href="#avatar">Avatar Generation</a>
+      <a class="sub-link" href="#default-chars">4.1 Default Characters</a>
+      <a class="sub-link" href="#new-char">4.2 Creating a New Character</a>
+      <a class="sub-link" href="#editing-chars">4.3 Editing a Character</a>
+      <a class="sub-link" href="#appearance">4.4 Appearance Guidelines</a>
+      <a class="sub-link" href="#behavior">4.5 Personality & Behavior</a>
+      <a class="sub-link" href="#saving">4.6 Saving and Deleting</a>
+      <a class="sub-link" href="#age-check">4.7 Age Verification</a>
+      <a class="sub-link" href="#avatar">4.8 Avatar Generation</a>
+      <a class="sub-link" href="#gallery">4.9 Character Gallery</a>
+      <a class="sub-link" href="#gallery-chat">4.10 Gallery Access from Chat</a>
       <a href="#multi-chat">5. Multi-Chat</a>
       <a href="#chat">6. Chat Usage</a>
       <a class="sub-link" href="#chat-flow">General Flow</a>
@@ -279,8 +283,11 @@
       <a class="sub-link" href="#chat-images">Image Generation</a>
       <a class="sub-link" href="#chat-edit">Message Editing</a>
       <a class="sub-link" href="#chat-voice">Voice Input</a>
-      <a class="sub-link" href="#chat-storage">Image Storage</a>
-      <a href="#settings">7. Advanced Settings</a>
+      <a class="sub-link" href="#chat-summarization">Summarization</a>
+      <a href="#export">7. Data Export and Import</a>
+      <a href="#spending">8. Monitoring Your Spending</a>
+      <a href="#settings">9. Advanced Settings</a>
+      <a href="#troubleshooting">10. Troubleshooting</a>
     </div>
   </details>
 
@@ -296,21 +303,28 @@
         <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
         <li><a href="#quick-setup">3. Quick Setup</a></li>
         <li><a href="#characters">4. Characters</a></li>
-        <li class="toc-sub"><a href="#default-chars">Default Characters</a></li>
-        <li class="toc-sub"><a href="#editing-chars">Editing and Creating</a></li>
-        <li class="toc-sub"><a href="#appearance">Appearance Guidelines</a></li>
-        <li class="toc-sub"><a href="#saving">Saving and Deleting</a></li>
-        <li class="toc-sub"><a href="#new-char">New Character</a></li>
-        <li class="toc-sub"><a href="#avatar">Avatar Generation</a></li>
+        <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
+        <li class="toc-sub"><a href="#new-char">4.2 New Character</a></li>
+        <li class="toc-sub"><a href="#editing-chars">4.3 Editing</a></li>
+        <li class="toc-sub"><a href="#appearance">4.4 Appearance</a></li>
+        <li class="toc-sub"><a href="#behavior">4.5 Behavior</a></li>
+        <li class="toc-sub"><a href="#saving">4.6 Saving & Deleting</a></li>
+        <li class="toc-sub"><a href="#age-check">4.7 Age Verification</a></li>
+        <li class="toc-sub"><a href="#avatar">4.8 Avatar Generation</a></li>
+        <li class="toc-sub"><a href="#gallery">4.9 Gallery</a></li>
+        <li class="toc-sub"><a href="#gallery-chat">4.10 Gallery from Chat</a></li>
         <li><a href="#multi-chat">5. Multi-Chat</a></li>
         <li><a href="#chat">6. Chat Usage</a></li>
         <li class="toc-sub"><a href="#chat-flow">General Flow</a></li>
-        <li class="toc-sub"><a href="#chat-controls">Controlling Responses</a></li>
-        <li class="toc-sub"><a href="#chat-images">Image Generation</a></li>
-        <li class="toc-sub"><a href="#chat-edit">Message Editing</a></li>
+        <li class="toc-sub"><a href="#chat-controls">Responses</a></li>
+        <li class="toc-sub"><a href="#chat-images">Images</a></li>
+        <li class="toc-sub"><a href="#chat-edit">Editing</a></li>
         <li class="toc-sub"><a href="#chat-voice">Voice Input</a></li>
-        <li class="toc-sub"><a href="#chat-storage">Image Storage</a></li>
-        <li><a href="#settings">7. Advanced Settings</a></li>
+        <li class="toc-sub"><a href="#chat-summarization">Summarization</a></li>
+        <li><a href="#export">7. Export & Import</a></li>
+        <li><a href="#spending">8. Spending</a></li>
+        <li><a href="#settings">9. Advanced Settings</a></li>
+        <li><a href="#troubleshooting">10. Troubleshooting</a></li>
       </ul>
     </nav>
 
@@ -367,10 +381,10 @@
         </div>
       </div>
 
-      <!-- 4 -->
-      <div class="section">
+     <div class="section">
         <h2 class="section-heading" id="characters">4. Characters</h2>
 
+        <!-- 4.1 -->
         <div class="subsection">
           <h3 class="subsection-heading" id="default-chars">4.1 Default Characters</h3>
           <p>Go back to the main screen and open the character panel. You will see two pre-generated characters — <strong>Anya</strong> and <strong>Natasha</strong>. They differ in appearance and behavior.</p>
@@ -386,16 +400,29 @@
           <p>The profile contains: character description and greeting message.</p>
         </div>
 
+        <!-- 4.2 -->
         <div class="subsection">
-          <h3 class="subsection-heading" id="editing-chars">4.2 Editing and Creating Characters</h3>
-          <p>Press <strong>Edit</strong> to modify description, appearance, and behavior.</p>
+          <h3 class="subsection-heading" id="new-char">4.2 Creating a New Character</h3>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>Enter a name</li>
+              <li>Add a description (you can use default examples as a base)</li>
+              <li>Define behavior (the default template can also be used as a starting point)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4.3 -->
+        <div class="subsection">
+          <h3 class="subsection-heading" id="editing-chars">4.3 Editing a Character</h3>
+          <p>Press <strong>Edit</strong> to modify the character's description, appearance, and behavior.</p>
           <p>It is recommended to define a consistent character with personality and motivation — this improves response quality and stability.</p>
         </div>
 
+        <!-- 4.4 -->
         <div class="subsection">
-          <h3 class="subsection-heading" id="appearance">4.3 Appearance Description Guidelines</h3>
-          <p>You can write the character description in <strong>any language</strong>.</p>
-          <p>However, the following attributes are <strong>recommended to be written in English</strong>:</p>
+          <h3 class="subsection-heading" id="appearance">4.4 Appearance Description Guidelines</h3>
+          <p>You can write the character description in <strong>any language</strong>. However, the following attributes are recommended to be written in English:</p>
           <div class="info-card">
             <ul class="info-list">
               <li>Ethnicity — Caucasian, Asian, Latina, Black, Middle Eastern, etc.</li>
@@ -403,11 +430,23 @@
               <li>Skin tone — fair skin, tan skin, dark skin, olive skin, etc.</li>
             </ul>
           </div>
-          <p>This reduces unexpected results during image generation, especially for avatars. If you plan to generate nude images, it is recommended to explicitly describe body features as well.</p>
+          <p>This reduces unexpected results during image generation, especially for avatars.</p>
+          <p>For NSFW generation, also describe body features, breast size, tattoos, piercings, and similar details. These are automatically filtered out when generating clothed images.</p>
         </div>
 
+        <!-- 4.5 -->
         <div class="subsection">
-          <h3 class="subsection-heading" id="saving">4.4 Saving and Deleting</h3>
+          <h3 class="subsection-heading" id="behavior">4.5 Personality and Behavior Guidelines</h3>
+          <p>In the Behavior field, describe the character's personality, speech style, habits, favorite expressions, worldview, and motivation.</p>
+          <div class="accent-card">
+            💡 <strong>Key principle:</strong> give the character inner motivation and self-respect. Even if the character is very sexual or submissive — they should have their own desires and boundaries. Flat characters lose coherence faster in long chats.
+          </div>
+          <p>Start with relatively simple characters and add complexity over time.</p>
+        </div>
+
+        <!-- 4.6 -->
+        <div class="subsection">
+          <h3 class="subsection-heading" id="saving">4.6 Saving and Deleting</h3>
           <p>After editing, press <strong>Save</strong>.</p>
           <div class="warn-card">
             ⏱ For about <strong>10 seconds</strong>, prompts and generation styles are being updated. Avoid generating images during this time.
@@ -418,55 +457,174 @@
           </div>
         </div>
 
+        <!-- 4.7 -->
         <div class="subsection">
-          <h3 class="subsection-heading" id="new-char">4.5 Creating a New Character</h3>
+          <h3 class="subsection-heading" id="age-check">4.7 Age Verification (18+)</h3>
+          <p>The app is intended for adults only and contains no sexual content censorship. All characters — created or edited — must comply with the 18+ requirement.</p>
+          <p>A warning is displayed at the top of the character creation/editing page: <em>"The character must be an adult (18+)."</em></p>
+          <div class="warn-card">
+            ⚠️ The following are <strong>not allowed</strong>:
+            <ul style="margin-top:0.5rem;padding-left:1rem;display:flex;flex-direction:column;gap:4px;">
+              <li>Setting the character's age below 18</li>
+              <li>Using terms such as "schoolgirl", "schoolboy", "teenager", "minor", or similar</li>
+              <li>Creating a visually childlike or adolescent appearance (loli/shota style, etc.)</li>
+            </ul>
+          </div>
+          <p>The app automatically analyzes the character description. If the system detects a potential attempt to create a minor character, saving will be blocked.</p>
+          <div class="info-card">
+            <p style="font-size:0.95rem;color:var(--text-muted);font-weight:500;margin-bottom:0.5rem;"><strong style="color:var(--text);">Unverified characters</strong></p>
+            <p style="font-size:0.95rem;color:var(--text-muted);font-weight:500;">If verification cannot be completed at save time (no internet connection or insufficient DeepSeek account balance), the character is saved but marked as <strong>Unverified</strong> — indicated by an orange warning triangle on the character card.</p>
+            <p style="font-size:0.95rem;color:var(--text-muted);font-weight:500;margin-top:0.5rem;">Attempting to open a chat or generate an image will prompt verification first. Once successfully verified, the warning icon disappears and the character is fully accessible.</p>
+          </div>
+        </div>
+
+        <!-- 4.8 -->
+        <div class="subsection">
+          <h3 class="subsection-heading" id="avatar">4.8 Avatar Generation</h3>
+          <p>When creating or editing a character, there are two ways to set an avatar:</p>
+          <div class="info-card" style="margin-bottom:1rem;">
+            <ul class="info-list">
+              <li><strong>Upload:</strong> select a file from your device gallery. On Android, cropping and scaling is available. On Windows and macOS, cropping is not available, but the larger screen lets you see the character at full height immediately.</li>
+              <li><strong>Generate:</strong> click "Generate" — a modal window will appear (centered on desktop, bottom sheet on mobile). Choose from 9 available styles.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <table class="style-table">
+              <thead>
+                <tr><th>Style</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Evening Elegance</td><td>Evening dress, balcony, refined atmosphere</td></tr>
+                <tr><td>Summer Walk</td><td>Casual outfit on a city street</td></tr>
+                <tr><td>Office Style</td><td>Business look in an office setting</td></tr>
+                <tr><td>Paris Evening</td><td>Evening view of the illuminated Eiffel Tower</td></tr>
+                <tr><td>Parisian Café</td><td>Cozy café with a view of the Eiffel Tower</td></tr>
+                <tr><td>Silk Morning</td><td>Silk robe, hotel balcony overlooking the sea</td></tr>
+                <tr><td>Beach Bikini</td><td>Warm beach, palm trees, ocean</td></tr>
+                <tr><td>Lingerie Mood</td><td>Elegant lingerie and stockings in a bedroom</td></tr>
+                <tr><td>Art Nude</td><td>Fully nude character in an erotic pose</td></tr>
+              </tbody>
+            </table>
+          </div>
           <div class="info-card">
             <ul class="info-list">
-              <li>Enter a name</li>
-              <li>Add a description (you can use default examples)</li>
-              <li>Define behavior (default can also be used as a base)</li>
+              <li>Select a style and tap <strong>Generate</strong></li>
+              <li>If satisfied — tap <strong>Save</strong> below the image</li>
+              <li>To get another variant in the same style — tap <strong>Regenerate</strong> (angle, lighting, and minor details will vary)</li>
+              <li>Once you've chosen the final image, tap the main <strong>Save</strong> button — this triggers the character description check and age verification (18+)</li>
             </ul>
+          </div>
+          <div class="accent-card">
+            👁 Tapping the avatar in the character card opens it full-screen — convenient on both mobile and desktop.
           </div>
         </div>
 
+        <!-- 4.9 -->
         <div class="subsection">
-          <h3 class="subsection-heading" id="avatar">4.6 Avatar Generation</h3>
-          <p>Click the <strong>"Generate"</strong> button on the character edit screen. A modal window will appear — centered on desktop, bottom sheet on mobile.</p>
-          <p>Choose an avatar style:</p>
-          <div class="style-grid">
-            <div class="style-tag">Evening Elegance</div>
-            <div class="style-tag">Summer Walk</div>
-            <div class="style-tag">Office Style</div>
-            <div class="style-tag">Lingerie Mood</div>
-            <div class="style-tag">Beach Bikini</div>
-            <div class="style-tag">Silk Morning</div>
-            <div class="style-tag">Art Nude</div>
+          <h3 class="subsection-heading" id="gallery">4.9 Character Gallery</h3>
+          <p>Each character has a personal gallery with three generation modes:</p>
+          <div class="info-card">
+            <table class="gallery-table">
+              <thead>
+                <tr><th>Mode</th><th>Templates</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Romance</td><td>20</td><td>Everyday scenes, walks, cafés, kitchen, park, romantic moments</td></tr>
+                <tr><td>Erotic</td><td>20</td><td>Character in lingerie, bikini, semi-transparent clothing, sensual poses</td></tr>
+                <tr><td>18+ (NSFW)</td><td>20</td><td>Fully nude character, various erotic poses</td></tr>
+              </tbody>
+            </table>
           </div>
-          <br>
-          <p>For all styles except <strong>Art Nude</strong>: first a prompt is generated, then the image itself.</p>
-          <div class="info-card" style="margin-top:0.75rem;">
+          <div class="info-card">
             <ul class="info-list">
-              <li><strong>Mobile:</strong> tap "Crop and save" (grid icon) to adjust scale and framing. Regeneration is available in the same or different style.</li>
-              <li><strong>Desktop:</strong> regenerate in the selected style or click "Generate" again to choose a different one.</li>
-              <li>You can also select any image from your device gallery.</li>
+              <li>Templates are selected in random order (the sequence is unique per character)</li>
+              <li>The character's face and appearance maintain high consistency across generations</li>
+              <li>If the face or appearance differs significantly — tap <strong>Regenerate</strong></li>
+              <li>To keep an image, tap <strong>Save</strong> — it will be added to the character's personal gallery</li>
             </ul>
           </div>
         </div>
-      </div>
 
-      <!-- 5 -->
-      <div class="section">
-        <h2 class="section-heading" id="multi-chat">5. Multi-Chat</h2>
-        <p>In the <strong>Multi-chat</strong> section you will see two default characters — Natasha and Anya. You can start chatting immediately. Each character responds independently.</p>
-        <div class="info-card">
-          <ul class="info-list">
-            <li>Tap character icon → open their gallery</li>
-            <li>Use <strong>Edit</strong> to add characters, change behavior, edit greeting</li>
-            <li>Optimal: 2–4 characters · Maximum: up to 5</li>
-            <li>More may result in overly long responses or confusion</li>
-          </ul>
+        <!-- 4.10 -->
+        <div class="subsection">
+          <h3 class="subsection-heading" id="gallery-chat">4.10 Gallery Access from Chat</h3>
+          <p>Tap the character's avatar directly in the chat:</p>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>The main avatar opens first</li>
+              <li>Then the last used gallery mode (Romance / Erotic / 18+) opens automatically</li>
+            </ul>
+          </div>
+          <p>This lets you quickly refresh the visual experience without leaving the conversation.</p>
+          <p>If in rare cases the face or appearance drifts from the usual style, tap <strong>Regenerate</strong>. To get a completely different image in the same mode, close the current one and tap <strong>Generate</strong> again.</p>
         </div>
+
       </div>
+      <!-- /section 4 -->
+      <!-- 5 -->
+     <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f8f7f4; --surface: #ffffff; --surface-alt: #f2f0eb;
+    --border: #e2dfd8; --text: #1a1917; --text-muted: #55524c; --text-faint: #6f6145;
+    --accent: #2a6b4a; --accent-light: #e8f4ee; --accent-border: #b8dfc8;
+    --warn-bg: #fef3c7; --warn-border: #fcd34d;
+    --radius: 12px; --radius-xs: 6px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; padding: 2rem 1rem 4rem; font-size: 16px; }
+  .section { margin-bottom: 2.5rem; max-width: 720px; }
+  .section-heading { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1.5rem; }
+  .subsection { margin-bottom: 1.5rem; }
+  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
+  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
+  p:last-child { margin-bottom: 0; }
+  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
+  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
+  pre {
+    background: #1e1c1a;
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0 1.25rem;
+    overflow-x: auto;
+  }
+  pre code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    color: #d4cfca;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1.7;
+  }
+</style>
+
+<div class="section">
+  <h2 class="section-heading" id="multi-chat">5. Multi-Chat</h2>
+
+  <p>In the <strong>Multi-Chat</strong> section you will see two default characters — Natasha and Anya. You can start chatting immediately. Each character responds independently.</p>
+
+  <div class="info-card">
+    <ul class="info-list">
+      <li>Tap a character icon → open their gallery</li>
+      <li>Use <strong>Edit</strong> to add characters, change behavior, or edit the greeting message</li>
+      <li>Optimal: 2–4 characters</li>
+      <li>Maximum: up to 5 — more may result in overly long responses or character confusion</li>
+    </ul>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-heading" id="multi-attribution">5.1 Fixing Response Attribution Issues</h3>
+    <p>In long chats with many characters, some may occasionally go silent or respond as if they were a different character. If this happens, add an explicit response format instruction to the Multi-Chat behavior card:</p>
+    <pre><code>Reply in turns. Format strictly as:
+CharacterName: 'text', CharacterName: 'text'</code></pre>
+    <div class="accent-card">
+      💡 This forces the model to clearly label each response and maintain separate voices. It is usually not necessary, but in long sessions with 4–5 characters it reliably prevents mixing and silence.
+    </div>
+  </div>
+</div>
 
       <!-- 6 -->
       <div class="section">
@@ -489,11 +647,56 @@
           </div>
         </div>
 
-        <div class="subsection">
-          <h3 class="subsection-heading" id="chat-images">6.3 Image Generation</h3>
-          <p>In single-character chats, there is a <strong>Photo</strong> button. It generates an image based on the current scene, pose, clothing, and mood. You can regenerate the result.</p>
-        </div>
+        <!-- 6.3 -->
+<div class="subsection">
+  <h3 class="subsection-heading" id="chat-images">6.3 Image Generation in Chat</h3>
+  <p>In single-character chats, a <strong>Photo</strong> button is available. It visualizes the current scene — showing the character as they appear right now, in the current setting, with the actions and mood of the ongoing conversation.</p>
 
+  <div class="mini-heading">How it works</div>
+  <p>When tapped, the app automatically extracts the scene:</p>
+  <div class="info-card">
+    <ul class="info-list">
+      <li>Current location</li>
+      <li>Character's actions, pose, and mood</li>
+      <li>Recent chat context</li>
+    </ul>
+  </div>
+  <p>This allows you to see the character in a café, trying on clothes, on a walk, in the kitchen, and many other situations. Scene extraction works correctly in 54 languages — on rare languages, location may be slightly less accurate, but character actions are generally recognized well.</p>
+
+  <div class="mini-heading">Limitations</div>
+  <div class="info-card">
+    <ul class="info-list">
+      <li><strong>Physical contact</strong> (hugging, kissing, dancing together, etc.) is not supported — since the app doesn't know what the user looks like, the character will be generated alone. They may, for example, blow a kiss or stand nearby.</li>
+      <li><strong>Explicit sexual acts</strong> are not directly depicted. The generator produces arousing poses, suggestions, or invitations to intimacy — "before" or "after" scenes, but not the act itself.</li>
+      <li><strong>Well-supported scenes:</strong> walks, cafés, kitchen, trying on clothes, lingerie, nudity in various settings, and other everyday or intimate moments.</li>
+    </ul>
+  </div>
+
+  <div class="mini-heading">Working with results</div>
+  <div class="info-card">
+    <ul class="info-list">
+      <li>If the first image doesn't quite match your vision — tap <strong>Regenerate</strong>. The next generation may better reflect what you had in mind.</li>
+      <li>Tap the image to open it full-screen. If the current branch contains multiple images, you can swipe through them as a gallery.</li>
+    </ul>
+  </div>
+
+  <div class="mini-heading">Tips for better results</div>
+  <p>The more precisely the scene is described in chat, the better the output. Specify location, clothing, time of day, mood, and actions. You don't need to describe yourself — just describe what the character is doing and where they are.</p>
+  <div class="info-card">
+    <ul class="info-list">
+      <li>With little detail — the model will improvise more</li>
+      <li>With sufficient detail — you'll likely get exactly what you expected</li>
+    </ul>
+  </div>
+  <p>Even after the first greeting message you can get a decent image, but the richer the context, the more accurate the result.</p>
+
+  <div class="mini-heading">Image storage and cleanup</div>
+  <div class="accent-card">
+    🔒 All generated images are stored inside the app and do <strong>not</strong> appear in the device gallery. If images accumulate over time, go to <strong>Settings → Auto-delete chat images</strong> to enable automatic cleanup (7 to 60 days). This applies only to chat images — the character gallery is not affected.
+  </div>
+</div>
+
+<div class="divider"></div>
         <div class="subsection">
           <h3 class="subsection-heading" id="chat-edit">6.4 Message Editing</h3>
           <p>Long press on a message to edit, delete, or copy. After editing or deleting, the conversation continues from that point.</p>
@@ -504,67 +707,201 @@
           <p>Voice input via keyboard is recommended. The model generally understands context well, but it's better to review the text before sending.</p>
         </div>
 
-        <div class="subsection">
-          <h3 class="subsection-heading" id="chat-storage">6.6 Image Storage</h3>
-          <div class="accent-card">
-            🔒 All generated images are stored inside the app and do <strong>not</strong> appear in the device gallery.
-          </div>
-        </div>
+        <!-- 6.6 -->
+<div class="subsection">
+  <h3 class="subsection-heading" id="chat-summarization">6.6 Long Chats and Summarization</h3>
+
+  <div class="mini-heading">Branches</div>
+  <p>Don't hesitate to create new branches and forks. You can edit both your own messages and the character's. The last character message can be regenerated at any time.</p>
+
+  <div class="mini-heading">Automatic summarization</div>
+  <p>Every 30 messages (by default), the app generates a summary of key events — a compressed "memory block". This serves two purposes:</p>
+  <div class="info-card">
+    <ul class="info-list">
+      <li><strong>Saves tokens</strong> — without summarization, longer chats become progressively more expensive</li>
+      <li><strong>Keeps the character aware</strong> of your shared history — name, relationship, key events — even as the conversation grows</li>
+    </ul>
+  </div>
+  <p>Each new 30-message block adds another summary. The number of active summary blocks loaded into context is configurable:</p>
+  <div class="info-card">
+    <table class="mem-table">
+      <thead>
+        <tr><th>Setting</th><th>Effect</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>No memory, maximum token savings</td></tr>
+        <tr><td>4 (default)</td><td>Balanced — covers recent shared history</td></tr>
+        <tr><td>Higher</td><td>Character remembers older events, but costs more tokens</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>In practice, 4 blocks is sufficient for most long-term conversations.</p>
+
+  <div class="mini-heading">Character stability</div>
+  <div class="info-card">
+    <ul class="info-list">
+      <li><strong>Personality Reminder</strong> — enabled by default (every 10 messages). Increasing frequency (e.g. every 5) improves character consistency.</li>
+      <li><strong>Temperature (Creativity)</strong> — recommended range: 0.7–0.75. Lower → more stable and predictable. Higher → more creative, but higher risk of personality drift.</li>
+    </ul>
+  </div>
+
+  <div class="mini-heading">Response length</div>
+  <p>You can manually limit the model's response length in settings if you prefer short, concise replies. DeepSeek adapts well to any communication style — brief exchanges work just as well as detailed ones.</p>
+</div>
       </div>
 
       <!-- 7 -->
       <div class="section">
-        <h2 class="section-heading" id="settings">7. Advanced Settings</h2>
+  <h2 class="section-heading" id="export">7. Data Export and Import</h2>
 
-        <div class="subsection">
-          <h3 class="subsection-heading">Creativity (temperature)</h3>
-          <div class="info-card">
-            <ul class="info-list">
-              <li>~0.7 → stable character behavior</li>
-              <li>1.2–1.5 → more creative, but possible personality drift</li>
-            </ul>
-          </div>
-        </div>
+  <p>Uncensored Souls uses a local-first architecture — all your data is stored on your device only. To back up your data or transfer it to another device (Android ↔ Windows ↔ macOS), use the export/import feature.</p>
 
-        <div class="subsection">
-          <h3 class="subsection-heading">Personality Reminder</h3>
-          <p>Recommended to enable. Optimal frequency: about 1 in 10 messages.</p>
-        </div>
+  <div class="info-card">
+    <p style="font-size:0.88rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.6rem;">What is transferred</p>
+    <ul class="info-list">
+      <li>All characters and their settings</li>
+      <li>All chat branches (including your messages)</li>
+      <li>Character avatars</li>
+      <li>Character gallery images</li>
+      <li>Images generated inside chats</li>
+    </ul>
+  </div>
 
-        <div class="subsection">
-          <h3 class="subsection-heading">Long Chat Summarization</h3>
-          <p>Allows the character to retain memory in long conversations. Recommended if you plan long-term interaction. The longer the interaction, the higher the limit can be set.</p>
-          <div class="warn-card">⚠️ <strong>Clear All Summaries</strong> affects all characters.</div>
-        </div>
+  <!-- 7.1 -->
+  <div class="subsection">
+    <h3 class="subsection-heading" id="export-create">7.1 Creating a Backup (Export)</h3>
+    <div class="info-card">
+      <ol class="steps">
+        <li>Go to <strong>Settings → Export and Import Data</strong></li>
+        <li>Tap <strong>"Export Data"</strong></li>
+        <li>Wait for the process to complete</li>
+      </ol>
+    </div>
+    <div class="accent-card">
+      ✅ A green notification will confirm: "Data exported successfully."<br>
+      <span style="margin-top:0.4rem;display:block;">File name format: <code>uncensored_souls_backup_20260510.usbackup</code></span>
+    </div>
+  </div>
 
-        <div class="subsection">
-          <h3 class="subsection-heading">Auto-delete Chat Images</h3>
-          <p>Applies only to images generated inside chats. Does not affect character gallery. Range: 7 to 60 days.</p>
-        </div>
+  <!-- 7.2 -->
+  <div class="subsection">
+    <h3 class="subsection-heading" id="export-import">7.2 Importing Data</h3>
+    <div class="info-card">
+      <ol class="steps">
+        <li>In the same section, tap <strong>"Import Data"</strong></li>
+        <li>Select a <code>.usbackup</code> file via the system file manager</li>
+        <li>A warning will appear: <em>"Existing characters with matching IDs will be updated."</em></li>
+        <li>Tap <strong>"Confirm"</strong></li>
+        <li>Wait for the import to complete (spinning indicator)</li>
+      </ol>
+    </div>
+    <p>Once done, all data (characters, chats, images) will be immediately available in the app.</p>
+  </div>
 
-        <div class="subsection">
-          <h3 class="subsection-heading">AI Response Limit</h3>
-          <p>Controls the maximum length of AI responses (in tokens).</p>
-          <div class="info-card">
-            <table class="token-table">
-              <thead>
-                <tr><th>Range</th><th>Description</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>100–200</td><td>Minimal cost, short but expressive replies</td></tr>
-                <tr><td>300–800</td><td>Balanced mode for regular roleplay</td></tr>
-                <tr><td>1000–2000</td><td>Long, detailed responses</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p>Higher values significantly increase cost and are usually unnecessary. In multi-character chats, total usage scales with the number of characters.</p>
-        </div>
+  <!-- 7.3 -->
+  <div class="subsection">
+    <h3 class="subsection-heading" id="export-platforms">7.3 Platform-Specific Notes</h3>
 
-        <div class="subsection">
-          <h3 class="subsection-heading">User Input Limit</h3>
-          <p>Can be left unchanged — not critical for typical usage.</p>
-        </div>
+    <div class="platform-block">
+      <div class="platform-block-header">Android</div>
+      <div class="platform-block-body">
+        <ul>
+          <li>Export automatically saves to the Downloads folder</li>
+          <li>The file can be easily copied or shared via Telegram, email, USB, etc.</li>
+        </ul>
       </div>
+    </div>
+
+    <div class="platform-block">
+      <div class="platform-block-header">Windows</div>
+      <div class="platform-block-body">
+        <ul>
+          <li>On export, you choose the save folder manually</li>
+          <li>On import, the standard Windows Explorer opens</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="platform-block">
+      <div class="platform-block-header">macOS — Alpha version</div>
+      <div class="platform-block-body">
+        <ul>
+          <li>Export saves the file via the standard Finder dialog</li>
+          <li>On import, the file is first placed in the app's internal folder, which then opens automatically with the file highlighted</li>
+          <li>You can copy it to a convenient location (e.g. Desktop or iCloud) for transfer between devices</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7.4 -->
+  <div class="subsection">
+    <h3 class="subsection-heading" id="export-tips">7.4 Tips</h3>
+    <div class="info-card">
+      <ul class="info-list">
+        <li>A single <code>.usbackup</code> file contains everything — only one file needs to be transferred</li>
+        <li>The file can be opened as a regular zip archive (in WinRAR, enable "show all file types")</li>
+        <li>It is recommended to export before major app updates or when switching to a new device</li>
+        <li>Import updates existing characters with the same ID rather than creating duplicates</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+     <div class="section">
+  <h2 class="section-heading" id="spending">8. Monitoring Your Spending</h2>
+  <p>The current version does not include a built-in expense tracker. However, you can monitor all spending accurately and in detail directly on the providers' websites.</p>
+
+  <!-- 8.1 -->
+  <div class="subsection">
+    <h3 class="subsection-heading" id="spending-deepseek">8.1 Chat (DeepSeek)</h3>
+    <a class="link-card" href="https://platform.deepseek.com/usage" target="_blank">
+      <span>DeepSeek Usage Dashboard</span>
+      <span class="link-url">platform.deepseek.com/usage</span>
+    </a>
+    <div class="info-card">
+      <ul class="info-list">
+        <li>Daily statistics: tokens used and amount spent in cents</li>
+        <li>Chat accounts for the vast majority of spending — typically 90–98% of total costs</li>
+        <li>Character verification and scene extraction costs are negligible</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8.2 -->
+  <div class="subsection">
+    <h3 class="subsection-heading" id="spending-novita">8.2 Image Generation (Novita AI)</h3>
+    <a class="link-card" href="https://novita.ai/billing/details" target="_blank">
+      <span>Novita AI Billing Details</span>
+      <span class="link-url">novita.ai/billing/details</span>
+    </a>
+    <div class="info-card">
+      <ul class="info-list">
+        <li>Shows current balance and daily spending breakdown</li>
+        <li>One generation or regeneration costs approximately $0.005 (~0.5¢)</li>
+        <li>If a generation fails (e.g. due to server load), no charge is applied</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8.3 -->
+  <div class="subsection">
+    <h3 class="subsection-heading" id="spending-typical">8.3 Typical Costs</h3>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cost-label">Images per $1</div>
+        <div class="cost-value">~200</div>
+        <div class="cost-sub">at ~$0.005 each</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-label">Monthly (typical user)</div>
+        <div class="cost-value">$2–4</div>
+        <div class="cost-sub">chat + regular image use</div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
       <div style="margin-top:1rem; padding-top:1.5rem; border-top:1px solid var(--border);">
         <a class="back-link" href="index.html">← Back to main page</a>
