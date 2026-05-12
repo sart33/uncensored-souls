@@ -9,379 +9,7 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg: #f8f7f4;
-    --surface: #ffffff;
-    --surface-alt: #f2f0eb;
-    --border: #e2dfd8;
-    --border-strong: #c8c4bb;
-    --text: #1a1917;
-    --text-muted: #55524c;
-    --text-faint: #6f6145;
-    --accent: #2a6b4a;
-    --accent-light: #e8f4ee;
-    --accent-border: #b8dfc8;
-    --warn: #92400e;
-    --warn-bg: #fef3c7;
-    --warn-border: #fcd34d;
-    --radius: 12px;
-    --radius-sm: 8px;
-    --radius-xs: 6px;
-    --sidebar-w: 220px;
-    --gap: 2rem;
-  }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-    padding: 2rem 1rem 4rem;
-    font-size: 16px;
-  }
-
-  @media (min-width: 641px) { body { font-size: 17px; } }
-
-  /* ── Layout ── */
-  .page { max-width: 1160px; margin: 0 auto; }
-
-  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; margin-bottom: 1.5rem; transition: color 0.15s; }
-  .back-link:hover { color: var(--text); }
-
-  .header { padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-  .header h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
-  .header .sub { color: var(--text-muted); font-size: 1.1rem; }
-
-  /* Desktop: sidebar + content side by side */
-  .layout {
-    display: grid;
-    grid-template-columns: var(--sidebar-w) 1fr;
-    gap: var(--gap);
-    align-items: start;
-  }
-
-  /* ── Sidebar ── */
-  .sidebar {
-    position: sticky;
-    top: 1.5rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-  }
-
-  .toc-title {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    margin-bottom: 0.75rem;
-  }
-
-  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-
-  .toc-list a {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    padding: 4px 8px;
-    border-radius: var(--radius-xs);
-    transition: background 0.12s, color 0.12s;
-    line-height: 1.4;
-    font-weight: 500;
-  }
-  .toc-list a:hover { background: var(--surface-alt); color: var(--text); }
-  .toc-list a.active { background: var(--accent-light); color: var(--accent); }
-
-  .toc-list .toc-sub a {
-    font-size: 0.8rem;
-    padding-left: 1.25rem;
-    font-weight: 400;
-    color: var(--text-faint);
-  }
-  .toc-list .toc-sub a:hover { color: var(--text-muted); }
-  .toc-list .toc-sub a.active { color: var(--accent); }
-
-  /* ── Content ── */
-  .content { min-width: 0; }
-
-  .section { margin-bottom: 2.5rem; }
-
-  .section-heading {
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-    scroll-margin-top: 1.5rem;
-  }
-
-  .subsection { margin-bottom: 1.5rem; }
-
-  .subsection-heading {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.6rem;
-    scroll-margin-top: 1.5rem;
-  }
-
-  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
-  p:last-child { margin-bottom: 0; }
-
-  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
-
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
-  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
-
-  .warn-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #78350f; line-height: 1.6; font-weight: 500; }
-
-  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
-
-  .label-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .label-row:last-child { border-bottom: none; }
-  .label-row .lbl { font-weight: 600; color: var(--text); white-space: nowrap; }
-  .label-row .val { color: var(--text-muted); }
-
-  code {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.88rem;
-    background: var(--surface-alt);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1px 6px;
-    color: var(--text);
-  }
-
-  .link-card {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: border-color 0.15s;
-  }
-  .link-card:hover { border-color: var(--accent-border); }
-  .link-card .link-url { font-size: 0.8rem; color: var(--accent); font-family: 'DM Mono', monospace; }
-
-  .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-
-  /* Style list (avatar styles) */
-  .style-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 0.5rem; }
-  .style-tag { background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 6px 12px; font-size: 0.88rem; color: var(--text-muted); font-weight: 500; text-align: center; }
-
-  /* Token range table */
-  .token-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem; }
-  .token-table th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); padding: 6px 10px; border-bottom: 1px solid var(--border); }
-  .token-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; font-weight: 500; }
-  .token-table td:first-child { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--text); font-weight: 400; white-space: nowrap; }
-  .token-table tr:last-child td { border-bottom: none; }
-
-  /* ── Mobile TOC (≤640px) ── */
-  .mobile-toc {
-    display: none;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-  }
-
-  .mobile-toc summary {
-    padding: 0.9rem 1.25rem;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .mobile-toc summary::after { content: '▾'; color: var(--text-faint); }
-  .mobile-toc[open] summary::after { content: '▴'; }
-
-  .mobile-toc-links {
-    padding: 0.5rem 1rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .mobile-toc-links a { font-size: 0.88rem; color: var(--text-muted); text-decoration: none; padding: 4px 6px; border-radius: var(--radius-xs); font-weight: 500; }
-  .mobile-toc-links a:hover { background: var(--surface-alt); }
-  .mobile-toc-links .sub-link { padding-left: 1.25rem; font-size: 0.82rem; color: var(--text-faint); }
-
-  @media (max-width: 640px) {
-    .sidebar { display: none; }
-    .mobile-toc { display: block; }
-    .layout { grid-template-columns: 1fr; }
-    .back-link { font-size: 0.8rem; }
-    .header h1 { font-size: 1.5rem; }
-    .header .sub { font-size: 0.9rem; }
-    .section-heading { font-size: 1.1rem; }
-    .subsection-heading { font-size: 0.95rem; }
-    p { font-size: 0.88rem; }
-    .info-list li { font-size: 0.85rem; padding-left: 0.7rem; }
-    .info-card { padding: 1rem; }
-    .style-grid { grid-template-columns: 1fr; }
-    .token-table { font-size: 0.82rem; }
-  }
-</style>
-</head>
-<body>
-<div class="page">
-
-  <a class="back-link" href="index.html">← Back to main page</a>
-
-  <div class="header">
-    <h1>User Guide</h1>
-    <div class="sub">Uncensored Souls</div>
-  </div>
-
-  <!-- Mobile TOC -->
-  <details class="mobile-toc">
-    <summary>Table of Contents</summary>
-    <div class="mobile-toc-links">
-      <a href="#general">1. General Information</a>
-      <a href="#api-keys">2. API Keys Setup</a>
-      <a class="sub-link" href="#api-deepseek">DeepSeek API</a>
-      <a class="sub-link" href="#api-novita">Novita AI</a>
-      <a href="#quick-setup">3. Quick Setup</a>
-      <a href="#characters">4. Characters</a>
-      <a class="sub-link" href="#default-chars">4.1 Default Characters</a>
-      <a class="sub-link" href="#new-char">4.2 Creating a New Character</a>
-      <a class="sub-link" href="#editing-chars">4.3 Editing a Character</a>
-      <a class="sub-link" href="#appearance">4.4 Appearance Guidelines</a>
-      <a class="sub-link" href="#behavior">4.5 Personality & Behavior</a>
-      <a class="sub-link" href="#saving">4.6 Saving and Deleting</a>
-      <a class="sub-link" href="#age-check">4.7 Age Verification</a>
-      <a class="sub-link" href="#avatar">4.8 Avatar Generation</a>
-      <a class="sub-link" href="#gallery">4.9 Character Gallery</a>
-      <a class="sub-link" href="#gallery-chat">4.10 Gallery Access from Chat</a>
-      <a href="#multi-chat">5. Multi-Chat</a>
-      <a href="#chat">6. Chat Usage</a>
-      <a class="sub-link" href="#chat-flow">General Flow</a>
-      <a class="sub-link" href="#chat-controls">Controlling Responses</a>
-      <a class="sub-link" href="#chat-images">Image Generation</a>
-      <a class="sub-link" href="#chat-edit">Message Editing</a>
-      <a class="sub-link" href="#chat-voice">Voice Input</a>
-      <a class="sub-link" href="#chat-summarization">Summarization</a>
-      <a href="#export">7. Data Export and Import</a>
-      <a href="#spending">8. Monitoring Your Spending</a>
-      <a href="#settings">9. Advanced Settings</a>
-      <a href="#troubleshooting">10. Troubleshooting</a>
-    </div>
-  </details>
-
-  <div class="layout">
-
-    <!-- Desktop sidebar -->
-    <nav class="sidebar">
-      <div class="toc-title">Contents</div>
-      <ul class="toc-list">
-        <li><a href="#general">1. General Information</a></li>
-        <li><a href="#api-keys">2. API Keys Setup</a></li>
-        <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
-        <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
-        <li><a href="#quick-setup">3. Quick Setup</a></li>
-        <li><a href="#characters">4. Characters</a></li>
-        <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
-        <li class="toc-sub"><a href="#new-char">4.2 New Character</a></li>
-        <li class="toc-sub"><a href="#editing-chars">4.3 Editing</a></li>
-        <li class="toc-sub"><a href="#appearance">4.4 Appearance</a></li>
-        <li class="toc-sub"><a href="#behavior">4.5 Behavior</a></li>
-        <li class="toc-sub"><a href="#saving">4.6 Saving & Deleting</a></li>
-        <li class="toc-sub"><a href="#age-check">4.7 Age Verification</a></li>
-        <li class="toc-sub"><a href="#avatar">4.8 Avatar Generation</a></li>
-        <li class="toc-sub"><a href="#gallery">4.9 Gallery</a></li>
-        <li class="toc-sub"><a href="#gallery-chat">4.10 Gallery from Chat</a></li>
-        <li><a href="#multi-chat">5. Multi-Chat</a></li>
-        <li><a href="#chat">6. Chat Usage</a></li>
-        <li class="toc-sub"><a href="#chat-flow">General Flow</a></li>
-        <li class="toc-sub"><a href="#chat-controls">Responses</a></li>
-        <li class="toc-sub"><a href="#chat-images">Images</a></li>
-        <li class="toc-sub"><a href="#chat-edit">Editing</a></li>
-        <li class="toc-sub"><a href="#chat-voice">Voice Input</a></li>
-        <li class="toc-sub"><a href="#chat-summarization">Summarization</a></li>
-        <li><a href="#export">7. Export & Import</a></li>
-        <li><a href="#spending">8. Spending</a></li>
-        <li><a href="#settings">9. Advanced Settings</a></li>
-        <li><a href="#troubleshooting">10. Troubleshooting</a></li>
-      </ul>
-    </nav>
-
-    <!-- Main content -->
-    <div class="content">
-
-      <!-- 1 -->
-      <div class="section">
-        <h2 class="section-heading" id="general">1. General Information</h2>
-        <div class="warn-card">
-          ⚠️ <strong>18+</strong> — When you launch the app for the first time, you will see an age restriction screen. If you are under 18 — press "No".
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="section">
-        <h2 class="section-heading" id="api-keys">2. API Keys Setup</h2>
-        <p>Go to: <code>Settings → API Keys</code></p>
-        <p>You need to enter two keys:</p>
-
-        <div class="subsection">
-          <h3 class="subsection-heading" id="api-deepseek">DeepSeek API (required for chat)</h3>
-          <a class="link-card" href="https://platform.deepseek.com/api_keys" target="_blank">
-            <span>DeepSeek API Keys</span>
-            <span class="link-url">platform.deepseek.com/api_keys</span>
-          </a>
-          <p>Minimum deposit: $2. If you set a response limit, this can last for a fairly long time.</p>
-        </div>
-
-        <div class="subsection">
-          <h3 class="subsection-heading" id="api-novita">Novita AI (for image generation)</h3>
-          <a class="link-card" href="https://novita.ai/dashboard/api-keys" target="_blank">
-            <span>Novita AI API Keys</span>
-            <span class="link-url">novita.ai/dashboard/api-keys</span>
-          </a>
-          <p>Minimum deposit: $10. One image costs about half a cent, so this is enough for a large number of generations.</p>
-        </div>
-
-        <div class="info-card">
-          <ul class="info-list">
-            <li>DeepSeek key entered → chat becomes available</li>
-            <li>Novita key entered → image generation is unlocked</li>
-            <li>API keys are stored only on your device</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="section">
-        <h2 class="section-heading" id="quick-setup">3. Quick Setup</h2>
-        <div class="subsection">
-          <h3 class="subsection-heading">Chat Text Size</h3>
-          <p>After entering API keys, go to settings and choose a comfortable chat font size.</p>
-        </div>
-      </div>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --bg: #f8f7f4;
@@ -416,7 +44,7 @@
 
   @media (min-width: 641px) { body { font-size: 17px; } }
 
-  .page { max-width: 1160px; margin: 0 auto; }
+  .page { max-width: 960px; margin: 0 auto; }
 
   .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; margin-bottom: 1.5rem; transition: color 0.15s; }
   .back-link:hover { color: var(--text); }
@@ -602,6 +230,143 @@
     .style-table, .token-table, .gallery-table { font-size: 0.82rem; }
   }
 </style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-link" href="index.html">← Back to main page</a>
+
+  <div class="header">
+    <h1>User Guide</h1>
+    <div class="sub">Uncensored Souls</div>
+  </div>
+
+  <!-- Mobile TOC -->
+  <details class="mobile-toc">
+    <summary>Table of Contents</summary>
+    <div class="mobile-toc-links">
+      <a href="#general">1. General Information</a>
+      <a href="#api-keys">2. API Keys Setup</a>
+      <a class="sub-link" href="#api-deepseek">DeepSeek API</a>
+      <a class="sub-link" href="#api-novita">Novita AI</a>
+      <a href="#quick-setup">3. Quick Setup</a>
+      <a href="#characters">4. Characters</a>
+      <a class="sub-link" href="#default-chars">4.1 Default Characters</a>
+      <a class="sub-link" href="#new-char">4.2 Creating a New Character</a>
+      <a class="sub-link" href="#editing-chars">4.3 Editing a Character</a>
+      <a class="sub-link" href="#appearance">4.4 Appearance Guidelines</a>
+      <a class="sub-link" href="#behavior">4.5 Personality & Behavior</a>
+      <a class="sub-link" href="#saving">4.6 Saving and Deleting</a>
+      <a class="sub-link" href="#age-check">4.7 Age Verification</a>
+      <a class="sub-link" href="#avatar">4.8 Avatar Generation</a>
+      <a class="sub-link" href="#gallery">4.9 Character Gallery</a>
+      <a class="sub-link" href="#gallery-chat">4.10 Gallery Access from Chat</a>
+      <a href="#multi-chat">5. Multi-Chat</a>
+      <a href="#chat">6. Chat Usage</a>
+      <a class="sub-link" href="#chat-flow">General Flow</a>
+      <a class="sub-link" href="#chat-controls">Controlling Responses</a>
+      <a class="sub-link" href="#chat-images">Image Generation</a>
+      <a class="sub-link" href="#chat-edit">Message Editing</a>
+      <a class="sub-link" href="#chat-voice">Voice Input</a>
+      <a class="sub-link" href="#chat-summarization">Summarization</a>
+      <a href="#export">7. Data Export and Import</a>
+      <a href="#spending">8. Monitoring Your Spending</a>
+      <a href="#settings">9. Advanced Settings</a>
+      <a href="#troubleshooting">10. Troubleshooting</a>
+    </div>
+  </details>
+
+  <div class="layout">
+
+    <!-- Desktop sidebar -->
+    <nav class="sidebar">
+      <div class="toc-title">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#general">1. General Information</a></li>
+        <li><a href="#api-keys">2. API Keys Setup</a></li>
+        <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
+        <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
+        <li><a href="#quick-setup">3. Quick Setup</a></li>
+        <li><a href="#characters">4. Characters</a></li>
+        <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
+        <li class="toc-sub"><a href="#new-char">4.2 New Character</a></li>
+        <li class="toc-sub"><a href="#editing-chars">4.3 Editing</a></li>
+        <li class="toc-sub"><a href="#appearance">4.4 Appearance</a></li>
+        <li class="toc-sub"><a href="#behavior">4.5 Behavior</a></li>
+        <li class="toc-sub"><a href="#saving">4.6 Saving & Deleting</a></li>
+        <li class="toc-sub"><a href="#age-check">4.7 Age Verification</a></li>
+        <li class="toc-sub"><a href="#avatar">4.8 Avatar Generation</a></li>
+        <li class="toc-sub"><a href="#gallery">4.9 Gallery</a></li>
+        <li class="toc-sub"><a href="#gallery-chat">4.10 Gallery from Chat</a></li>
+        <li><a href="#multi-chat">5. Multi-Chat</a></li>
+        <li><a href="#chat">6. Chat Usage</a></li>
+        <li class="toc-sub"><a href="#chat-flow">General Flow</a></li>
+        <li class="toc-sub"><a href="#chat-controls">Responses</a></li>
+        <li class="toc-sub"><a href="#chat-images">Images</a></li>
+        <li class="toc-sub"><a href="#chat-edit">Editing</a></li>
+        <li class="toc-sub"><a href="#chat-voice">Voice Input</a></li>
+        <li class="toc-sub"><a href="#chat-summarization">Summarization</a></li>
+        <li><a href="#export">7. Export & Import</a></li>
+        <li><a href="#spending">8. Spending</a></li>
+        <li><a href="#settings">9. Advanced Settings</a></li>
+        <li><a href="#troubleshooting">10. Troubleshooting</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <div class="content">
+
+      <!-- 1 -->
+      <div class="section">
+        <h2 class="section-heading" id="general">1. General Information</h2>
+        <div class="warn-card">
+          ⚠️ <strong>18+</strong> — When you launch the app for the first time, you will see an age restriction screen. If you are under 18 — press "No".
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="section">
+        <h2 class="section-heading" id="api-keys">2. API Keys Setup</h2>
+        <p>Go to: <code>Settings → API Keys</code></p>
+        <p>You need to enter two keys:</p>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="api-deepseek">DeepSeek API (required for chat)</h3>
+          <a class="link-card" href="https://platform.deepseek.com/api_keys" target="_blank">
+            <span>DeepSeek API Keys</span>
+            <span class="link-url">platform.deepseek.com/api_keys</span>
+          </a>
+          <p>Minimum deposit: $2. If you set a response limit, this can last for a fairly long time.</p>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-heading" id="api-novita">Novita AI (for image generation)</h3>
+          <a class="link-card" href="https://novita.ai/dashboard/api-keys" target="_blank">
+            <span>Novita AI API Keys</span>
+            <span class="link-url">novita.ai/dashboard/api-keys</span>
+          </a>
+          <p>Minimum deposit: $10. One image costs about half a cent, so this is enough for a large number of generations.</p>
+        </div>
+
+        <div class="info-card">
+          <ul class="info-list">
+            <li>DeepSeek key entered → chat becomes available</li>
+            <li>Novita key entered → image generation is unlocked</li>
+            <li>API keys are stored only on your device</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="section">
+        <h2 class="section-heading" id="quick-setup">3. Quick Setup</h2>
+        <div class="subsection">
+          <h3 class="subsection-heading">Chat Text Size</h3>
+          <p>After entering API keys, go to settings and choose a comfortable chat font size.</p>
+        </div>
+      </div>
+<style>
+  
      <div class="section">
         <h2 class="section-heading" id="characters">4. Characters</h2>
 
