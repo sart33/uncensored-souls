@@ -625,7 +625,34 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
     </div>
   </div>
 </div>
-
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f8f7f4; --surface: #ffffff; --surface-alt: #f2f0eb;
+    --border: #e2dfd8; --text: #1a1917; --text-muted: #55524c; --text-faint: #6f6145;
+    --accent: #2a6b4a; --accent-light: #e8f4ee; --accent-border: #b8dfc8;
+    --warn-bg: #fef3c7; --warn-border: #fcd34d;
+    --radius: 12px; --radius-xs: 6px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; padding: 2rem 1rem 4rem; font-size: 16px; }
+  .subsection { margin-bottom: 1.75rem; max-width: 720px; }
+  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
+  .mini-heading { font-size: 0.9rem; font-weight: 600; color: var(--text); margin: 1rem 0 0.4rem; }
+  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
+  p:last-child { margin-bottom: 0; }
+  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
+  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
+  .warn-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #78350f; line-height: 1.6; font-weight: 500; }
+  .mem-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem; }
+  .mem-table th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  .mem-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; font-weight: 500; }
+  .mem-table td:first-child { font-family: 'DM Mono', monospace; font-size: 0.88rem; color: var(--text); font-weight: 400; white-space: nowrap; }
+  .mem-table tr:last-child td { border-bottom: none; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+</style>
       <!-- 6 -->
       <div class="section">
         <h2 class="section-heading" id="chat">6. Chat Usage</h2>
@@ -750,6 +777,88 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
 </div>
       </div>
 
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f8f7f4; --surface: #ffffff; --surface-alt: #f2f0eb;
+    --border: #e2dfd8; --text: #1a1917; --text-muted: #55524c; --text-faint: #6f6145;
+    --accent: #2a6b4a; --accent-light: #e8f4ee; --accent-border: #b8dfc8;
+    --warn-bg: #fef3c7; --warn-border: #fcd34d;
+    --radius: 12px; --radius-xs: 6px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; padding: 2rem 1rem 4rem; font-size: 16px; }
+  .section { margin-bottom: 2.5rem; max-width: 720px; }
+  .section-heading { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1.5rem; }
+  .subsection { margin-bottom: 1.75rem; }
+  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
+  .platform-heading { font-size: 0.88rem; font-weight: 600; color: var(--text); margin: 1rem 0 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
+  p:last-child { margin-bottom: 0; }
+  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
+  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
+  .warn-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #78350f; line-height: 1.6; font-weight: 500; }
+  code { font-family: 'DM Mono', monospace; font-size: 0.88rem; background: var(--surface-alt); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; color: var(--text); }
+
+  /* Numbered steps */
+  .steps { list-style: none; display: flex; flex-direction: column; gap: 10px; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .steps li::before {
+    content: counter(step);
+    min-width: 24px;
+    height: 24px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-faint);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Platform blocks */
+  .platform-block {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .platform-block-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .platform-block-body {
+    padding: 10px 14px;
+    background: var(--surface);
+  }
+  .platform-block-body ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .platform-block-body li { font-size: 0.92rem; color: var(--text-muted); padding-left: 1rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .platform-block-body li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); }
+</style>
       <!-- 7 -->
       <div class="section">
   <h2 class="section-heading" id="export">7. Data Export and Import</h2>
@@ -848,6 +957,56 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
   </div>
 
 </div>
+     <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f8f7f4; --surface: #ffffff; --surface-alt: #f2f0eb;
+    --border: #e2dfd8; --text: #1a1917; --text-muted: #55524c; --text-faint: #6f6145;
+    --accent: #2a6b4a; --accent-light: #e8f4ee; --accent-border: #b8dfc8;
+    --radius: 12px; --radius-sm: 8px; --radius-xs: 6px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; padding: 2rem 1rem 4rem; font-size: 16px; }
+  .section { margin-bottom: 2.5rem; max-width: 720px; }
+  .section-heading { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1.5rem; }
+  .subsection { margin-bottom: 1.75rem; }
+  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
+  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
+  p:last-child { margin-bottom: 0; }
+  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
+  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
+  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.15s;
+  }
+  .link-card:hover { border-color: var(--accent-border); }
+  .link-card .link-url { font-size: 0.8rem; color: var(--accent); font-family: 'DM Mono', monospace; }
+
+  /* Cost highlight cards */
+  .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+  .cost-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+  }
+  .cost-card .cost-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.3rem; }
+  .cost-card .cost-value { font-size: 1.5rem; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
+  .cost-card .cost-sub { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+</style>
      <div class="section">
   <h2 class="section-heading" id="spending">8. Monitoring Your Spending</h2>
   <p>The current version does not include a built-in expense tracker. However, you can monitor all spending accurately and in detail directly on the providers' websites.</p>
