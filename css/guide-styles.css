@@ -78,7 +78,16 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
+  /* Ключевое исправление: */
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  /* Тонкий скроллбар */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
 .toc-title {
   font-size: 0.72rem;
@@ -113,7 +122,23 @@ body {
 }
 .toc-list .toc-sub a:hover { color: var(--text-muted); }
 .toc-list .toc-sub a.active { color: var(--accent); }
+  /* ── Mobile TOC ── */
+  .mobile-toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .mobile-toc summary { padding: 0.9rem 1.25rem; font-size: 0.88rem; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+  .mobile-toc summary::after { content: '▾'; color: var(--text-faint); }
+  .mobile-toc[open] summary::after { content: '▴'; }
+  .mobile-toc-links { padding: 0.5rem 1rem 1rem; display: flex; flex-direction: column; gap: 2px; }
+  .mobile-toc-links a { font-size: 0.88rem; color: var(--text-muted); text-decoration: none; padding: 4px 6px; border-radius: var(--radius-xs); font-weight: 500; }
+  .mobile-toc-links a:hover { background: var(--surface-alt); }
+  .mobile-toc-links .sub-link { padding-left: 1.25rem; font-size: 0.82rem; color: var(--text-faint); }
 
+  h2 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--text-faint); border-bottom: 1px solid var(--border); padding-bottom: 0.25rem; }
 /* ══════════════════════════════════════════
    CONTENT
    ══════════════════════════════════════════ */
