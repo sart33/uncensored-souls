@@ -21,90 +21,115 @@
 
             <!-- Mobile TOC -->
             <details class="mobile-toc">
-                <summary>Table of Contents</summary>
-                <div class="mobile-toc-links">
-                    <a href="#general">1. General Information</a>
-                    <a href="#api-keys">2. API Keys Setup</a>
-                    <a class="sub-link" href="#api-deepseek">DeepSeek API</a>
-                    <a class="sub-link" href="#api-novita">Novita AI</a>
-                    <a href="#quick-setup">3. Quick Setup</a>
-                    <a href="#characters">4. Characters</a>
-                    <a class="sub-link" href="#default-chars">4.1 Default Characters</a>
-                    <a class="sub-link" href="#new-char">4.2 Creating a New Character</a>
-                    <a class="sub-link" href="#editing-chars">4.3 Editing a Character</a>
-                    <a class="sub-link" href="#appearance">4.4 Appearance Guidelines</a>
-                    <a class="sub-link" href="#behavior">4.5 Personality & Behavior</a>
-                    <a class="sub-link" href="#saving">4.6 Saving and Deleting</a>
-                    <a class="sub-link" href="#age-check">4.7 Age Verification</a>
-                    <a class="sub-link" href="#avatar">4.8 Avatar Generation</a>
-                    <a class="sub-link" href="#gallery">4.9 Character Gallery</a>
-                    <a class="sub-link" href="#gallery-chat">4.10 Gallery Access from Chat</a>
-                    <a href="#multi-chat">5. Multi-Chat</a>
-                    <a href="#chat">6. Chat Usage</a>
-                    <a class="sub-link" href="#chat-flow">General Flow</a>
-                    <a class="sub-link" href="#chat-controls">Controlling Responses</a>
-                    <a class="sub-link" href="#chat-images">Image Generation</a>
-                    <a class="sub-link" href="#chat-edit">Message Editing</a>
-                    <a class="sub-link" href="#chat-voice">Voice Input</a>
-                    <a class="sub-link" href="#chat-summarization">Summarization</a>
-                    <a href="#export">7. Data Export and Import</a>
-                    <a href="#spending">8. Monitoring Your Spending</a>
-                    <a href="#settings">9. Advanced Settings</a>
-                    <a href="#troubleshooting">10. Troubleshooting</a>
-                </div>
-            </details>
+  <summary>Table of Contents</summary>
+  <div class="mobile-toc-links">
+    <a href="#general">1. General Information</a>
+    <a href="#api-keys">2. API Keys Setup</a>
+    <a class="sub-link" href="#api-deepseek">DeepSeek API</a>
+    <a class="sub-link" href="#api-novita">Novita AI</a>
+    <a href="#quick-setup">3. Quick Setup</a>
+    <a href="#characters">4. Characters</a>
+    <a class="sub-link" href="#default-chars">4.1 Default Characters</a>
+    <a class="sub-link" href="#new-char">4.2 New Character</a>
+    <a class="sub-link" href="#editing-chars">4.3 Editing</a>
+    <a class="sub-link" href="#appearance">4.4 Appearance</a>
+    <a class="sub-link" href="#behavior">4.5 Behavior</a>
+    <a class="sub-link" href="#saving">4.6 Saving & Deleting</a>
+    <a class="sub-link" href="#age-check">4.7 Age Verification</a>
+    <a class="sub-link" href="#avatar">4.8 Avatar Generation</a>
+    <a class="sub-link" href="#gallery">4.9 Character Gallery</a>
+    <a class="sub-link" href="#gallery-chat">4.10 Gallery from Chat</a>
+    <a href="#multi-chat">5. Multi-Chat</a>
+    <a class="sub-link" href="#multi-attribution">5.1 Response Attribution</a>
+    <a href="#chat">6. Chat Usage</a>
+    <a class="sub-link" href="#chat-flow">6.1 General Flow</a>
+    <a class="sub-link" href="#chat-controls">6.2 Controlling Responses</a>
+    <a class="sub-link" href="#chat-images">6.3 Image Generation</a>
+    <a class="sub-link" href="#chat-edit">6.4 Message Editing</a>
+    <a class="sub-link" href="#chat-voice">6.5 Voice Input</a>
+    <a class="sub-link" href="#chat-storage">6.6 Image Storage</a>
+    <a class="sub-link" href="#chat-summarization">6.7 Summarization</a>
+    <a href="#export">7. Export & Import</a>
+    <a class="sub-link" href="#export-create">7.1 Creating a Backup</a>
+    <a class="sub-link" href="#export-import">7.2 Importing Data</a>
+    <a class="sub-link" href="#export-platforms">7.3 Platform Notes</a>
+    <a class="sub-link" href="#export-tips">7.4 Tips</a>
+    <a href="#spending">8. Spending</a>
+    <a class="sub-link" href="#spending-deepseek">8.1 Chat (DeepSeek)</a>
+    <a class="sub-link" href="#spending-novita">8.2 Images (Novita AI)</a>
+    <a class="sub-link" href="#spending-typical">8.3 Typical Costs</a>
+    <a href="#settings">9. Advanced Settings</a>
+    <a class="sub-link" href="#settings-temp">9.1 Creativity</a>
+    <a class="sub-link" href="#settings-reminder">9.2 Personality Reminder</a>
+    <a class="sub-link" href="#settings-summary">9.3 Summarization</a>
+    <a class="sub-link" href="#settings-length">9.4 Response Length</a>
+    <a class="sub-link" href="#settings-autodelete">9.5 Auto-delete Images</a>
+    <a href="#troubleshooting">10. Troubleshooting</a>
+    <a class="sub-link" href="#ts-loading">Chat not responding</a>
+    <a class="sub-link" href="#ts-artifacts">Image artifacts</a>
+    <a class="sub-link" href="#ts-gallery-diff">Gallery vs chat images</a>
+    <a class="sub-link" href="#ts-multchat">Multi-chat issues</a>
+    <a class="sub-link" href="#ts-export">Export / Import issues</a>
+    <a class="sub-link" href="#ts-storage">App storage</a>
+  </div>
+</details>
 
             <div class="layout">
 
                 <!-- Desktop sidebar -->
-                <nav class="sidebar">
-                    <div class="toc-title">Contents</div>
-                    <ul class="toc-list">
-                        <li><a href="#general">1. General Information</a></li>
-                        <li><a href="#api-keys">2. API Keys Setup</a></li>
-                        <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
-                        <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
-                        <li><a href="#quick-setup">3. Quick Setup</a></li>
-                        <li><a href="#characters">4. Characters</a></li>
-                        <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
-                        <li class="toc-sub"><a href="#new-char">4.2 New Character</a></li>
-                        <li class="toc-sub"><a href="#editing-chars">4.3 Editing</a></li>
-                        <li class="toc-sub"><a href="#appearance">4.4 Appearance</a></li>
-                        <li class="toc-sub"><a href="#behavior">4.5 Behavior</a></li>
-                        <li class="toc-sub"><a href="#saving">4.6 Saving & Deleting</a></li>
-                        <li class="toc-sub"><a href="#age-check">4.7 Age Verification</a></li>
-                        <li class="toc-sub"><a href="#avatar">4.8 Avatar Generation</a></li>
-                        <li class="toc-sub"><a href="#gallery">4.9 Gallery</a></li>
-                        <li class="toc-sub"><a href="#gallery-chat">4.10 Gallery from Chat</a></li>
-                        <li><a href="#multi-chat">5. Multi-Chat</a></li>
-                        <li class="toc-sub"><a href="#multi-attribution">5.1 Response Attribution</a></li>
-                        <li><a href="#chat">6. Chat Usage</a></li>
-                        <li class="toc-sub"><a href="#chat-flow">6.1 General Flow</a></li>
-                        <li class="toc-sub"><a href="#chat-controls">6.2 Controlling Responses</a></li>
-                        <li class="toc-sub"><a href="#chat-images">6.3 Image Generation</a></li>
-                        <li class="toc-sub"><a href="#chat-edit">6.4 Message Editing</a></li>
-                        <li class="toc-sub"><a href="#chat-voice">6.5 Voice Input</a></li>
-                        <li class="toc-sub"><a href="#chat-storage">6.6 Image Storage</a></li>
-                        <li class="toc-sub"><a href="#chat-summarization">6.7 Summarization</a></li>
-                        <li><a href="#export">7. Export & Import</a></li>
-                        <li class="toc-sub"><a href="#export-create">7.1 Creating a Backup</a></li>
-                        <li class="toc-sub"><a href="#export-import">7.2 Importing Data</a></li>
-                        <li class="toc-sub"><a href="#export-platforms">7.3 Platform Notes</a></li>
-                        <li class="toc-sub"><a href="#export-tips">7.4 Tips</a></li>
-                        <li><a href="#spending">8. Spending</a></li>
-                        <li class="toc-sub"><a href="#spending-deepseek">8.1 Chat (DeepSeek)</a></li>
-                        <li class="toc-sub"><a href="#spending-novita">8.2 Images (Novita AI)</a></li>
-                        <li class="toc-sub"><a href="#spending-typical">8.3 Typical Costs</a></li>
-                        <li><a href="#settings">9. Advanced Settings</a></li>
-                        <li class="toc-sub"><a href="#settings-temp">9.1 Creativity</a></li>
-                        <li class="toc-sub"><a href="#settings-reminder">9.2 Personality Reminder</a></li>
-                        <li class="toc-sub"><a href="#settings-summary">9.3 Summarization</a></li>
-                        <li class="toc-sub"><a href="#settings-length">9.4 Response Length</a></li>
-                        <li class="toc-sub"><a href="#settings-autodelete">9.5 Auto-delete Images</a></li>
-                        <li><a href="#troubleshooting">10. Troubleshooting</a></li>
-                    </ul>
-                </nav>
-
+                <nav class="sidebar" style="max-width:220px;">
+  <div class="toc-title">Contents</div>
+  <ul class="toc-list">
+    <li><a href="#general">1. General Information</a></li>
+    <li><a href="#api-keys">2. API Keys Setup</a></li>
+    <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
+    <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
+    <li><a href="#quick-setup">3. Quick Setup</a></li>
+    <li><a href="#characters">4. Characters</a></li>
+    <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
+    <li class="toc-sub"><a href="#new-char">4.2 New Character</a></li>
+    <li class="toc-sub"><a href="#editing-chars">4.3 Editing</a></li>
+    <li class="toc-sub"><a href="#appearance">4.4 Appearance</a></li>
+    <li class="toc-sub"><a href="#behavior">4.5 Behavior</a></li>
+    <li class="toc-sub"><a href="#saving">4.6 Saving & Deleting</a></li>
+    <li class="toc-sub"><a href="#age-check">4.7 Age Verification</a></li>
+    <li class="toc-sub"><a href="#avatar">4.8 Avatar Generation</a></li>
+    <li class="toc-sub"><a href="#gallery">4.9 Gallery</a></li>
+    <li class="toc-sub"><a href="#gallery-chat">4.10 Gallery from Chat</a></li>
+    <li><a href="#multi-chat">5. Multi-Chat</a></li>
+    <li class="toc-sub"><a href="#multi-attribution">5.1 Response Attribution</a></li>
+    <li><a href="#chat">6. Chat Usage</a></li>
+    <li class="toc-sub"><a href="#chat-flow">6.1 General Flow</a></li>
+    <li class="toc-sub"><a href="#chat-controls">6.2 Controlling Responses</a></li>
+    <li class="toc-sub"><a href="#chat-images">6.3 Image Generation</a></li>
+    <li class="toc-sub"><a href="#chat-edit">6.4 Message Editing</a></li>
+    <li class="toc-sub"><a href="#chat-voice">6.5 Voice Input</a></li>
+    <li class="toc-sub"><a href="#chat-storage">6.6 Image Storage</a></li>
+    <li class="toc-sub"><a href="#chat-summarization">6.7 Summarization</a></li>
+    <li><a href="#export">7. Export & Import</a></li>
+    <li class="toc-sub"><a href="#export-create">7.1 Creating a Backup</a></li>
+    <li class="toc-sub"><a href="#export-import">7.2 Importing Data</a></li>
+    <li class="toc-sub"><a href="#export-platforms">7.3 Platform Notes</a></li>
+    <li class="toc-sub"><a href="#export-tips">7.4 Tips</a></li>
+    <li><a href="#spending">8. Spending</a></li>
+    <li class="toc-sub"><a href="#spending-deepseek">8.1 Chat (DeepSeek)</a></li>
+    <li class="toc-sub"><a href="#spending-novita">8.2 Images (Novita AI)</a></li>
+    <li class="toc-sub"><a href="#spending-typical">8.3 Typical Costs</a></li>
+    <li><a href="#settings">9. Advanced Settings</a></li>
+    <li class="toc-sub"><a href="#settings-temp">9.1 Creativity</a></li>
+    <li class="toc-sub"><a href="#settings-reminder">9.2 Personality Reminder</a></li>
+    <li class="toc-sub"><a href="#settings-summary">9.3 Summarization</a></li>
+    <li class="toc-sub"><a href="#settings-length">9.4 Response Length</a></li>
+    <li class="toc-sub"><a href="#settings-autodelete">9.5 Auto-delete Images</a></li>
+    <li><a href="#troubleshooting">10. Troubleshooting</a></li>
+    <li class="toc-sub"><a href="#ts-loading">Chat not responding</a></li>
+    <li class="toc-sub"><a href="#ts-artifacts">Image artifacts</a></li>
+    <li class="toc-sub"><a href="#ts-gallery-diff">Gallery vs chat images</a></li>
+    <li class="toc-sub"><a href="#ts-multchat">Multi-chat issues</a></li>
+    <li class="toc-sub"><a href="#ts-export">Export / Import issues</a></li>
+    <li class="toc-sub"><a href="#ts-storage">App storage</a></li>
+  </ul>
+</nav>
                 <!-- Main content -->
                 <div class="content">
 
