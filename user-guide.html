@@ -733,74 +733,74 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
 
                 
                 <div class="section">
-                    <h2 class="section-heading" id="troubleshooting">10. Troubleshooting</h2>
-                    <p class="section-intro">Most issues in the app are accompanied by clear notifications with instructions. The following situations are exceptions where the app cannot fully explain what is happening.</p>
+    <h2 class="section-heading" id="troubleshooting">10. Troubleshooting</h2>
+    <p class="section-intro">Most issues in the app are accompanied by clear notifications with instructions. The following situations are exceptions where the app cannot fully explain what is happening.</p>
 
-                    <div class="issue-card">
-                        <div class="issue-header">
-                            <span class="issue-icon">⏳</span>
-                            <span class="issue-title">Chat not responding / infinite loading</span>
-                        </div>
-                        <div class="issue-body">
-                            <p>Occasionally DeepSeek servers experience high load (504 timeout). Wait 10–15 minutes and try again.</p>
-                        </div>
-                    </div>
+    <div class="issue-card" id="ts-loading">
+        <div class="issue-header">
+            <span class="issue-icon">⏳</span>
+            <span class="issue-title">Chat not responding / infinite loading</span>
+        </div>
+        <div class="issue-body">
+            <p>Occasionally DeepSeek servers experience high load (504 timeout). Wait 10–15 minutes and try again.</p>
+        </div>
+    </div>
 
-                    <div class="issue-card">
-                        <div class="issue-header">
-                            <span class="issue-icon">🖼</span>
-                            <span class="issue-title">Image generation artifacts</span>
-                        </div>
-                        <div class="issue-body">
-                            <p>In rare cases, chat image generation may produce extra limbs (e.g. three hands). This can occasionally happen when the app removes the user from the scene. Tap <strong>Regenerate</strong> — the next attempt is almost always clean.</p>
-                            <p>If racial or ethnic features are inconsistent, make sure ethnicity is explicitly stated in the character description in English (<em>Caucasian, Asian, Slavic</em>, etc.).</p>
-                        </div>
-                    </div>
+    <div class="issue-card" id="ts-artifacts">
+        <div class="issue-header">
+            <span class="issue-icon">🖼</span>
+            <span class="issue-title">Image generation artifacts</span>
+        </div>
+        <div class="issue-body">
+            <p>In rare cases, chat image generation may produce extra limbs (e.g. three hands). This can occasionally happen when the app removes the user from the scene. Tap <strong>Regenerate</strong> — the next attempt is almost always clean.</p>
+            <p>If racial or ethnic features are inconsistent, make sure ethnicity is explicitly stated in the character description in English (<em>Caucasian, Asian, Slavic</em>, etc.).</p>
+        </div>
+    </div>
 
-                    <div class="issue-card">
-                        <div class="issue-header">
-                            <span class="issue-icon">🎨</span>
-                            <span class="issue-title">Chat images look different from gallery images</span>
-                        </div>
-                        <div class="issue-body">
-                            <p>This is intentional. The gallery uses professional-style lighting and composition — think studio portraits. Chat images are realistic snapshots of the current scene, shot as if with a phone or amateur camera: natural lighting, ambient environment, no special setup.</p>
-                            <p>The character's appearance stays consistent; what changes is the atmosphere and conditions of the moment.</p>
-                        </div>
-                    </div>
+    <div class="issue-card" id="ts-gallery-diff">
+        <div class="issue-header">
+            <span class="issue-icon">🎨</span>
+            <span class="issue-title">Chat images look different from gallery images</span>
+        </div>
+        <div class="issue-body">
+            <p>This is intentional. The gallery uses professional-style lighting and composition — think studio portraits. Chat images are realistic snapshots of the current scene, shot as if with a phone or amateur camera: natural lighting, ambient environment, no special setup.</p>
+            <p>The character's appearance stays consistent; what changes is the atmosphere and conditions of the moment.</p>
+        </div>
+    </div>
 
-                    <div class="issue-card">
-                        <div class="issue-header">
-                            <span class="issue-icon">💬</span>
-                            <span class="issue-title">Multi-chat: characters go silent or mix up responses</span>
-                        </div>
-                        <div class="issue-body">
-                            <p>See <a href="#multi-attribution">Section 5.1 — Multi-Chat</a> for the recommended format fix.</p>
-                        </div>
-                    </div>
+    <div class="issue-card" id="ts-multchat">
+        <div class="issue-header">
+            <span class="issue-icon">💬</span>
+            <span class="issue-title">Multi-chat: characters go silent or mix up responses</span>
+        </div>
+        <div class="issue-body">
+            <p>See <a href="#multi-attribution">Section 5.1 — Multi-Chat</a> for the recommended format fix.</p>
+        </div>
+    </div>
 
-                    <div class="issue-card">
-                        <div class="issue-header">
-                            <span class="issue-icon">📦</span>
-                            <span class="issue-title">Export / Import issues</span>
-                        </div>
-                        <div class="issue-body">
-                            <p>If export produces a corrupted or incomplete file, run it again — the file will be fully overwritten.</p>
-                            <p>If import fails, check that there is enough free space on the device and try again.</p>
-                            <p>The <code>.usbackup</code> file may not open in some archive managers, but it will always open correctly inside the app. The format is consistent across Android, Windows, and macOS.</p>
-                        </div>
-                    </div>
+    <div class="issue-card" id="ts-export">
+        <div class="issue-header">
+            <span class="issue-icon">📦</span>
+            <span class="issue-title">Export / Import issues</span>
+        </div>
+        <div class="issue-body">
+            <p>If export produces a corrupted or incomplete file, run it again — the file will be fully overwritten.</p>
+            <p>If import fails, check that there is enough free space on the device and try again.</p>
+            <p>The <code>.usbackup</code> file may not open in some archive managers, but it will always open correctly inside the app. The format is consistent across Android, Windows, and macOS.</p>
+        </div>
+    </div>
 
-                    <div class="issue-card">
-                        <div class="issue-header">
-                            <span class="issue-icon">💾</span>
-                            <span class="issue-title">App takes up too much storage</span>
-                        </div>
-                        <div class="issue-body">
-                            <p>Enable <strong>Auto-delete Chat Images</strong> in Settings (7–60 days). This only affects images generated inside chats — character galleries are not affected.</p>
-                        </div>
-                    </div>
+    <div class="issue-card" id="ts-storage">
+        <div class="issue-header">
+            <span class="issue-icon">💾</span>
+            <span class="issue-title">App takes up too much storage</span>
+        </div>
+        <div class="issue-body">
+            <p>Enable <strong>Auto-delete Chat Images</strong> in Settings (7–60 days). This only affects images generated inside chats — character galleries are not affected.</p>
+        </div>
+    </div>
 
-                </div>
+</div>
             <div style="margin-top:1rem; padding-top:1.5rem; border-top:1px solid var(--border);">
     <a class="back-link" href="index.html">← Back to main page</a>
 </div>
