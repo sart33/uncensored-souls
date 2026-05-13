@@ -1,237 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Guide – Uncensored Souls</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #f8f7f4;
-    --surface: #ffffff;
-    --surface-alt: #f2f0eb;
-    --border: #e2dfd8;
-    --border-strong: #c8c4bb;
-    --text: #1a1917;
-    --text-muted: #55524c;
-    --text-faint: #6f6145;
-    --accent: #2a6b4a;
-    --accent-light: #e8f4ee;
-    --accent-border: #b8dfc8;
-    --warn: #92400e;
-    --warn-bg: #fef3c7;
-    --warn-border: #fcd34d;
-    --radius: 12px;
-    --radius-sm: 8px;
-    --radius-xs: 6px;
-    --sidebar-w: 220px;
-    --gap: 2rem;
-  }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-    padding: 2rem 1rem 4rem;
-    font-size: 16px;
-  }
-
-  @media (min-width: 641px) { body { font-size: 17px; } }
-
-  .page { max-width: 960px; margin: 0 auto; }
-
-  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; margin-bottom: 1.5rem; transition: color 0.15s; }
-  .back-link:hover { color: var(--text); }
-
-  .header { padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-  .header h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
-  .header .sub { color: var(--text-muted); font-size: 1.1rem; }
-
-  .layout {
-    display: grid;
-    grid-template-columns: var(--sidebar-w) 1fr;
-    gap: var(--gap);
-    align-items: start;
-  }
-
-  .sidebar {
-    position: sticky;
-    top: 1.5rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-  }
-
-  .toc-title {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    margin-bottom: 0.75rem;
-  }
-
-  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-
-  .toc-list a {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    padding: 4px 8px;
-    border-radius: var(--radius-xs);
-    transition: background 0.12s, color 0.12s;
-    line-height: 1.4;
-    font-weight: 500;
-  }
-  .toc-list a:hover { background: var(--surface-alt); color: var(--text); }
-  .toc-list a.active { background: var(--accent-light); color: var(--accent); }
-
-  .toc-list .toc-sub a {
-    font-size: 0.8rem;
-    padding-left: 1.25rem;
-    font-weight: 400;
-    color: var(--text-faint);
-  }
-  .toc-list .toc-sub a:hover { color: var(--text-muted); }
-  .toc-list .toc-sub a.active { color: var(--accent); }
-
-  .content { min-width: 0; }
-  .section { margin-bottom: 2.5rem; }
-
-  .section-heading {
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-    scroll-margin-top: 1.5rem;
-  }
-
-  .subsection { margin-bottom: 1.5rem; }
-
-  .subsection-heading {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.6rem;
-    scroll-margin-top: 1.5rem;
-  }
-
-  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
-  p:last-child { margin-bottom: 0; }
-
-  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
-  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
-
-  .warn-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #78350f; line-height: 1.6; font-weight: 500; }
-  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
-
-  code {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.88rem;
-    background: var(--surface-alt);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1px 6px;
-    color: var(--text);
-  }
-
-  .link-card {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: border-color 0.15s;
-  }
-  .link-card:hover { border-color: var(--accent-border); }
-  .link-card .link-url { font-size: 0.8rem; color: var(--accent); font-family: 'DM Mono', monospace; }
-
-  .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-
-  /* Styles table */
-  .style-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem; }
-  .style-table th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); padding: 6px 10px; border-bottom: 1px solid var(--border); }
-  .style-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; font-weight: 500; }
-  .style-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
-  .style-table tr:last-child td { border-bottom: none; }
-
-  /* Token range table */
-  .token-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem; }
-  .token-table th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); padding: 6px 10px; border-bottom: 1px solid var(--border); }
-  .token-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; font-weight: 500; }
-  .token-table td:first-child { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--text); font-weight: 400; white-space: nowrap; }
-  .token-table tr:last-child td { border-bottom: none; }
-
-  /* Gallery table */
-  .gallery-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem; }
-  .gallery-table th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); padding: 6px 10px; border-bottom: 1px solid var(--border); }
-  .gallery-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; font-weight: 500; }
-  .gallery-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
-  .gallery-table td:nth-child(2) { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--text-faint); }
-  .gallery-table tr:last-child td { border-bottom: none; }
-
-  /* Mobile TOC */
-  .mobile-toc {
-    display: none;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-  }
-  .mobile-toc summary {
-    padding: 0.9rem 1.25rem;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .mobile-toc summary::after { content: '▾'; color: var(--text-faint); }
-  .mobile-toc[open] summary::after { content: '▴'; }
-  .mobile-toc-links { padding: 0.5rem 1rem 1rem; display: flex; flex-direction: column; gap: 2px; }
-  .mobile-toc-links a { font-size: 0.88rem; color: var(--text-muted); text-decoration: none; padding: 4px 6px; border-radius: var(--radius-xs); font-weight: 500; }
-  .mobile-toc-links a:hover { background: var(--surface-alt); }
-  .mobile-toc-links .sub-link { padding-left: 1.25rem; font-size: 0.82rem; color: var(--text-faint); }
-
-  @media (max-width: 640px) {
-    .sidebar { display: none; }
-    .mobile-toc { display: block; }
-    .layout { grid-template-columns: 1fr; }
-    .header h1 { font-size: 1.5rem; }
-    .header .sub { font-size: 0.9rem; }
-    .section-heading { font-size: 1.1rem; }
-    .subsection-heading { font-size: 0.95rem; }
-    p { font-size: 0.88rem; }
-    .info-list li { font-size: 0.85rem; padding-left: 0.7rem; }
-    .info-card { padding: 1rem; }
-    .style-table, .token-table, .gallery-table { font-size: 0.82rem; }
-  }
-</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Guide – Uncensored Souls</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/guide-styles.css">
 </head>
-<body>
+ <body>
 <div class="page">
 
   <a class="back-link" href="index.html">← Back to main page</a>
@@ -279,39 +57,53 @@
   <div class="layout">
 
     <!-- Desktop sidebar -->
-    <nav class="sidebar">
-      <div class="toc-title">Contents</div>
-      <ul class="toc-list">
-        <li><a href="#general">1. General Information</a></li>
-        <li><a href="#api-keys">2. API Keys Setup</a></li>
-        <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
-        <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
-        <li><a href="#quick-setup">3. Quick Setup</a></li>
-        <li><a href="#characters">4. Characters</a></li>
-        <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
-        <li class="toc-sub"><a href="#new-char">4.2 New Character</a></li>
-        <li class="toc-sub"><a href="#editing-chars">4.3 Editing</a></li>
-        <li class="toc-sub"><a href="#appearance">4.4 Appearance</a></li>
-        <li class="toc-sub"><a href="#behavior">4.5 Behavior</a></li>
-        <li class="toc-sub"><a href="#saving">4.6 Saving & Deleting</a></li>
-        <li class="toc-sub"><a href="#age-check">4.7 Age Verification</a></li>
-        <li class="toc-sub"><a href="#avatar">4.8 Avatar Generation</a></li>
-        <li class="toc-sub"><a href="#gallery">4.9 Gallery</a></li>
-        <li class="toc-sub"><a href="#gallery-chat">4.10 Gallery from Chat</a></li>
-        <li><a href="#multi-chat">5. Multi-Chat</a></li>
-        <li><a href="#chat">6. Chat Usage</a></li>
-        <li class="toc-sub"><a href="#chat-flow">General Flow</a></li>
-        <li class="toc-sub"><a href="#chat-controls">Responses</a></li>
-        <li class="toc-sub"><a href="#chat-images">Images</a></li>
-        <li class="toc-sub"><a href="#chat-edit">Editing</a></li>
-        <li class="toc-sub"><a href="#chat-voice">Voice Input</a></li>
-        <li class="toc-sub"><a href="#chat-summarization">Summarization</a></li>
-        <li><a href="#export">7. Export & Import</a></li>
-        <li><a href="#spending">8. Spending</a></li>
-        <li><a href="#settings">9. Advanced Settings</a></li>
-        <li><a href="#troubleshooting">10. Troubleshooting</a></li>
-      </ul>
-    </nav>
+<nav class="sidebar">
+  <div class="toc-title">Contents</div>
+  <ul class="toc-list">
+    <li><a href="#general">1. General Information</a></li>
+    <li><a href="#api-keys">2. API Keys Setup</a></li>
+    <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
+    <li class="toc-sub"><a href="#api-novita">Novita AI</a></li>
+    <li><a href="#quick-setup">3. Quick Setup</a></li>
+    <li><a href="#characters">4. Characters</a></li>
+    <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
+    <li class="toc-sub"><a href="#new-char">4.2 New Character</a></li>
+    <li class="toc-sub"><a href="#editing-chars">4.3 Editing</a></li>
+    <li class="toc-sub"><a href="#appearance">4.4 Appearance</a></li>
+    <li class="toc-sub"><a href="#behavior">4.5 Behavior</a></li>
+    <li class="toc-sub"><a href="#saving">4.6 Saving & Deleting</a></li>
+    <li class="toc-sub"><a href="#age-check">4.7 Age Verification</a></li>
+    <li class="toc-sub"><a href="#avatar">4.8 Avatar Generation</a></li>
+    <li class="toc-sub"><a href="#gallery">4.9 Gallery</a></li>
+    <li class="toc-sub"><a href="#gallery-chat">4.10 Gallery from Chat</a></li>
+    <li><a href="#multi-chat">5. Multi-Chat</a></li>
+    <li class="toc-sub"><a href="#multi-attribution">5.1 Response Attribution</a></li>
+    <li><a href="#chat">6. Chat Usage</a></li>
+    <li class="toc-sub"><a href="#chat-flow">6.1 General Flow</a></li>
+    <li class="toc-sub"><a href="#chat-controls">6.2 Controlling Responses</a></li>
+    <li class="toc-sub"><a href="#chat-images">6.3 Image Generation</a></li>
+    <li class="toc-sub"><a href="#chat-edit">6.4 Message Editing</a></li>
+    <li class="toc-sub"><a href="#chat-voice">6.5 Voice Input</a></li>
+    <li class="toc-sub"><a href="#chat-storage">6.6 Image Storage</a></li>
+    <li class="toc-sub"><a href="#chat-summarization">6.7 Summarization</a></li>
+    <li><a href="#export">7. Export & Import</a></li>
+    <li class="toc-sub"><a href="#export-create">7.1 Creating a Backup</a></li>
+    <li class="toc-sub"><a href="#export-import">7.2 Importing Data</a></li>
+    <li class="toc-sub"><a href="#export-platforms">7.3 Platform Notes</a></li>
+    <li class="toc-sub"><a href="#export-tips">7.4 Tips</a></li>
+    <li><a href="#spending">8. Spending</a></li>
+    <li class="toc-sub"><a href="#spending-deepseek">8.1 Chat (DeepSeek)</a></li>
+    <li class="toc-sub"><a href="#spending-novita">8.2 Images (Novita AI)</a></li>
+    <li class="toc-sub"><a href="#spending-typical">8.3 Typical Costs</a></li>
+    <li><a href="#settings">9. Advanced Settings</a></li>
+    <li class="toc-sub"><a href="#settings-temp">9.1 Creativity</a></li>
+    <li class="toc-sub"><a href="#settings-reminder">9.2 Personality Reminder</a></li>
+    <li class="toc-sub"><a href="#settings-summary">9.3 Summarization</a></li>
+    <li class="toc-sub"><a href="#settings-length">9.4 Response Length</a></li>
+    <li class="toc-sub"><a href="#settings-autodelete">9.5 Auto-delete Images</a></li>
+    <li><a href="#troubleshooting">10. Troubleshooting</a></li>
+  </ul>
+</nav>
 
     <!-- Main content -->
     <div class="content">
@@ -365,7 +157,7 @@
           <p>After entering API keys, go to settings and choose a comfortable chat font size.</p>
         </div>
       </div>
-<style>
+
   
      <div class="section">
         <h2 class="section-heading" id="characters">4. Characters</h2>
@@ -548,36 +340,7 @@
       </div>
       <!-- /section 4 -->
       <!-- 5 -->
-     <style>
-
-  .section { margin-bottom: 2.5rem; max-width: 720px; }
-  .section-heading { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1.5rem; }
-  .subsection { margin-bottom: 1.5rem; }
-  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
-  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
-  p:last-child { margin-bottom: 0; }
-  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
-  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
-  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
-  pre {
-    background: #1e1c1a;
-    border-radius: var(--radius);
-    padding: 1rem 1.25rem;
-    margin: 0.75rem 0 1.25rem;
-    overflow-x: auto;
-  }
-  pre code {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.88rem;
-    color: #d4cfca;
-    background: none;
-    border: none;
-    padding: 0;
-    line-height: 1.7;
-  }
-</style>
+     
 
 <div class="section">
   <h2 class="section-heading" id="multi-chat">5. Multi-Chat</h2>
@@ -603,25 +366,7 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
     </div>
   </div>
 </div>
-<style>
-  .subsection { margin-bottom: 1.75rem; max-width: 720px; }
-  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
-  .mini-heading { font-size: 0.9rem; font-weight: 600; color: var(--text); margin: 1rem 0 0.4rem; }
-  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
-  p:last-child { margin-bottom: 0; }
-  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
-  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
-  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
-  .warn-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #78350f; line-height: 1.6; font-weight: 500; }
-  .mem-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem; }
-  .mem-table th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); padding: 6px 10px; border-bottom: 1px solid var(--border); }
-  .mem-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; font-weight: 500; }
-  .mem-table td:first-child { font-family: 'DM Mono', monospace; font-size: 0.88rem; color: var(--text); font-weight: 400; white-space: nowrap; }
-  .mem-table tr:last-child td { border-bottom: none; }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-</style>
+
       <!-- 6 -->
       <div class="section">
         <h2 class="section-heading" id="chat">6. Chat Usage</h2>
@@ -745,81 +490,6 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
   <p>You can manually limit the model's response length in settings if you prefer short, concise replies. DeepSeek adapts well to any communication style — brief exchanges work just as well as detailed ones.</p>
 </div>
       </div>
-
-<style>
-
-  .section { margin-bottom: 2.5rem; max-width: 720px; }
-  .section-heading { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1.5rem; }
-  .subsection { margin-bottom: 1.75rem; }
-  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
-  .platform-heading { font-size: 0.88rem; font-weight: 600; color: var(--text); margin: 1rem 0 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
-  p:last-child { margin-bottom: 0; }
-  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
-  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
-  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
-  .warn-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #78350f; line-height: 1.6; font-weight: 500; }
-  code { font-family: 'DM Mono', monospace; font-size: 0.88rem; background: var(--surface-alt); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; color: var(--text); }
-
-  /* Numbered steps */
-  .steps { list-style: none; display: flex; flex-direction: column; gap: 10px; counter-reset: step; }
-  .steps li {
-    counter-increment: step;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-weight: 500;
-    line-height: 1.5;
-  }
-  .steps li::before {
-    content: counter(step);
-    min-width: 24px;
-    height: 24px;
-    background: var(--surface-alt);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--text-faint);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  /* Platform blocks */
-  .platform-block {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 10px;
-    overflow: hidden;
-  }
-  .platform-block-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    background: var(--surface-alt);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-  }
-  .platform-block-body {
-    padding: 10px 14px;
-    background: var(--surface);
-  }
-  .platform-block-body ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-  .platform-block-body li { font-size: 0.92rem; color: var(--text-muted); padding-left: 1rem; position: relative; line-height: 1.5; font-weight: 500; }
-  .platform-block-body li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); }
-</style>
       <!-- 7 -->
       <div class="section">
   <h2 class="section-heading" id="export">7. Data Export and Import</h2>
@@ -918,48 +588,6 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
   </div>
 
 </div>
-     <style>
-  .section { margin-bottom: 2.5rem; max-width: 720px; }
-  .section-heading { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1.5rem; }
-  .subsection { margin-bottom: 1.75rem; }
-  .subsection-heading { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; scroll-margin-top: 1.5rem; }
-  p { font-size: 1rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 500; }
-  p:last-child { margin-bottom: 0; }
-  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
-  .info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
-  .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
-  .accent-card { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: #1e4d38; line-height: 1.6; font-weight: 500; }
-  .link-card {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 10px 14px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: border-color 0.15s;
-  }
-  .link-card:hover { border-color: var(--accent-border); }
-  .link-card .link-url { font-size: 0.8rem; color: var(--accent); font-family: 'DM Mono', monospace; }
-
-  /* Cost highlight cards */
-  .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
-  .cost-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1rem 1.25rem;
-  }
-  .cost-card .cost-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.3rem; }
-  .cost-card .cost-value { font-size: 1.5rem; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
-  .cost-card .cost-sub { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
-</style>
      <div class="section">
   <h2 class="section-heading" id="spending">8. Monitoring Your Spending</h2>
   <p>The current version does not include a built-in expense tracker. However, you can monitor all spending accurately and in detail directly on the providers' websites.</p>
@@ -1018,7 +646,138 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
       <div style="margin-top:1rem; padding-top:1.5rem; border-top:1px solid var(--border);">
         <a class="back-link" href="index.html">← Back to main page</a>
       </div>
+  <!-- SECTION 9 -->
+  <div class="section">
+    <h2 class="section-heading" id="settings">9. Advanced Settings</h2>
 
+    <div class="subsection">
+      <h3 class="subsection-heading" id="settings-temp">9.1 Creativity (Temperature)</h3>
+      <p>Controls how predictable or imaginative the character's responses are.</p>
+      <div class="info-card">
+        <table class="settings-table">
+          <thead><tr><th>Value</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>0.7–0.75</td><td>Stable, consistent character behavior <span class="recommended">recommended</span></td></tr>
+            <tr><td>1.2–1.5</td><td>More creative, higher risk of personality drift</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-heading" id="settings-reminder">9.2 Personality Reminder</h3>
+      <p>Periodically injects the character's personality description into context to prevent drift. Enabled by default.</p>
+      <div class="info-card">
+        <ul class="info-list">
+          <li>Recommended frequency: every 10 messages</li>
+          <li>Increasing frequency (e.g. every 5) improves stability in long chats</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-heading" id="settings-summary">9.3 Long Chat Summarization</h3>
+      <p>Every 30 messages, a summary of key events is saved as a memory block. Controls how many blocks are loaded into context per message:</p>
+      <div class="info-card">
+        <table class="settings-table">
+          <thead><tr><th>Active blocks</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>No memory, maximum token savings</td></tr>
+            <tr><td>4 <span class="recommended">default</span></td><td>Balanced — sufficient for most long-term chats</td></tr>
+            <tr><td>Higher</td><td>Better recall of older events, higher token cost</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warn-card">⚠️ <strong>Clear All Summaries</strong> resets memory across all characters.</div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-heading" id="settings-length">9.4 Response Length Limit</h3>
+      <p>Optionally caps the model's response length. Useful if you prefer short, concise exchanges. DeepSeek adapts well to any communication style.</p>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-heading" id="settings-autodelete">9.5 Auto-delete Chat Images</h3>
+      <p>Automatically removes images generated inside chats after a set period.</p>
+      <div class="info-card">
+        <ul class="info-list">
+          <li>Range: 7 to 60 days</li>
+          <li>Does not affect character galleries</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="section">
+  <h2 class="section-heading" id="troubleshooting">10. Troubleshooting</h2>
+  <p class="section-intro">Most issues in the app are accompanied by clear notifications with instructions. The following situations are exceptions where the app cannot fully explain what is happening.</p>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <span class="issue-icon">⏳</span>
+      <span class="issue-title">Chat not responding / infinite loading</span>
+    </div>
+    <div class="issue-body">
+      <p>Occasionally DeepSeek servers experience high load (504 timeout). Wait 10–15 minutes and try again.</p>
+    </div>
+  </div>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <span class="issue-icon">🖼</span>
+      <span class="issue-title">Image generation artifacts</span>
+    </div>
+    <div class="issue-body">
+      <p>In rare cases, chat image generation may produce extra limbs (e.g. three hands). This can occasionally happen when the app removes the user from the scene. Tap <strong>Regenerate</strong> — the next attempt is almost always clean.</p>
+      <p>If racial or ethnic features are inconsistent, make sure ethnicity is explicitly stated in the character description in English (<em>Caucasian, Asian, Slavic</em>, etc.).</p>
+    </div>
+  </div>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <span class="issue-icon">🎨</span>
+      <span class="issue-title">Chat images look different from gallery images</span>
+    </div>
+    <div class="issue-body">
+      <p>This is intentional. The gallery uses professional-style lighting and composition — think studio portraits. Chat images are realistic snapshots of the current scene, shot as if with a phone or amateur camera: natural lighting, ambient environment, no special setup.</p>
+      <p>The character's appearance stays consistent; what changes is the atmosphere and conditions of the moment.</p>
+    </div>
+  </div>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <span class="issue-icon">💬</span>
+      <span class="issue-title">Multi-chat: characters go silent or mix up responses</span>
+    </div>
+    <div class="issue-body">
+      <p>See <a href="#multi-attribution">Section 5.1 — Multi-Chat</a> for the recommended format fix.</p>
+    </div>
+  </div>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <span class="issue-icon">📦</span>
+      <span class="issue-title">Export / Import issues</span>
+    </div>
+    <div class="issue-body">
+      <p>If export produces a corrupted or incomplete file, run it again — the file will be fully overwritten.</p>
+      <p>If import fails, check that there is enough free space on the device and try again.</p>
+      <p>The <code>.usbackup</code> file may not open in some archive managers, but it will always open correctly inside the app. The format is consistent across Android, Windows, and macOS.</p>
+    </div>
+  </div>
+
+  <div class="issue-card">
+    <div class="issue-header">
+      <span class="issue-icon">💾</span>
+      <span class="issue-title">App takes up too much storage</span>
+    </div>
+    <div class="issue-body">
+      <p>Enable <strong>Auto-delete Chat Images</strong> in Settings (7–60 days). This only affects images generated inside chats — character galleries are not affected.</p>
+    </div>
+  </div>
+
+</div>
     </div><!-- /content -->
   </div><!-- /layout -->
 </div><!-- /page -->
