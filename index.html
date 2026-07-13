@@ -50,12 +50,12 @@
   .page { max-width: 960px; margin: 0 auto; }
 
   /* Header — logo on the left, text beside it */
-  .header { display: flex; align-items: center; gap: 2.25rem; text-align: left; padding: 2rem 0; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
-  .header .logo { width: 92px; height: auto; flex: 0 0 auto; display: block; }
-  .header-text { flex: 1 1 auto; min-width: 0; }
-  .header h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.4rem; }
-  .header .tagline { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem; }
-  .badge-row { display: flex; justify-content: flex-start; gap: 8px; flex-wrap: wrap; }
+.header { text-align: center; padding: 2rem 0; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+.header-top { display: inline-flex; align-items: center; gap: 1.25rem; text-align: left; }
+.header .logo { width: 78px; height: auto; display: block; flex: 0 0 auto; }
+.header h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.25rem; }
+.header .tagline { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 0; }
+.badge-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 1.1rem; }
   .badge {
     background: var(--surface);
     display: inline-flex; align-items: center; gap: 5px;
@@ -231,14 +231,12 @@
 
   /* ── 640px and below: mobile/tablet sizes, 2-col grids ── */
   @media (max-width: 640px) {
-    .header { flex-direction: column; align-items: center; text-align: center; gap: 0.7rem; padding: 0.5rem 0 1.75rem; }
-    .header .logo { width: 66px; }
-    .header-text { width: 100%; }
-    .header .badge-row { justify-content: center; }
-    .header h1 { font-size: 1.9rem; }
-    .header .tagline { font-size: 0.9rem; margin-bottom: 1rem; }
-    .badge { font-size: 0.65rem; }
-    .badge-row { gap: 4px; }
+    .header { padding: 0.5rem 0 1.75rem; }
+.header-top { flex-direction: column; gap: 0.6rem; text-align: center; }
+.header .logo { width: 58px; }
+.header h1 { font-size: 1.9rem; }
+.header .tagline { font-size: 0.9rem; margin-bottom: 0; }
+.badge-row { margin-top: 0.9rem; }
     .section-title { font-size: 0.8rem; }
     .feature-grid { grid-template-columns: repeat(2, 1fr); }
     .feature-card h3 { font-size: 0.92rem; }
@@ -289,18 +287,21 @@
 <div class="page">
 
   <div class="header">
+  <div class="header-top">
     <img class="logo" src="assets/logo.png" alt="Uncensored Souls logo">
     <div class="header-text">
       <h1>Uncensored Souls</h1>
       <p class="tagline">Private AI chat application for adults (18+ only)</p>
-      <div class="badge-row">
-        <span class="badge accent">18+ only</span>
-        <span class="badge">Local-first</span>
-        <span class="badge">No subscriptions</span>
-        <span class="badge">Pay only for what you use</span>
-        <a class="badge" href="https://github.com/sart33/uncensored-souls">⌨ Open source</a>
-      </div>
     </div>
+  </div>
+  <div class="badge-row">
+    <span class="badge accent">18+ only</span>
+    <span class="badge">Local-first</span>
+    <span class="badge">No subscriptions</span>
+    <span class="badge">Pay only for what you use</span>
+    <a class="badge" href="https://github.com/sart33/uncensored-souls">⌨ Open source</a>
+  </div>
+</div>
   </div>
 
   <div class="section-title">Features</div>
