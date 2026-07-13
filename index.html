@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Uncensored Souls</title>
+<meta name="description" content="Private, local-first AI character chat for adults (18+). Pay only for API usage — no subscriptions.">
+<!-- Link/social preview — uses the mini banner -->
+<meta property="og:title" content="Uncensored Souls">
+<meta property="og:description" content="Private AI character chat for adults (18+). Local-first, no subscriptions — you pay only for what you use.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sart33.github.io/uncensored-souls/">
+<meta property="og:image" content="https://sart33.github.io/uncensored-souls/assets/banner_mini.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sart33.github.io/uncensored-souls/assets/banner_mini.png">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -39,19 +49,24 @@
 
   .page { max-width: 960px; margin: 0 auto; }
 
-  /* Header */
-  .header { text-align: center; padding: 3rem 0 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
-  .header h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.6rem; }
+  /* Header — logo on the left, text beside it */
+  .header { display: flex; align-items: center; gap: 2.25rem; text-align: left; padding: 2rem 0; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+  .header .logo { width: 92px; height: auto; flex: 0 0 auto; display: block; }
+  .header-text { flex: 1 1 auto; min-width: 0; }
+  .header h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.4rem; }
   .header .tagline { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem; }
-  .badge-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .badge-row { display: flex; justify-content: flex-start; gap: 8px; flex-wrap: wrap; }
   .badge {
     background: var(--surface);
     display: inline-flex; align-items: center; gap: 5px;
     border: 1px solid var(--border);
     border-radius: 100px; padding: 4px 12px;
     font-size: 0.92rem; font-weight: 500;
+    text-decoration: none; color: inherit;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
   }
   .badge.accent { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
+  a.badge:hover { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
 
   /* Section label */
   .section-title {
@@ -68,6 +83,86 @@
   .feature-card .icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
   .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.35rem; }
   .feature-card p { font-size: 1rem; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── added: Screenshot gallery (tiles) ── */
+  .gallery-hint { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2rem; }
+  .gallery-tile {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    font: inherit;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-alt);
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .gallery-tile:hover { border-color: var(--accent-border); box-shadow: 0 3px 14px rgba(0,0,0,0.06); }
+  .gallery-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .gallery-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+  .gallery-tile:hover img { transform: scale(1.04); }
+  .gallery-tile .gt-caption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.82rem; font-weight: 500; text-align: left; color: #fff;
+    background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0));
+    pointer-events: none;
+  }
+  /* Hidden tiles (beyond the first 6, until expanded) */
+  .gallery-tile.gt-hidden { display: none; }
+  /* Placeholder shown until you drop a real file in (or if a file is missing) */
+  .gallery-tile.gt-missing { border-style: dashed; }
+
+  /* Show more / show less */
+  .gallery-more { display: flex; justify-content: center; margin: -0.5rem 0 2rem; }
+  .gallery-more button {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 100px; padding: 0.5rem 1.25rem;
+    font: inherit; font-size: 0.95rem; font-weight: 600; color: var(--text);
+    cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .gallery-more button:hover { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
+  .gallery-more button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .gallery-more .chev { width: 16px; height: 16px; display: block; transition: transform 0.2s; }
+  .gallery-more button[aria-expanded="true"] .chev { transform: rotate(180deg); }
+  .gallery-tile .gt-fallback {
+    position: absolute; inset: 0;
+    display: none;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.4rem; padding: 1rem; text-align: center;
+  }
+  .gallery-tile .gt-f-icon { font-size: 1.6rem; opacity: 0.45; }
+  .gallery-tile .gt-f-name { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--text-faint); word-break: break-all; }
+
+  /* ── added: Lightbox (full-screen popup) ── */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 1000;
+    display: none; align-items: center; justify-content: center;
+    background: rgba(20,19,17,0.93);
+    padding: 3.5rem 1rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-figure { margin: 0; max-width: 1100px; max-height: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+  .lightbox-img { max-width: 100%; max-height: calc(100vh - 8rem); object-fit: contain; border-radius: var(--radius-sm); background: #000; }
+  .lightbox-caption { color: rgba(255,255,255,0.92); font-size: 1.05rem; font-weight: 500; text-align: center; max-width: 62ch; padding: 0 0.5rem; }
+  .lb-btn {
+    position: absolute;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: #fff;
+    width: 44px; height: 44px; border-radius: 50%;
+    font-size: 1.5rem; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+  }
+  .lb-btn:hover { background: rgba(255,255,255,0.22); }
+  .lb-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .lb-close { top: 1rem; right: 1rem; }
+  .lb-prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 1rem; top: 50%; transform: translateY(-50%); }
+  .lb-counter { position: absolute; top: 1.35rem; left: 1.35rem; color: rgba(255,255,255,0.7); font-family: 'DM Mono', monospace; font-size: 0.85rem; }
 
   /* Pricing */
   .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 1rem; }
@@ -87,6 +182,17 @@
   .info-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
   .info-list li { font-size: 1rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; font-weight: 500; }
   .info-list li::before { content: '·'; position: absolute; left: 0; color: var(--text-faint); font-size: 1.1rem; line-height: 1.35; }
+
+  /* ── added: Starter Pack download pills ── */
+  .pack-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pack-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--surface-alt); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 0.55rem 1.1rem;
+    font-size: 0.95rem; font-weight: 600; text-decoration: none; color: var(--text);
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .pack-btn:hover { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
 
   /* Download */
   .download-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1rem; }
@@ -123,9 +229,12 @@
   .footer-pill:hover { border-color: var(--border-strong); color: var(--text); }
   .footer-pill.primary { border-color: var(--accent-border); background: var(--accent-light); color: var(--accent); }
 
-  /* ── 641px and below: mobile/tablet sizes, 2-col grids ── */
+  /* ── 640px and below: mobile/tablet sizes, 2-col grids ── */
   @media (max-width: 640px) {
-    .header { padding: 1rem 0 2.5rem; }
+    .header { flex-direction: column; align-items: center; text-align: center; gap: 0.7rem; padding: 0.5rem 0 1.75rem; }
+    .header .logo { width: 66px; }
+    .header-text { width: 100%; }
+    .header .badge-row { justify-content: center; }
     .header h1 { font-size: 1.9rem; }
     .header .tagline { font-size: 0.9rem; margin-bottom: 1rem; }
     .badge { font-size: 0.65rem; }
@@ -134,13 +243,18 @@
     .feature-grid { grid-template-columns: repeat(2, 1fr); }
     .feature-card h3 { font-size: 0.92rem; }
     .feature-card p { font-size: 0.82rem; line-height: 1.55; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-hint { font-size: 0.82rem; }
+    .lb-prev { left: 0.4rem; }
+    .lb-next { right: 0.4rem; }
+    .lb-btn { width: 38px; height: 38px; font-size: 1.3rem; }
     .pricing-grid { grid-template-columns: repeat(2, 1fr); }
     .pricing-card { padding: 1.1rem; }
-    .pricing-card .price-note { font-size: 0.8rem; }
     .pricing-summary { padding: 1.1rem; }
     .pricing-summary p { font-size: 0.87rem; }
     .info-card { padding: 1.1rem; }
     .info-list li { font-size: 0.85rem; padding-left: 0.7rem; }
+    .pack-btn { font-size: 0.85rem; padding: 0.5rem 0.9rem; }
     .download-section { padding: 1.1rem; }
     .download-title { font-size: 1.1rem; }
     .download-sub { font-size: 0.85rem; }
@@ -149,18 +263,25 @@
     .dl-btn .dl-size { font-size: 0.75rem; }
     .dl-btn .dl-note { font-size: 0.7rem; }
     .dl-btn .dl-version { font-size: 0.68rem; }
-
     .download-meta { font-size: 0.8rem; }
     .footer-pill { font-size: 0.68rem; }
     .pricing-card .price-value { font-size: 0.9rem; }
     .pricing-card .price-label { font-size: 0.72rem; }
     .pricing-card .price-note { font-size: 0.8rem; }
+  }
 
   /* ── 480px and below: single column everything ── */
   @media (max-width: 480px) {
     .feature-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
     .download-buttons { grid-template-columns: 1fr; }
+  }
+
+  /* ── respect reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-tile, .gallery-tile img, .lb-btn, .dl-btn, .footer-pill, .pack-btn, .badge { transition: none !important; }
+    .gallery-tile:hover img { transform: none; }
   }
 </style>
 </head>
@@ -168,13 +289,17 @@
 <div class="page">
 
   <div class="header">
-    <h1>Uncensored Souls</h1>
-    <p class="tagline">Private AI chat application for adults (18+ only)</p>
-    <div class="badge-row">
-      <span class="badge accent">18+ only</span>
-      <span class="badge">Local-first</span>
-      <span class="badge">No subscriptions</span>
-      <span class="badge">Pay only for what you use</span>
+    <img class="logo" src="assets/logo.png" alt="Uncensored Souls logo">
+    <div class="header-text">
+      <h1>Uncensored Souls</h1>
+      <p class="tagline">Private AI chat application for adults (18+ only)</p>
+      <div class="badge-row">
+        <span class="badge accent">18+ only</span>
+        <span class="badge">Local-first</span>
+        <span class="badge">No subscriptions</span>
+        <span class="badge">Pay only for what you use</span>
+        <a class="badge" href="https://github.com/sart33/uncensored-souls">⌨ Open source</a>
+      </div>
     </div>
   </div>
 
@@ -193,7 +318,7 @@
     <div class="feature-card">
       <span class="icon">👥</span>
       <h3>Multi-character chat</h3>
-      <p>Group interaction with multiple characters in the same conversation.</p>
+      <p>Group interaction with multiple characters (up to 5) in the same conversation.</p>
     </div>
     <div class="feature-card">
       <span class="icon">🖼️</span>
@@ -212,6 +337,16 @@
     </div>
   </div>
 
+  <!-- ── added: Screenshot gallery ── -->
+  <div class="section-title">Screenshots</div>
+  <p class="gallery-hint">Tap any image to open it full screen. Use ← → to browse, Esc to close.</p>
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <div class="gallery-more" id="galleryMore" hidden>
+    <button type="button" id="galleryToggle" aria-expanded="false" aria-controls="galleryGrid">
+      <span class="more-label"></span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
   <div class="section-title">Image Generation</div>
   <div class="info-card">
     <ul class="info-list">
@@ -219,6 +354,7 @@
       <li>Automatic scene extraction — location, pose, mood and actions</li>
       <li>Three modes: Daily Life, Erotic, 18+</li>
       <li>Consistent character appearance across generations</li>
+      <li>Optionally place your own persona in the scene (age, ethnicity, hair colour), per character</li>
       <li>Images are visible only inside the app and never appear in the system gallery</li>
       <li>Tap the character avatar in chat to open the matching gallery view</li>
     </ul>
@@ -228,7 +364,7 @@
   <div class="section-title">Multi-Character Chat</div>
   <div class="info-card">
     <ul class="info-list">
-      <li>Multiple characters participate in the same conversation</li>
+      <li>Up to 5 characters participate in the same conversation</li>
       <li>Characters respond together and interact with each other</li>
       <li>Shared context builds naturally across the conversation</li>
       <li>Suitable for group scenarios and dynamic interactions</li>
@@ -313,7 +449,7 @@
       <span class="dl-version">v1.2.2</span>
       <span class="dl-size">34 MB</span>
     </a>
-    <a class="dl-btn" href="https://github.com//sart33/uncensored-souls/releases/download/v1.2.2/UncensoredSouls-1.2.2-setup.exe">
+    <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.2.2/UncensoredSouls-1.2.2-setup.exe">
       <img src="assets/windows_icon.png" alt="Windows" class="dl-icon">
       <span class="dl-platform">Windows (EXE)</span>
       <span class="dl-version">v1.2.2</span>
@@ -329,17 +465,205 @@
   </div>
   <div class="download-meta">
     macOS: Alpha version, unsigned application. You may need to allow it in System Settings → Security &amp; Privacy.<br>
+    Source code: <a href="https://github.com/sart33/uncensored-souls">github.com/sart33/uncensored-souls</a><br>
     All versions and release notes: <a href="https://github.com/sart33/uncensored-souls/releases">GitHub Releases</a>
   </div>
 </div>
 
+  <!-- ── added: Starter Pack (Extras) ── -->
+  <div class="section-title" style="margin-top:2.5rem;">Extras — Starter Pack</div>
+  <div class="info-card">
+    <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:0.9rem;">
+      12 ready-made characters with avatars, behaviours and partial galleries (Daily Life / Erotic / 18+).
+      Download and import via the in-app <em>Import</em> function — open the app and start without building anything yourself.
+      <strong style="color:var(--text);">Contains 18+ content.</strong>
+    </p>
+    <div class="pack-links">
+      <a class="pack-btn" href="https://mega.nz/file/C7xzFDSK#zBukAnviNH8w0Yw5um0IXchxoMGH--h6W-mb00fFdTI">⬇ MEGA</a>
+      <a class="pack-btn" href="https://www.mediafire.com/file/qm2ij6rdqdyuydh/uncensored-souls-starter-pack.usbackup/file">⬇ MediaFire</a>
+      <a class="pack-btn" href="https://drive.google.com/file/d/10BxXjFBvEtg9jTPFtkuGaYNXF8cMVAe2/view?usp=sharing">⬇ Google Drive</a>
+    </div>
+  </div>
+
   <div class="footer-links">
     <a class="footer-pill primary" href="support.html">☕ Support the project</a>
     <a class="footer-pill" href="user-guide.html">📖 User Guide</a>
+    <a class="footer-pill" href="https://github.com/sart33/nsfw_flutter_ai_chat">⌨ Source code</a>
     <a class="footer-pill" href="legal/privacy.html">Privacy Policy</a>
     <a class="footer-pill" href="legal/disclaimer.html">Terms & Disclaimer</a>
   </div>
 
 </div>
+
+<!-- ── added: Lightbox overlay ── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <span class="lb-counter" id="lbCounter"></span>
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">›</button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" id="lbImg" src="" alt="">
+    <figcaption class="lightbox-caption" id="lbCaption"></figcaption>
+  </figure>
+</div>
+
+<script>
+  /* ─────────────────────────────────────────────────────────────
+     GALLERY IMAGES
+     Put your image files in the  assets/gallery/  folder, then edit
+     this list. Add / remove / reorder lines freely.
+       file    – path to the image (relative to this page)
+       caption – text shown on hover and under the full-screen image
+     Missing files simply show a labelled placeholder, so the page
+     never looks broken while you are filling it in.
+     ───────────────────────────────────────────────────────────── */
+  //   file    – path to the image
+  //   caption – English title shown on hover + inside the full-screen popup
+  // All tiles are uniform 4:3; each opens full-size in the popup on click.
+  const GALLERY = [
+    { file: 'assets/gallery/01-home.jpg',        caption: 'Home screen' },
+    { file: 'assets/gallery/02-chat-scene.jpg',  caption: 'A scene image, generated right inside the chat' },
+    { file: 'assets/gallery/03-persona-card.jpg', caption: 'Set your own persona and add it to the scene — with a Daily Life gallery' },
+    { file: 'assets/gallery/04-consistency-8.jpg', caption: 'One consistent face across eight different partners' },
+    { file: 'assets/gallery/05-consistency-ages.jpg', caption: 'The character stays the same — partners range from young to elderly' },
+    { file: 'assets/gallery/06-characters.jpg',  caption: 'Your cast of characters' },
+    { file: 'assets/gallery/07-marta-card.jpg',  caption: 'Character card — Marta' },
+    { file: 'assets/gallery/08-day-in-life.jpg', caption: 'A day in one character’s life — ten moments, one consistent face' },
+    { file: 'assets/gallery/09-multichar-adventure.jpg', caption: 'Multi-character adventure — a party of four in a single conversation' },
+    { file: 'assets/gallery/10-generate-scene.jpg', caption: 'Describe a moment and generate it on the spot — from a café to a 1970s concert' },
+
+    // 11–16: your remaining images — drop them in and add a caption
+    // (or just tell me what’s on each and I’ll name them).
+    { file: 'assets/gallery/11.jpg', caption: '' },
+    { file: 'assets/gallery/12.jpg', caption: '' },
+    { file: 'assets/gallery/13.jpg', caption: '' },
+    { file: 'assets/gallery/14.jpg', caption: '' },
+    { file: 'assets/gallery/15.jpg', caption: '' },
+    { file: 'assets/gallery/16.jpg', caption: '' },
+  ];
+
+  const VISIBLE = 6; // how many tiles to show before "Show all"
+
+  (function () {
+    const grid = document.getElementById('galleryGrid');
+    const moreWrap = document.getElementById('galleryMore');
+    const toggle = document.getElementById('galleryToggle');
+    const toggleLabel = toggle.querySelector('.more-label');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCaption');
+    const lbCounter = document.getElementById('lbCounter');
+    const btnPrev = document.getElementById('lbPrev');
+    const btnNext = document.getElementById('lbNext');
+    const btnClose = document.getElementById('lbClose');
+    let current = 0;
+    let lastFocus = null;
+
+    // Build the tiles
+    GALLERY.forEach(function (item, i) {
+      const tile = document.createElement('button');
+      tile.type = 'button';
+      tile.className = 'gallery-tile';
+      if (i >= VISIBLE) tile.classList.add('gt-hidden');
+      tile.setAttribute('aria-label', 'Open image: ' + (item.caption || ('#' + (i + 1))));
+
+      const img = document.createElement('img');
+      img.src = item.file;
+      img.alt = item.caption || '';
+      img.loading = 'lazy';
+
+      const fb = document.createElement('span');
+      fb.className = 'gt-fallback';
+      const icon = document.createElement('span');
+      icon.className = 'gt-f-icon';
+      icon.textContent = '🖼️';
+      const name = document.createElement('span');
+      name.className = 'gt-f-name';
+      name.textContent = item.file;
+      fb.appendChild(icon);
+      fb.appendChild(name);
+
+      img.addEventListener('error', function () {
+        img.style.display = 'none';
+        fb.style.display = 'flex';
+        tile.classList.add('gt-missing');
+      });
+
+      tile.appendChild(img);
+      tile.appendChild(fb);
+
+      if (item.caption) {
+        const cap = document.createElement('span');
+        cap.className = 'gt-caption';
+        cap.textContent = item.caption;
+        tile.appendChild(cap);
+      }
+
+      tile.addEventListener('click', function () { open(i); });
+      grid.appendChild(tile);
+    });
+
+    // Show all / show fewer (only if there are more than VISIBLE tiles)
+    let expanded = false;
+    if (GALLERY.length > VISIBLE) {
+      moreWrap.hidden = false;
+      toggleLabel.textContent = 'Show all ' + GALLERY.length;
+      toggle.addEventListener('click', function () {
+        expanded = !expanded;
+        const tiles = grid.querySelectorAll('.gallery-tile');
+        tiles.forEach(function (t, idx) {
+          if (idx >= VISIBLE) t.classList.toggle('gt-hidden', !expanded);
+        });
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggleLabel.textContent = expanded ? 'Show fewer' : ('Show all ' + GALLERY.length);
+        if (!expanded) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    // Hide arrows if there is only one image
+    if (GALLERY.length <= 1) {
+      btnPrev.style.display = 'none';
+      btnNext.style.display = 'none';
+    }
+
+    function show(i) {
+      current = (i + GALLERY.length) % GALLERY.length;
+      const item = GALLERY[current];
+      lbImg.src = item.file;
+      lbImg.alt = item.caption || '';
+      lbCap.textContent = item.caption || '';
+      lbCounter.textContent = GALLERY.length > 1 ? (current + 1) + ' / ' + GALLERY.length : '';
+    }
+
+    function open(i) {
+      lastFocus = document.activeElement;
+      show(i);
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      btnClose.focus();
+    }
+
+    function close() {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', function () { show(current - 1); });
+    btnNext.addEventListener('click', function () { show(current + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft' && GALLERY.length > 1) show(current - 1);
+      else if (e.key === 'ArrowRight' && GALLERY.length > 1) show(current + 1);
+    });
+  })();
+</script>
 </body>
 </html>
