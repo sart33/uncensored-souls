@@ -46,6 +46,9 @@
     --radius: 12px;
     --radius-sm: 8px;
     --radius-xs: 6px;
+    --warn: #8a6a1a;
+    --warn-light: #fdf7e6;
+    --warn-border: #f0e2b4;
   }
 
   body {
@@ -314,6 +317,20 @@
     .gallery-tile, .gallery-tile img, .lb-btn, .dl-btn, .footer-pill, .pack-btn, .badge { transition: none !important; }
     .gallery-tile:hover img { transform: none; }
   }
+ /* ── added: callouts ── */
+  .callout {
+    border: 1px solid; border-radius: var(--radius);
+    padding: 1rem 1.25rem; margin-bottom: 2rem;
+    font-size: 0.95rem; line-height: 1.55;
+  }
+  .callout .callout-title { font-weight: 600; margin-bottom: 0.25rem; }
+  .callout p { margin: 0; }
+  .callout.green { background: var(--accent-light); border-color: var(--accent-border); color: var(--accent); }
+  .callout.amber { background: var(--warn-light); border-color: var(--warn-border); color: var(--warn); }
+  .callout strong { color: inherit; }
+  @media (max-width: 640px) {
+    .callout { padding: 0.9rem 1rem; font-size: 0.85rem; }
+  }
 </style>
 </head>
 <body>
@@ -431,10 +448,9 @@
       <li>Images live inside the app only — they never appear in your system gallery</li>
       <li>Tap a character's avatar in chat to open the gallery you were last in</li>
     </ul>
-    <p style="font-size:0.82rem;color:var(--text-faint);margin-top:0.75rem;">Erotic, not pornographic: explicit acts are deliberately framed as the moment just before or just after. The model isn't trained for the rest, and it shows — so the pipeline doesn't go there.</p>
+        <p style="font-size:0.82rem;color:var(--text-faint);margin-top:0.75rem;">In chat, explicit scenes are framed as the moment just before or just after — image models aren't trained for the act itself, and it shows. Deliberate, not a glitch.</p>
   </div>
-
-  <div class="section-title">Multi-Character Chat</div>
+   <div class="section-title">Multi-Character Chat</div>
   <div class="info-card">
     <ul class="info-list">
       <li>Up to 5 characters participate in the same conversation</li>
@@ -460,8 +476,13 @@
   </div>
   <div class="pricing-summary">
     <p>Typical monthly cost for regular use:</p>
-    <p><strong>Chat only:</strong> ~$1.5-2 &nbsp;·&nbsp; <strong>With images:</strong> ~$2–4</p>
+    <p><strong>Chat only:</strong> ~$1-2 &nbsp;·&nbsp; <strong>With images:</strong> ~$2–4</p>
     <p style="margin-top:6px;">There are no hidden limits — message length, session duration and response style are all up to you.</p>
+  </div>
+
+ <div class="callout amber">
+    <div class="callout-title">⚠ You bring your own API keys</div>
+    <p>Create a DeepSeek account and paste the key into settings before your first chat — the minimum top-up is <strong>$2</strong>, plus a little tax. Images need a Novita AI key: the minimum there is <strong>$10, which is exactly 2,000 images</strong>. Nothing is bundled — that's why it costs this little.</p>
   </div>
 
   <div class="section-title">Privacy</div>
@@ -475,6 +496,11 @@
       <li>No personal data collection</li>
       <li>No analytics, tracking or telemetry</li>
     </ul>
+  </div>
+
+ <div class="callout green">
+    <div class="callout-title">⚡ No server in the middle</div>
+    <p>There's no backend between you and the model — there'd be nothing for one to do. Your device talks to DeepSeek and Novita AI directly, which is why a reply lands in about a second.</p>
   </div>
 
   <div class="section-title" style="margin-top:1.5rem;">Data & Backup</div>
@@ -497,17 +523,6 @@
       <li>Configurable input/output length limits</li>
       <li>Auto-delete for in-chat images (7–60 days)</li>
     </ul>
-  </div>
-
-  <div class="section-title">Experience</div>
-  <div class="info-card">
-    <ul class="info-list">
-      <li>Chat naturally with a character</li>
-      <li>Optionally generate images based on the current scene</li>
-      <li>Continue the same scenario with consistent character behavior</li>
-      <li>Use single or multi-character interactions</li>
-    </ul>
-    <p style="font-size:0.85rem;color:var(--text-faint);margin-top:0.75rem;">Designed for continuous, immersive interaction rather than isolated prompts.</p>
   </div>
 
   <hr class="divider">
