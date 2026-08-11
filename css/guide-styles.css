@@ -21,6 +21,9 @@
   --accent-border:  #b8dfc8;
   --warn-bg:        #fef3c7;
   --warn-border:    #fcd34d;
+  --alert-bg:        #fdf0ed;
+  --alert-border:    #e8b8b0;
+  --alert-text:      #9b3a2f;
   --radius:         12px;
   --radius-sm:      8px;
   --radius-xs:      6px;
@@ -211,6 +214,25 @@ p:last-child { margin-bottom: 0; }
   color: #78350f;
   line-height: 1.6;
   font-weight: 500;
+}
+
+.alert-card {
+  background: var(--alert-bg);
+  border: 1px solid var(--alert-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--alert-text);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.alert-card a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .accent-card {
