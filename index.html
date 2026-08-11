@@ -49,6 +49,9 @@
     --warn: #8a6a1a;
     --warn-light: #fdf7e6;
     --warn-border: #f0e2b4;
+    --alert: #9b3a2f;
+    --alert-light: #fdf0ed;
+    --alert-border: #e8b8b0;
   }
 
   body {
@@ -328,6 +331,18 @@
   .callout.green { background: var(--accent-light); border-color: var(--accent-border); color: var(--accent); }
   .callout.amber { background: var(--warn-light); border-color: var(--warn-border); color: var(--warn); }
   .callout strong { color: inherit; }
+ .callout.red {
+  background: var(--alert-light);
+  border-color: var(--alert-border);
+  color: var(--alert);
+}
+
+.callout.red a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
   @media (max-width: 640px) {
     .callout { padding: 0.9rem 1rem; font-size: 0.85rem; }
   }
@@ -353,7 +368,24 @@
   </div>
 </div>
 
-
+<div class="callout red">
+  <div class="callout-title">⚠ Important — Novita model retirement</div>
+  <p>
+    Novita is retiring the <strong>Z Image Turbo</strong> model on
+    <strong>August 19, 2026</strong>.
+    If you use Novita with Uncensored Souls, please <strong>do not add funds
+    to your Novita account for now</strong>.
+    I am preparing an update that will switch the recommended
+    image-generation provider to
+    <a href="https://piapi.ai/" target="_blank" rel="noopener noreferrer">PiAPI</a>.
+    The update is planned around August 19. I will also try to provide an
+    alternative model for users who prefer to stay with Novita.
+    Please wait for the next Uncensored Souls update before purchasing
+    additional Novita credits.
+    <a href="https://novita.ai/docs/changelog/03-08-26"
+       target="_blank" rel="noopener noreferrer">Novita deprecation notice</a>
+  </p>
+</div>
   <div class="section-title">Features</div>
   <div class="feature-grid">
     <div class="feature-card">
@@ -482,8 +514,13 @@
 
  <div class="callout amber">
     <div class="callout-title">⚠ You bring your own API keys</div>
-    <p>Create a DeepSeek account and paste the key into settings before your first chat — the minimum top-up is <strong>$2</strong>, plus a little tax. Images need a Novita AI key: the minimum there is <strong>$10, which is exactly 2,000 images</strong>. Nothing is bundled — that's why it costs this little.</p>
-  </div>
+<p>
+  Create a DeepSeek account and paste the key into settings before your first
+  chat — the minimum top-up is <strong>$2</strong>, plus a little tax.
+  <strong>For image generation, please see the temporary notice above before
+  adding funds to Novita.</strong>
+  Nothing is bundled — that's why it costs this little.
+</p>  </div>
 
   <div class="section-title">Privacy</div>
   <div class="info-card">
