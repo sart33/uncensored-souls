@@ -367,25 +367,6 @@
     <a class="badge" href="https://github.com/sart33/nsfw_flutter_ai_chat">⌨ Open source</a>
   </div>
 </div>
-
-<div class="callout red">
-  <div class="callout-title">⚠ Important — Novita model retirement</div>
-  <p>
-    Novita is retiring the <strong>Z Image Turbo</strong> model on
-    <strong>August 19, 2026</strong>.
-    If you use Novita with Uncensored Souls, please <strong>do not add funds
-    to your Novita account for now</strong>.
-    I am preparing an update that will switch the recommended
-    image-generation provider to
-    <a href="https://piapi.ai/" target="_blank" rel="noopener noreferrer">PiAPI</a>.
-    The update is planned around August 19. I will also try to provide an
-    alternative model for users who prefer to stay with Novita.
-    Please wait for the next Uncensored Souls update before purchasing
-    additional Novita credits.
-    <a href="https://novita.ai/docs/changelog/03-08-26"
-       target="_blank" rel="noopener noreferrer">Novita deprecation notice</a>
-  </p>
-</div>
   <div class="section-title">Features</div>
   <div class="feature-grid">
     <div class="feature-card">
@@ -476,10 +457,11 @@
       <li>The same face and body across every mode and every generation</li>
     </ul>
     <h4>Everywhere</h4>
-    <ul class="info-list">
-      <li>Images live inside the app only — they never appear in your system gallery</li>
-      <li>Tap a character's avatar in chat to open the gallery you were last in</li>
-    </ul>
+<ul class="info-list">
+  <li>Images live inside the app only — they never appear in your system gallery</li>
+  <li>Tap a character's avatar in chat to open the gallery you were last in</li>
+  <li>Image generation now uses WaveSpeed, with faster average generation times</li>
+</ul>
         <p style="font-size:0.82rem;color:var(--text-faint);margin-top:0.75rem;">In chat, explicit scenes are framed as the moment just before or just after — image models aren't trained for the act itself, and it shows. Deliberate, not a glitch.</p>
   </div>
    <div class="section-title">Multi-Character Chat</div>
@@ -500,14 +482,14 @@
 <div class="pricing-grid"> 
   <div class="pricing-card"> 
     <div class="price-label">Chat</div> 
-    <div class="price-value">~2.5–5¢ / hour</div> 
+    <div class="price-value">~1.5–3¢ / hour</div> 
     <div class="price-note">Depending on usage and DeepSeek pricing period</div> 
   </div> 
 
   <div class="pricing-card"> 
     <div class="price-label">Images</div> 
-    <div class="price-value">~0.5¢ / image</div> 
-    <div class="price-note">~200 images per $1</div> 
+    <div class="price-value">0.5¢ / image</div> 
+    <div class="price-note">200 images per $1</div> 
   </div> 
 </div> 
 
@@ -532,21 +514,22 @@
 </div>
 
  <div class="callout amber">
-    <div class="callout-title">⚠ You bring your own API keys</div>
-<p>
-  Create a DeepSeek account and paste the key into settings before your first
-  chat — the minimum top-up is <strong>$2</strong>, plus a little tax.
-  <strong>For image generation, please see the temporary notice above before
-  adding funds to Novita.</strong>
-  Nothing is bundled — that's why it costs this little.
-</p>  </div>
+  <div class="callout-title">⚠ You bring your own API keys</div>
+  <p>
+    Create a DeepSeek account and paste the key into settings before your first
+    chat — the minimum top-up is <strong>$2</strong>, plus a little tax.
+    Image generation uses <strong>WaveSpeed</strong>, with a minimum top-up of
+    <strong>$5</strong>.
+    Nothing is bundled — that's why it costs this little.
+  </p>
+</div>
 
   <div class="section-title">Privacy</div>
   <div class="info-card">
     <ul class="info-list">
       <li>All data is stored locally on your device</li>
       <li>Chats, characters and images never leave your device</li>
-      <li>Requests are sent directly to DeepSeek (chat) and Novita AI (images)</li>
+      <li>Requests are sent directly to DeepSeek (chat) and WaveSpeed (images)</li>
       <li>The developer has no access to your data</li>
       <li>No accounts</li>
       <li>No personal data collection</li>
@@ -556,7 +539,7 @@
 
  <div class="callout green">
     <div class="callout-title">⚡ No server in the middle</div>
-    <p>There's no backend between you and the model — there'd be nothing for one to do. Your device talks to DeepSeek and Novita AI directly, which is why a reply lands in about a second.</p>
+    <p>There's no backend between you and the model — there'd be nothing for one to do. Your device talks directly to DeepSeek for chat and WaveSpeed for image generation.</p>
   </div>
 
   <div class="section-title" style="margin-top:1.5rem;">Data & Backup</div>
@@ -587,13 +570,13 @@
   <div class="download-section">
     <div class="download-sub">18+ only &nbsp;·&nbsp; Direct distribution, outside app stores</div>
   <div class="download-buttons">
-    <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.2.3/UncensoredSouls-1.2.3.apk">
+    <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.2.5/UncensoredSouls-1.2.5.apk">
       <img src="assets/android_icon.png" alt="Android" class="dl-icon">
       <span class="dl-platform">Android (APK)</span>
       <span class="dl-version">v1.2.3</span>
       <span class="dl-size">34 MB</span>
     </a>
-    <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.2.3/UncensoredSouls-1.2.3-setup.exe">
+    <a class="dl-btn" href="https://github.com/sart33/uncensored-souls/releases/download/v1.2.5/UncensoredSouls-1.2.5-setup.exe">
       <img src="assets/windows_icon.png" alt="Windows" class="dl-icon">
       <span class="dl-platform">Windows (EXE)</span>
       <span class="dl-version">v1.2.3</span>
@@ -613,7 +596,30 @@
     All versions and release notes: <a href="https://github.com/sart33/uncensored-souls/releases">GitHub Releases</a>
   </div>
 </div>
+<div class="info-card" style="margin-top:1rem;">
+  <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:0.6rem;">
+    <strong style="color:var(--text);">Using version 1.2.4 with Novita</strong>
+  </p>
 
+  <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:0.75rem;">
+    Version 1.2.4 is available for users who still have funds remaining on their Novita account.
+    It uses Novita's replacement image model after the retirement of Z Image Turbo.
+  </p>
+
+  <ul class="info-list">
+<li>
+  Novita's replacement model costs <strong>$0.02 per image</strong>.
+  The previous Z Image Turbo model and the current WaveSpeed version cost
+  <strong>$0.005 per image</strong>.
+</li>    <li>The visual style differs from the previous model, including character appearance, composition, colours and scene detail</li>
+    <li>18+ generation is restricted — results are usually less explicit and may be generated in lingerie instead of nude</li>
+  </ul>
+
+  <p style="font-size:0.85rem;color:var(--text-faint);margin-top:0.75rem;">
+    Version 1.2.4 is mainly intended for using an existing Novita balance.
+    For normal use, version 1.2.5 with WaveSpeed is recommended.
+  </p>
+</div>
   <!-- ── added: Starter Pack (Extras) ── -->
   <div class="section-title" style="margin-top:2.5rem;">Extras — Starter Pack</div>
   <div class="info-card">
