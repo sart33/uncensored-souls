@@ -38,7 +38,7 @@
     <a href="#general">1. General Information</a>
     <a href="#api-keys">2. API Keys Setup</a>
     <a class="sub-link" href="#api-deepseek">DeepSeek API</a>
-    <a class="sub-link" href="#api-novita">Novita</a>
+    <a class="sub-link" href="#api-wavespeed">WaveSpeed</a>
     <a href="#quick-setup">3. Quick Setup</a>
     <a href="#characters">4. Characters</a>
     <a class="sub-link" href="#default-chars">4.1 Default Characters</a>
@@ -68,7 +68,7 @@
     <a class="sub-link" href="#export-tips">7.4 Tips</a>
     <a href="#spending">8. Spending</a>
     <a class="sub-link" href="#spending-deepseek">8.1 Chat (DeepSeek)</a>
-    <a class="sub-link" href="#spending-novita">8.2 Images (Novita)</a>
+    <a class="sub-link" href="#spending-wavespeed">8.2 Images (WaveSpeed)</a>    
     <a class="sub-link" href="#spending-typical">8.3 Typical Costs</a>
     <a href="#settings">9. Advanced Settings</a>
     <a class="sub-link" href="#settings-temp">9.1 Creativity</a>
@@ -95,7 +95,7 @@
     <li><a href="#general">1. General Information</a></li>
     <li><a href="#api-keys">2. API Keys Setup</a></li>
     <li class="toc-sub"><a href="#api-deepseek">DeepSeek API</a></li>
-    <li class="toc-sub"><a href="#api-novita">Novita</a></li>
+    <li class="toc-sub"><a href="#api-wavespeed">WaveSpeed</a></li>
     <li><a href="#quick-setup">3. Quick Setup</a></li>
     <li><a href="#characters">4. Characters</a></li>
     <li class="toc-sub"><a href="#default-chars">4.1 Default Characters</a></li>
@@ -125,7 +125,7 @@
     <li class="toc-sub"><a href="#export-tips">7.4 Tips</a></li>
     <li><a href="#spending">8. Spending</a></li>
     <li class="toc-sub"><a href="#spending-deepseek">8.1 Chat (DeepSeek)</a></li>
-    <li class="toc-sub"><a href="#spending-novita">8.2 Images (Novita AI)</a></li>
+    <li class="toc-sub"><a href="#spending-wavespeed">8.2 Images (WaveSpeed)</a></li>    
     <li class="toc-sub"><a href="#spending-typical">8.3 Typical Costs</a></li>
     <li><a href="#settings">9. Advanced Settings</a></li>
     <li class="toc-sub"><a href="#settings-temp">9.1 Creativity</a></li>
@@ -149,27 +149,6 @@
                     <div class="section">
     <h2 class="section-heading" id="general">1. General Information</h2>
 
-    <div class="alert-card">
-        ⚠️ <strong>Important — Novita model retirement</strong><br>
-        Novita is retiring the <strong>Z Image Turbo</strong> model on
-        <strong>August 19, 2026</strong>.<br><br>
-
-        If you use Novita with Uncensored Souls, please
-        <strong>do not add funds to your Novita account for now</strong>.
-
-        I am preparing an update that will switch the recommended
-        image-generation provider to
-        <a href="https://piapi.ai/" target="_blank" rel="noopener noreferrer">PiAPI</a>.
-        The update is planned around August 19. I will also try to provide an
-        alternative model for users who prefer to stay with Novita.
-
-        Please wait for the next Uncensored Souls update before purchasing
-        additional Novita credits.<br><br>
-
-        <a href="https://novita.ai/docs/changelog/03-08-26"
-           target="_blank"
-           rel="noopener noreferrer">Novita deprecation notice</a>
-    </div>
 
     <div class="warn-card">
         ⚠️ <strong>18+</strong> — When you launch the app for the first time,
@@ -181,7 +160,7 @@
                     <div class="section">
                         <h2 class="section-heading" id="api-keys">2. API Keys Setup</h2>
                         <p>Go to: <code>Settings → API Keys</code></p>
-                        <p>You need to enter two keys:</p>
+                        <p>The app uses two API keys:</p>
 
                         <div class="subsection">
                             <h3 class="subsection-heading" id="api-deepseek">DeepSeek API (required for chat)</h3>
@@ -193,31 +172,31 @@
                         </div>
 
 <div class="subsection">
-    <h3 class="subsection-heading" id="api-novita">Novita (for image generation)</h3>
+    <h3 class="subsection-heading" id="api-wave-speed">WaveSpeed (for image generation)</h3>
 
-    <div class="alert-card">
-        ⚠️ <strong>Do not add funds to Novita for now.</strong>
-        The Z Image Turbo model used by the current version of Uncensored Souls
-        will be retired on August 19, 2026.
-        Please wait for the next application update before purchasing
-        additional image-generation credits.
-        <a href="https://novita.ai/docs/changelog/03-08-26"
-           target="_blank"
-           rel="noopener noreferrer">Official notice</a>
-    </div>
+    <div class="subsection">
+    <h3 class="subsection-heading" id="api-wavespeed">
+        WaveSpeed (for image generation)
+    </h3>
 
     <a class="link-card"
-       href="https://novita.ai/dashboard/api-keys"
-       target="_blank">
-        <span>Novita API Keys</span>
-        <span class="link-url">novita.ai/dashboard/api-keys</span>
+       href="https://wavespeed.ai/accesskey"
+       target="_blank"
+       rel="noopener noreferrer">
+        <span>WaveSpeed API Key</span>
+        <span class="link-url">wavespeed.ai/accesskey</span>
     </a>
+
+    <p>
+        Minimum top-up: <strong>$5</strong>.
+        Image generation costs <strong>$0.005 (0.5¢) per image</strong>.
+    </p>
 </div>
 
                         <div class="info-card">
     <ul class="info-list">
         <li>DeepSeek key entered → chat becomes available</li>
-        <li>Novita key entered → image generation is unlocked in the current app version</li>
+        <li>WaveSpeed key entered → image generation is unlocked</li>
         <li>API keys are stored only on your device</li>
     </ul>
 </div>
@@ -683,33 +662,24 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
                         </div>
 
                         <!-- 8.2 -->
-                        <div class="subsection">
-    <h3 class="subsection-heading" id="spending-novita">
-        8.2 Image Generation (Novita)
+<div class="subsection">
+    <h3 class="subsection-heading" id="spending-wavespeed">
+        8.2 Image Generation (WaveSpeed)
     </h3>
 
-    <div class="alert-card">
-        ⚠️ <strong>Do not add additional funds to Novita for now.</strong>
-        Z Image Turbo will be retired on August 19, 2026.
-        The image-generation provider used by Uncensored Souls is being changed
-        in the next update.
-        <a href="https://novita.ai/docs/changelog/03-08-26"
-           target="_blank"
-           rel="noopener noreferrer">Official notice</a>
-    </div>
-
     <a class="link-card"
-       href="https://novita.ai/billing/details"
-       target="_blank">
-        <span>Novita Billing Details</span>
-        <span class="link-url">novita.ai/billing/details</span>
+       href="https://wavespeed.ai/"
+       target="_blank"
+       rel="noopener noreferrer">
+        <span>WaveSpeed</span>
+        <span class="link-url">wavespeed.ai</span>
     </a>
 
     <div class="info-card">
         <ul class="info-list">
-            <li>Shows current balance and daily spending breakdown</li>
-            <li>The current Z Image Turbo generation costs approximately $0.005 (~0.5¢)</li>
-            <li>If a generation fails (e.g. due to server load), no charge is applied</li>
+            <li>Image generation costs <strong>$0.005 (0.5¢) per image</strong></li>
+            <li><strong>$1</strong> of API balance covers <strong>200 images</strong></li>
+            <li>Minimum top-up: <strong>$5</strong></li>
         </ul>
     </div>
 </div>
@@ -719,18 +689,18 @@ CharacterName: 'text', CharacterName: 'text'</code></pre>
     <h3 class="subsection-heading" id="spending-typical">8.3 Typical Costs</h3>
 
     <div class="cost-grid">
-        <div class="cost-card">
-            <div class="cost-label">Images — current Novita version</div>
-            <div class="cost-value">~200 / $1</div>
-            <div class="cost-sub">Z Image Turbo at ~$0.005 each</div>
-        </div>
-
-        <div class="cost-card">
-            <div class="cost-label">Image pricing</div>
-            <div class="cost-value">Changing soon</div>
-            <div class="cost-sub">new provider planned around August 19</div>
-        </div>
+    <div class="cost-card">
+        <div class="cost-label">Images per $1</div>
+        <div class="cost-value">200</div>
+        <div class="cost-sub">at $0.005 each</div>
     </div>
+
+    <div class="cost-card">
+        <div class="cost-label">Monthly (typical user)</div>
+        <div class="cost-value">$3–6</div>
+        <div class="cost-sub">chat + regular image use</div>
+    </div>
+</div>
 </div>
 
                     
